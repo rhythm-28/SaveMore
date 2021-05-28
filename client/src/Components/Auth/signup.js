@@ -3,19 +3,29 @@ import { Field, reduxForm } from 'redux-form';
 import { RenderTextInput } from '..';
 import { signupValidate } from '../../helpers/validate';
 import { signup } from '../../actions/auth';
+import { connect } from 'react-redux';
 class Signup extends Component {
   constructor() {
     super();
   }
-  handleSubmit = async (values) => {
-    const res = await signup(values);
+  handleSubmit = (values) => {
+    const { dispatch } = this.props;
+    dispatch(signup(values));
   };
   render() {
     const { handleSubmit, submitting } = this.props;
+    const { isLoggedIn } = this.props.auth;
     return (
       <div>
         <div>
+          {isLoggedIn && <div>Successfully Logged In</div>}
           <form method="Post" onSubmit={handleSubmit(this.handleSubmit)}>
+            <Field
+              name="username"
+              label="Username"
+              type="text"
+              component={RenderTextInput}
+            />
             <Field
               name="firstName"
               label="FirstName"
@@ -49,8 +59,11 @@ class Signup extends Component {
     );
   }
 }
-
-export default reduxForm({
+const SignupForm = reduxForm({
   form: 'signup', // a unique identifier for this form
   validate: signupValidate,
 })(Signup);
+const mapStatetoProps = ({ auth }) => {
+  return { auth };
+};
+export default connect(mapStatetoProps)(SignupForm);

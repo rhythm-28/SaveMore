@@ -7,12 +7,7 @@ import {
   Signup_Success,
 } from './actionType';
 import axios from 'axios';
-const url = 'http://localhost:5000';
-export const loginStart = () => {
-  return {
-    type: Login_Start,
-  };
-};
+const url = 'http://localhost:5000/api/user';
 export const loginSuccess = (user) => {
   return {
     type: Login_Success,
@@ -25,15 +20,17 @@ export const loginFailed = (err) => {
     err,
   };
 };
-export const login = async (user) => {
-  const res = await axios.post(`${url}/login`, user);
-  console.log('Res', res.data);
-};
-export const signupStart = () => {
-  return {
-    type: Signup_Start,
+export function login(user) {
+  console.log(user);
+  return (dispatch) => {
+    axios
+      .post(`${url}/login`, user)
+      .then((data) => dispatch(loginSuccess(data.data)))
+      .catch((err) => {
+        dispatch(loginFailed('Invalid username and password'));
+      });
   };
-};
+}
 export const signupSuccess = (user) => {
   return {
     type: Signup_Success,
@@ -46,7 +43,14 @@ export const signupFailed = (err) => {
     err,
   };
 };
-export const signup = async (user) => {
-  const res = await axios.post(`${url}/signup`, user);
-  console.log('Res', res.data);
-};
+export function signup(user) {
+  console.log(user);
+  return (dispatch) => {
+    axios
+      .post(`${url}/signup`, user)
+      .then((data) => dispatch(signupSuccess(data.data)))
+      .catch((err) => {
+        dispatch(signupFailed('User already Exist'));
+      });
+  };
+}

@@ -1,5 +1,8 @@
 export function signupValidate(values) {
   const errors = {};
+  if (!values.username) {
+    errors.username = 'Required';
+  }
   if (!values.firstName) {
     errors.firstName = 'Required';
   }
@@ -16,8 +19,8 @@ export function signupValidate(values) {
 }
 export function loginValidate(values) {
   const errors = {};
-  if (!values.email) {
-    errors.email = 'Required';
+  if (!values.username) {
+    errors.username = 'Required';
   }
   if (!values.password) {
     errors.password = 'Required';
