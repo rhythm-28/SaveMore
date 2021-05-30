@@ -1,3 +1,5 @@
+import {Input,TextField} from '@material-ui/core/';
+
 const createRenderInput =
   (render) =>
   ({ input, meta, label, type }) => {
@@ -8,11 +10,22 @@ const createRenderInput =
       </div>
     );
   };
+
 export default createRenderInput((input, label, type) => {
+  const placeholder = "Enter " + label;
   return (
     <span>
-      <label>{label}</label>
-      <input {...input} type={type} />
+      {/*<label>{label}</label>*/}
+      {/*<Input {...input} type={type} />*/}
+      <TextField
+      {...input}
+      label={label}
+      type={type}
+      placeholder={placeholder}
+      style={{marginBottom:"1rem"}}
+      fullWidth
+      required
+      />
     </span>
   );
 });
