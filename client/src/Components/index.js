@@ -1,4 +1,5 @@
-import Login from './Auth/login';
-import RenderTextInput from './Auth/input';
-import Signup from './Auth/signup';
-export { Login, RenderTextInput, Signup };
+import Login from './user/auth/login';
+import RenderTextInput from './input';
+import Signup from './user/auth/signup';
+import adminLogin from './admin/auth/login';
+export { Login, RenderTextInput, Signup, adminLogin };
