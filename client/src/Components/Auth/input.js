@@ -5,23 +5,21 @@ const createRenderInput =
   ({ input, meta, label, type }) => {
     return (
       <div>
-        {render(input, label, type)}
-        {meta.error && meta.touched && (
-          <AlertTitle severity="error" color="error" style={{ marginTop: 0 }}>
-            Required
-          </AlertTitle>
-        )}
+        {meta.error && meta.touched
+          ? render(input, label, type, { error: true, id: 'standard-error' })
+          : render(input, label, type)}
       </div>
     );
   };
 
-export default createRenderInput((input, label, type) => {
+export default createRenderInput((input, label, type, error = {}) => {
   const placeholder = 'Enter ' + label;
   return (
     <span>
       {/*<label>{label}</label>*/}
       {/*<Input {...input} type={type} />*/}
       <TextField
+        {...error}
         {...input}
         label={label}
         type={type}
@@ -30,7 +28,6 @@ export default createRenderInput((input, label, type) => {
           marginBottom: '1rem',
         }}
         fullWidth
-        required
       />
     </span>
   );
