@@ -5,9 +5,14 @@ import {
   Signup_Start,
   Signup_Failed,
   Signup_Success,
-} from './actionType';
+  Add_User_Data,
+  User_Logout,
+} from '../actionType';
 import axios from 'axios';
-const url = 'http://localhost:5000/api/user';
+const config = {
+  withCredentials: true,
+  headers: { 'Content-Type': 'application/json' },
+};
 export const loginSuccess = (user) => {
   return {
     type: Login_Success,
@@ -21,10 +26,9 @@ export const loginFailed = (err) => {
   };
 };
 export function login(user) {
-  console.log(user);
   return (dispatch) => {
     axios
-      .post(`${url}/login`, user)
+      .post(`/api/user/login`, user, config)
       .then((data) => dispatch(loginSuccess(data.data)))
       .catch((err) => {
         dispatch(loginFailed('Invalid username and password'));
@@ -44,13 +48,36 @@ export const signupFailed = (err) => {
   };
 };
 export function signup(user) {
-  console.log(user);
   return (dispatch) => {
     axios
-      .post(`${url}/signup`, user)
+      .post(`/api/user/signup`, user, config)
       .then((data) => dispatch(signupSuccess(data.data)))
       .catch((err) => {
         dispatch(signupFailed('User already Exist'));
       });
+  };
+}
+export function addUserData(user) {
+  return {
+    type: Add_User_Data,
+    user,
+  };
+}
+export function userLogout() {
+  return {
+    type: User_Logout,
+  };
+}
+export function fetchUserData() {
+  return (dispatch) => {
+    axios
+      .get(`/api/currentUser`, config)
+      .then((res) => dispatch(addUserData(res.data)))
+      .catch((err) => console.log(err));
+  };
+}
+export function logout() {
+  return (dispatch) => {
+    axios.get(`/api/user/logout`, config).then((res) => dispatch(userLogout()));
   };
 }

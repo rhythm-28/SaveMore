@@ -3,7 +3,9 @@ import {
   Login_Success,
   Signup_Failed,
   Signup_Success,
-} from '../actions/actionType';
+  Add_User_Data,
+  User_Logout,
+} from '../../actions/actionType';
 const initialState = {
   user: {},
   isLoggedIn: false,
@@ -34,6 +36,18 @@ export default function authReducer(state = initialState, action) {
         ...state,
         isLoggedIn: false,
         err: action.error,
+      };
+    case Add_User_Data:
+      return {
+        ...state,
+        isLoggedIn: true,
+        user: action.user,
+      };
+    case User_Logout:
+      return {
+        ...state,
+        isLoggedIn: false,
+        user: {},
       };
     default:
       return state;

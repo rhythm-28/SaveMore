@@ -1,29 +1,32 @@
-export function signupValidate(values) {
+const errorHelper = (obj, keys) => {
   const errors = {};
-  if (!values.username) {
-    errors.username = 'Required';
-  }
-  if (!values.firstName) {
-    errors.firstName = 'Required';
-  }
-  if (!values.lastName) {
-    errors.lastName = 'Required';
-  }
-  if (!values.email) {
-    errors.email = 'Required';
-  }
-  if (!values.password) {
-    errors.password = 'Required';
+  for (let key of keys) {
+    if (!obj[key]) {
+      errors[key] = 'Required';
+    }
   }
   return errors;
+};
+export function signupValidate(values) {
+  const keys = ['username', 'password', 'lastName', 'email', 'firstName'];
+  return errorHelper(values, keys);
 }
 export function loginValidate(values) {
-  const errors = {};
-  if (!values.username) {
-    errors.username = 'Required';
-  }
-  if (!values.password) {
-    errors.password = 'Required';
-  }
-  return errors;
+  const keys = ['username', 'password'];
+  return errorHelper(values, keys);
+}
+
+export function adminSignupValidate(values) {
+  const keys = [
+    'storeName',
+    'category',
+    'pinCode',
+    'city',
+    'country',
+    'gstIn',
+    'password',
+    'address',
+    'state',
+  ];
+  return errorHelper(values, keys);
 }

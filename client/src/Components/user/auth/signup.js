@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { RenderTextInput } from '../..';
 import { signupValidate } from '../../../helpers/validate';
-import { signup } from '../../../actions/auth';
+import { signup } from '../../../actions/user/auth';
 import { connect } from 'react-redux';
 import { Grid, Button, Paper, Avatar, TextField } from '@material-ui/core/';
 import '../../styles.css';
@@ -32,7 +32,7 @@ class Signup extends Component {
                   <Avatar src={src} alt="Lock-img">
                     {' '}
                   </Avatar>
-                  <h1> Sign In </h1>
+                  <h1> Sign Up </h1>
                 </Grid>
                 <Field
                   name="username"
@@ -76,7 +76,7 @@ class Signup extends Component {
                   disabled={submitting}
                   fullWidth
                 >
-                  Sign In
+                  Sign Up
                 </Button>
               </form>
             </Paper>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { RenderTextInput } from '../..';
 import { loginValidate } from '../../../helpers/validate';
-import { login } from '../../../actions/auth';
+import { login } from '../../../actions/user/auth';
 import { connect } from 'react-redux';
 import '../../styles.css';
 import {
@@ -24,7 +24,8 @@ class Login extends Component {
   constructor() {
     super();
   }
-  handleSubmit = (values) => {
+
+  handleSubmit = async (values) => {
     const { dispatch } = this.props;
     dispatch(login(values));
   };
