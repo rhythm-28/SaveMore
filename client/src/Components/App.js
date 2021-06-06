@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { adminLogin, Login, Signup, adminSignup } from './';
+import { adminLogin, Login, Signup, adminSignup, UserForm } from './';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchUserData, logout } from '../actions/user/auth';
@@ -34,6 +34,7 @@ class App extends Component {
             path="/user/logout"
             render={() => <Logout dispatch={this.props.dispatch} />}
           />
+          <Route path="/user/auth" component={UserForm} />
           <Route path="/admin/login" component={adminLogin} />
           <Route path="/admin/signup" component={adminSignup} />
         </Switch>

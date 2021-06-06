@@ -3,4 +3,5 @@ import RenderTextInput from './input';
 import Signup from './user/auth/signup';
 import adminLogin from './admin/auth/login';
 import adminSignup from './admin/auth/signup';
-export { Login, RenderTextInput, Signup, adminLogin, adminSignup };
+import UserForm from './user/auth/form';
+export { Login, RenderTextInput, Signup, adminLogin, adminSignup, UserForm };
