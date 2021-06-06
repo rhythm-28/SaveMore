@@ -33,12 +33,7 @@ class Login extends Component {
     const { handleSubmit, submitting } = this.props;
     const { isLoggedIn } = this.props.authUser;
     return (
-      <div
-        style={{
-          backgroundImage:
-            '-webkit-linear-gradient(65deg, #A683E3 50%, #E4E9FD 50%)',
-        }}
-      >
+      <div>
         <div>
           {isLoggedIn && <div>Successfully Logged In</div>}
           <Grid>
@@ -66,9 +61,6 @@ class Login extends Component {
                   label="Remember me"
                   control={<Checkbox name="checkedB" color="primary" />}
                 />
-                {/*<button type="submit" disabled={submitting}>
-                  Submit
-                </button>*/}
                 <Grid align="center">
                   <Button
                     style={{
