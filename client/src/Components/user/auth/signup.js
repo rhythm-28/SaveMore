@@ -27,7 +27,7 @@ class Signup extends Component {
           {isLoggedIn && <div>Successfully Logged In</div>}
           <Grid>
             <Paper elevation={10} className="paperStyle">
-              <form method="Post" onSubmit={handleSubmit(this.handleSubmit)}>
+              <form method="Post" onSubmit={handleSubmit(this.handleSubmit)} className="formStyle">
                 <Grid align="center">
                   <Avatar src={src} alt="Lock-img">
                     {' '}
@@ -64,20 +64,16 @@ class Signup extends Component {
                   type="password"
                   component={RenderTextInput}
                 />
-                {/*<button type="submit" disabled={submitting}>
-                    Submit
-                  </button>*/}
-
-                <Button
-                  style={{ marginTop: '1rem' }}
-                  type="submit"
-                  variant="contained"
-                  color="secondary"
-                  disabled={submitting}
-                  fullWidth
-                >
-                  Sign Up
-                </Button>
+                <Grid align="center">
+                  <button
+                    style={{
+                      marginTop: '0.6rem',}}
+                    type="submit"
+                    disabled={submitting}
+                  >
+                    Sign Up
+                  </button>
+                </Grid>
               </form>
             </Paper>
           </Grid>
