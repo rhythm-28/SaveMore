@@ -38,7 +38,7 @@ class Login extends Component {
           {isLoggedIn && <div>Successfully Logged In</div>}
           <Grid>
             <Paper elevation={10} className="paperStyle">
-              <form method="Post" onSubmit={handleSubmit(this.handleSubmit)}>
+              <form method="Post" onSubmit={handleSubmit(this.handleSubmit)} className="formStyle">
                 <Grid align="center">
                   <Avatar src={src} alt="Lock-img">
                     {' '}
@@ -62,20 +62,16 @@ class Login extends Component {
                   control={<Checkbox name="checkedB" color="primary" />}
                 />
                 <Grid align="center">
-                  <Button
+                  <button
                     style={{
                       marginBottom: '1rem',
-                      marginTop: '1rem',
-                      color: '#23DCBB',
+                      marginTop: '1rem'
                     }}
                     type="submit"
-                    variant="contained"
-                    color="secondary"
                     disabled={submitting}
-                    fullWidth
                   >
                     Log In
-                  </Button>
+                  </button>
                   <Box style={{ marginBottom: '1rem' }}>
                     <Link href=""> Forgot Password </Link>
                   </Box>

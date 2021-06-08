@@ -1,14 +1,6 @@
-html
-{
-  backgroundImage:-webkit-linear-gradient(65deg, #A683E3 50%, #E4E9FD 50%)
-}
-
 .paperStyle
 {
-  padding: 2rem;
-  height: 30%;
-  width: 25%;
-  margin: 10vh auto;
+  padding: 0.5rem;
 }
 
 .productStyle
@@ -16,7 +8,34 @@ html
   padding: 1rem;
 }
 
-.attract
+.formStyle
 {
-  margin: 0 auto;
+  height: 30rem;
+}
+
+button
+{
+	border-radius: 20px;
+	border: 1px solid #FF4B2B;
+	background-color: #FF4B2B;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	transition: transform 80ms ease-in;
+}
+
+button:active
+{
+	transform: scale(0.8);
+}
+
+button.ghost {
+	background-color: transparent;
+	border-color: #FFFFFF;
+}
+
+button:focus {
+	outline: none;
 }
