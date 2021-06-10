@@ -40,6 +40,8 @@ export function adminLogin(admin) {
 }
 export function adminSignup(admin) {
   return (dispatch) => {
-    axios.post('url', admin, config).then((res) => console.log(res.data));
+    axios
+      .post('/admin/register', admin, config)
+      .then((res) => console.log(res.data));
   };
 }

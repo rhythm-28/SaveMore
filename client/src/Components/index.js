@@ -5,6 +5,7 @@ import adminLogin from './admin/auth/login';
 import adminSignup from './admin/auth/signup';
 import UserForm from './user/auth/form';
 import Home from './user/home/home.js';
+import Products from './user/home/allProducts';
 export {
   Login,
   RenderTextInput,
@@ -14,5 +15,5 @@ export {
   UserForm,
   Home,
   RenderTextSelect,
+  Products,
 };
-

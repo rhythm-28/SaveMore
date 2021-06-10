@@ -8,6 +8,7 @@ const LocalStrategy = require("passport-local");
 const User = require("./model/user/auth");
 const session = require("client-sessions");
 const userRouter = require("./routes/user/auth");
+const adminRouter = require("./routes/admin/register");
 app.use(bodyParser.json());
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Credentials", true);
@@ -43,7 +44,7 @@ mongoose.connect("mongodb://localhost:27017/testDB", {
 });
 
 app.use("/", userRouter);
-
+app.use("/", adminRouter);
 app.get("/", (req, res) => {
   console.log(req.isAuthenticated());
   console.log(req.user);

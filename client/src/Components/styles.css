@@ -1,41 +1,41 @@
-.paperStyle
-{
+.paperStyle {
   padding: 0.5rem;
 }
 
-.productStyle
-{
+.productStyle {
   padding: 1rem;
 }
 
-.formStyle
-{
+.formStyle {
   height: 30rem;
 }
 
-button
-{
-	border-radius: 20px;
-	border: 1px solid #FF4B2B;
-	background-color: #FF4B2B;
-	color: #FFFFFF;
-	font-size: 12px;
-	font-weight: bold;
-	padding: 12px 45px;
-	letter-spacing: 1px;
-	transition: transform 80ms ease-in;
+button {
+  border-radius: 20px;
+  border: 1px solid #ff4b2b;
+  background-color: #ff4b2b;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 12px 45px;
+  letter-spacing: 1px;
+  transition: transform 80ms ease-in;
 }
 
-button:active
-{
-	transform: scale(0.8);
+button:active {
+  transform: scale(0.8);
 }
 
 button.ghost {
-	background-color: transparent;
-	border-color: #FFFFFF;
+  background-color: transparent;
+  border-color: #ffffff;
 }
 
 button:focus {
-	outline: none;
+  outline: none;
+}
+#adminLogin,
+#adminSignup {
+  width: 35%;
+  margin: 0 auto;
 }
