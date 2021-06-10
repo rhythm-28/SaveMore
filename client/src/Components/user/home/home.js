@@ -1,27 +1,54 @@
-import React from "react";
-import styles from "../../styles.css"
-import Navbar from "../../commonComponents/navbar"
-import Product from "../../commonComponents/product"
-import data from "./data"
-
-function Home(){
-  console.log(data);
+import React from 'react';
+import styles from '../../styles.css';
+import Navbar from '../../commonComponents/navbar';
+import Product from '../../commonComponents/product';
+import data from './data';
+import '../../../stylesheets/home.css';
+function Home() {
   return (
-    <div>
-      <Navbar />
-      <div class="row">
-        {data.map(function (product){
-          return (
-            <Product
-            src={product.src}
-            title={product.title}
-            info={product.info}
-            price={product.price}
-            discount={product.discount}
-            />
-          );
-        })}
+    <div
+      className="d-flex flex-column h-100 w-100 justify-content-between vh-100"
+      id="HomePage"
+    >
+      <header className="mx-5">
+        <div>
+          <h3 className="float-md-start text-white">SaveMore</h3>
+          <nav className="nav justify-content-center float-md-end HomeNavbar">
+            <a href="/" className="nav-link active">
+              Home
+            </a>
+            <a href="/products" className="nav-link">
+              Products
+            </a>
+
+            <a href="/user/auth" className="nav-link">
+              Register
+            </a>
+            <a href="/Login" className="nav-link">
+              Login
+            </a>
+
+            <a href="/Logout" className="nav-link">
+              Logout
+            </a>
+          </nav>
+        </div>
+      </header>
+      <div>
+        <h2 className="text-white">SaveMore</h2>
+        <p className="fw-normal text-light">
+          Welcome to SaveMore <br />
+          Fashion &amp; Clothing is the one makes <br /> you look awesome and
+          unique from others!
+        </p>
+
+        <a href="/products" className="btn btn-secondary fw-bold text-white">
+          Jump In
+        </a>
       </div>
+      <footer>
+        <p className="lead text-muted">&copy; SaveMore</p>
+      </footer>
     </div>
   );
 }

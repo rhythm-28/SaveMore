@@ -24,7 +24,6 @@ export function adminSignupValidate(values) {
     'city',
     'country',
     'gstIn',
-    'password',
     'address',
     'state',
   ];

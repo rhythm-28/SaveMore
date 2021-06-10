@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
-import { adminLogin, Login, Signup, adminSignup, UserForm, Home } from './';
+import {
+  adminLogin,
+  Login,
+  Signup,
+  adminSignup,
+  UserForm,
+  Home,
+  Products,
+} from './';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchUserData, logout } from '../actions/user/auth';
@@ -25,21 +33,25 @@ class App extends Component {
   render() {
     const { isLoggedIn } = this.props.authUser;
     return (
-      <Router>
-        {isLoggedIn ? <h1>Successfully Login</h1> : ''}
-        <Switch>
-          <Route exact path="/home" component={Home} />
-          <Route path="/user/login" component={Login} />
-          <Route path="/user/signup" component={Signup} />
-          <Route
-            path="/user/logout"
-            render={() => <Logout dispatch={this.props.dispatch} />}
-          />
-          <Route path="/user/auth" component={UserForm} />
-          <Route path="/admin/login" component={adminLogin} />
-          <Route path="/admin/signup" component={adminSignup} />
-        </Switch>
-      </Router>
+      <div className="w-100">
+        <Router>
+          {isLoggedIn ? <h1>Successfully Login</h1> : ''}
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/products" component={Products} />
+            <Route path="/user/login" component={Login} />
+            <Route path="/user/signup" component={Signup} />
+            <Route
+              path="/user/logout"
+              render={() => <Logout dispatch={this.props.dispatch} />}
+            />
+
+            <Route path="/user/auth" component={UserForm} />
+            <Route path="/admin/login" component={adminLogin} />
+            <Route path="/admin/signup" component={adminSignup} />
+          </Switch>
+        </Router>
+      </div>
     );
   }
 }

@@ -33,6 +33,7 @@ class AdminLogin extends Component {
     const { isLoggedIn } = this.props.authUser;
     return (
       <div
+        id="adminLogin"
         style={{
           backgroundImage:
             '-webkit-linear-gradient(65deg, #A683E3 50%, #E4E9FD 50%)',

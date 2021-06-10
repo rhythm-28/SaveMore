@@ -22,21 +22,23 @@ class AdminSignup extends Component {
     super();
   }
   handleSubmit = (values) => {
-    console.log(values);
     const { dispatch } = this.props;
-    // dispatch(signup(values));
-    //adminSignup(values);
+    dispatch(adminSignup(values));
   };
   render() {
     const { handleSubmit, submitting } = this.props;
     //const { isLoggedIn } = this.props.authUser;
     return (
-      <div>
+      <div id="adminSignup" className="my-3">
         <div>
           {/* {isLoggedIn && <div>Successfully Logged In</div>} */}
           <Grid>
             <Paper elevation={10} className="paperStyle">
-              <form method="Post" onSubmit={handleSubmit(this.handleSubmit)}>
+              <form
+                method="Post"
+                onSubmit={handleSubmit(this.handleSubmit)}
+                style={{ padding: '1rem' }}
+              >
                 <Grid align="center">
                   <Avatar src={src} alt="Lock-img">
                     {' '}
@@ -94,12 +96,6 @@ class AdminSignup extends Component {
                   name="gstIn"
                   label="GST registration number"
                   type="text"
-                  component={RenderTextInput}
-                />
-                <Field
-                  name="password"
-                  label="SaveMore Password"
-                  type="password"
                   component={RenderTextInput}
                 />
                 {/*<button type="submit" disabled={submitting}>
