@@ -8,7 +8,7 @@ function allProducts(props) {
   return (
     <div>
       <Navbar />
-      <div className="row justify-content-around">
+      <div className="row justify-content-around mt-3" id="allProducts">
         {data.map(function (product) {
           return (
             <Product
@@ -17,6 +17,7 @@ function allProducts(props) {
               info={product.info}
               price={product.price}
               discount={product.discount}
+              category={product.category}
             />
           );
         })}
