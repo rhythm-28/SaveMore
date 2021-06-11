@@ -5,6 +5,12 @@ import Product from '../../commonComponents/product';
 import data from './data';
 import '../../../stylesheets/home.css';
 function Home() {
+
+  function add(){
+    const container = document.getElementById('container');
+    container.classList.add("right-panel-active");
+  }
+
   return (
     <div
       className="d-flex flex-column h-100 w-100 justify-content-between vh-100"
@@ -24,7 +30,7 @@ function Home() {
             <a href="/user/auth" className="nav-link">
               Register
             </a>
-            <a href="/Login" className="nav-link">
+            <a role="button" href="/user/auth" className="nav-link">
               Login
             </a>
 
