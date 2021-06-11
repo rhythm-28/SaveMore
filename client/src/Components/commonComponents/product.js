@@ -12,7 +12,7 @@ import Paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 300,
+    maxWidth: 270,
   },
   margin: '0 auto',
 });
@@ -24,16 +24,15 @@ function Product(props) {
         <CardMedia
           component="img"
           alt="iPhone"
-          height="240"
-          width="140"
+          height="180"
           image={props.src}
           title={props.title}
         />
         <CardContent>
           <Typography variant="h5" component="h2" className="my-1 fw-bold">
-            {props.title.length > 16
-              ? props.title.substring(0, 12) + '.....'
-              : props.title.substring(0, 14)}
+            {props.title.length > 11
+              ? props.title.substring(0, 11) + '.....'
+              : props.title.substring(0, 11)}
           </Typography>
           <Typography
             variant="subtitle1"
