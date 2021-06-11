@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap');
 .ProductsNavbar {
   background-color: #5f4b8b;
 }
@@ -12,16 +13,25 @@
   border-color: black;
 }
 .ProductsNavbar .search:hover {
-  background-color: #e4e9fd;
+  background-color: white;
   border-color: black !important;
   color: black;
 }
 .ProductsNavbar .search:active {
-  background-color: #e4e9fd !important;
+  background-color: white !important;
   border-color: black !important;
   color: black !important;
   box-shadow: 1px 1px black !important;
 }
 .ProductsNavbar .search:focus {
   box-shadow: 1px 1px black !important;
+}
+#allProducts {
+  font-family: 'Roboto Condensed !important';
+}
+#allProducts .cardSubtitle {
+  font-weight: 400;
+}
+#allProducts .cardPrice {
+  font-weight: 300;
 }

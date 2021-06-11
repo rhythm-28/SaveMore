@@ -12,35 +12,36 @@ import Paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 345,
+    maxWidth: 300,
   },
+  margin: '0 auto',
 });
 function Product(props) {
   const classes = useStyles();
   return (
-    <Card
-      className={`${classes.root} col-lg-4 mb-5 px-0`}
-      style={{ backgroundColor: '#e4e9fd' }}
-    >
-      <CardActionArea>
+    <Card className={`${classes.root} col-lg-4 mb-5 px-0 mx-3`}>
+      <CardActionArea className="px-3 py-3">
         <CardMedia
           component="img"
           alt="iPhone"
-          height="140"
+          height="240"
+          width="140"
           image={props.src}
           title={props.title}
         />
         <CardContent>
-          <Typography variant="h5" component="h2">
-            {props.title}
+          <Typography variant="h5" component="h2" className="my-1 fw-bold">
+            {props.title.length > 16
+              ? props.title.substring(0, 12) + '.....'
+              : props.title.substring(0, 14)}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {props.info}
+          <Typography
+            variant="subtitle1"
+            className="my-1 text-primary cardSubtitle"
+          >
+            {props.category}
           </Typography>
-          <div class="row">
-            <div class="col"> {props.price} </div>
-            <div class="col"> {props.discount} </div>
-          </div>
+          <div className="cardPrice fs-6"> Now {props.price} </div>
         </CardContent>
       </CardActionArea>
     </Card>
