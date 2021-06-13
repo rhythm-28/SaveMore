@@ -9,14 +9,15 @@ router.post("/api/user/login", passport.authenticate("local"), (req, res) => {
 router.post("/api/user/signup", async (req, res) => {
   try {
     const { username, email, password, firstName, lastName } = req.body;
-    const user = new User({ username, email, firstName, lastName });
+    const isAdmin = false;
+    const user = new User({ username, email, firstName, lastName,isAdmin });
     const newUser = await User.register(user, password);
     req.login(newUser, function (err) {
       if (err) {
         res.send({ error: err });
       } else {
-        const { username, email, firstName, lastName, _id } = newUser;
-        res.send({ username, email, firstName, lastName, _id });
+        const { username, email, firstName, lastName, _id,isAdmin } = newUser;
+        res.send({ username, email, firstName, lastName, _id,isAdmin });
       }
     });
   } catch (err) {
