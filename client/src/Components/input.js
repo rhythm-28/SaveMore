@@ -5,6 +5,7 @@ import {
   Select,
   InputLabel,
   FormControl,
+  TextareaAutosize,
 } from '@material-ui/core/';
 
 const createRenderInput =
@@ -17,7 +18,7 @@ const createRenderInput =
               error: true,
               id: 'standard-error',
             })
-          : render(input, label, rest)}
+          : render(input, label, rest, { error: false })}
       </div>
     );
   };
@@ -62,6 +63,25 @@ export const RenderTextSelect = createRenderInput(
           </Select>
         </FormControl>
       </div>
+    );
+  }
+);
+export const RenderTextArea = createRenderInput(
+  (input, label, { children }, { error }) => {
+    return (
+      <FormControl
+        style={{ minWidth: '100%', marginBottom: '1rem' }}
+        className="mt-3"
+      >
+        <TextareaAutosize
+          rowsMin="5"
+          rowsMax="8"
+          placeholder={`Enter ${label}`}
+          label={label}
+          {...input}
+          className={error ? `border border-danger border-2` : ``}
+        />
+      </FormControl>
     );
   }
 );

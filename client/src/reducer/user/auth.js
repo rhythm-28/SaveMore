@@ -5,6 +5,8 @@ import {
   Signup_Success,
   Add_User_Data,
   User_Logout,
+  Product_Add_Failed,
+  Product_Add_Success,
 } from '../../actions/actionType';
 const initialState = {
   user: {},
@@ -48,6 +50,14 @@ export default function authReducer(state = initialState, action) {
         ...state,
         isLoggedIn: false,
         user: {},
+      };
+    case Product_Add_Failed:
+      return {
+        ...state,
+      };
+    case Product_Add_Success:
+      return {
+        ...state,
       };
     default:
       return state;

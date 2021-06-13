@@ -29,3 +29,7 @@ export function adminSignupValidate(values) {
   ];
   return errorHelper(values, keys);
 }
+export function productFormValidate(values) {
+  const keys = ['name', 'marketPrice', 'discountPrice', 'description'];
+  return errorHelper(values, keys);
+}
