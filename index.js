@@ -1,3 +1,6 @@
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
@@ -9,7 +12,9 @@ const User = require("./model/user/auth");
 const session = require("client-sessions");
 const userRouter = require("./routes/user/auth");
 const adminRouter = require("./routes/admin/register");
+const productRouter = require("./routes/product");
 app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Credentials", true);
   res.header("Access-Control-Allow-Origin", req.headers.origin);
@@ -42,7 +47,7 @@ mongoose.connect("mongodb://localhost:27017/testDB", {
   useUnifiedTopology: true,
   useFindAndModify: false,
 });
-
+app.use("/", productRouter);
 app.use("/", userRouter);
 app.use("/", adminRouter);
 app.get("/", (req, res) => {
