@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { adminSignup, UserForm, Home, Products, ProductForm } from './';
+import { adminSignup, UserForm, Home, Products, ProductForm, productPage } from './';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchUserData, logout } from '../actions/user/auth';
@@ -38,6 +38,7 @@ class App extends Component {
             <Route path="/add/product" component={ProductForm} />
             <Route path="/user/auth" component={UserForm} />
             <Route path="/admin/signup" component={adminSignup} />
+            <Route path="/productPage" component={productPage} />
           </Switch>
         </Router>
       </div>

@@ -9,6 +9,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
+import ProductPage from "./productPage.js";
 
 const useStyles = makeStyles({
   root: {
@@ -41,6 +42,9 @@ function Product(props) {
             {props.category}
           </Typography>
           <div className="cardPrice fs-6"> Now {props.price} </div>
+          <a href="/productPage" className="btn btn-secondary fw-bold text-white">
+            Details
+          </a>
         </CardContent>
       </CardActionArea>
     </Card>

@@ -7,6 +7,7 @@ import Home from './user/home/home.js';
 import Products from './user/home/allProducts';
 import Navbar from './commonComponents/navbar';
 import ProductForm from './product/productForm';
+import productPage from './commonComponents/productPage.js'
 export {
   Login,
   RenderTextInput,
@@ -19,4 +20,5 @@ export {
   Navbar,
   RenderTextArea,
   ProductForm,
+  productPage
 };
