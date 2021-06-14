@@ -8,8 +8,8 @@ const userSchema = mongoose.Schema({
   },
   firstName: String,
   lastName: String,
-  admin: Boolean,
-  adminId: { type: mongoose.Schema.Types.ObjectId, ref: 'Admin' }
+  isAdmin: Boolean,
+  admin: { type: mongoose.Schema.Types.ObjectId, ref: "Admin" },
 });
 
 userSchema.plugin(passportLocalMongoose);

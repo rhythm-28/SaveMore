@@ -51,14 +51,6 @@ export default function authReducer(state = initialState, action) {
         isLoggedIn: false,
         user: {},
       };
-    case Product_Add_Failed:
-      return {
-        ...state,
-      };
-    case Product_Add_Success:
-      return {
-        ...state,
-      };
     default:
       return state;
   }

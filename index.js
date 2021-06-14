@@ -55,6 +55,13 @@ app.get("/", (req, res) => {
   console.log(req.user);
   res.send(req.user);
 });
+app.use((err, req, res, next) => {
+  const { statusCode = 500 } = err;
+  if (!err.message) {
+    err.message = "Oh boy Something went wrong";
+  }
+  res.status(statusCode).send(err.message);
+});
 app.listen(5000, () => {
   console.log("Listening on Port 5000");
 });

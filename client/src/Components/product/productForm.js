@@ -57,10 +57,12 @@ class ProductForm extends Component {
   };
   render() {
     const { handleSubmit, submitting } = this.props;
+    const { error } = this.props.product;
     return (
       <div>
         <Navbar />
         <div id="addProduct" className="my-4">
+          {error && <h4>{error}</h4>}
           <Grid>
             <Paper elevation={10} className="paperStyle">
               <form
@@ -131,7 +133,7 @@ const ProductFormRedux = reduxForm({
   form: 'productForm', // a unique identifier for this form
   validate: productFormValidate,
 })(ProductForm);
-const mapStatetoProps = ({}) => {
-  return {};
+const mapStatetoProps = ({ product }) => {
+  return { product };
 };
 export default connect(mapStatetoProps)(ProductFormRedux);

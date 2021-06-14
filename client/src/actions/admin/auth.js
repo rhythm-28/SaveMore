@@ -42,6 +42,9 @@ export function adminSignup(admin) {
   return (dispatch) => {
     axios
       .post('/admin/register', admin, config)
-      .then((res) => console.log(res.data));
+      .then((res) => console.log(res.data))
+      .catch((error) => {
+        console.log(error.response.data);
+      });
   };
 }

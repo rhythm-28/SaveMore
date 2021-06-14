@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
-import { adminSignup, UserForm, Home, Products, ProductForm, productPage } from './';
+import {
+  adminSignup,
+  UserForm,
+  Home,
+  Products,
+  ProductForm,
+  productPage,
+} from './';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchUserData, logout } from '../actions/user/auth';
@@ -27,7 +34,6 @@ class App extends Component {
     return (
       <div className="w-100">
         <Router>
-          {isLoggedIn ? <h1>Successfully Login</h1> : ''}
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/products" component={Products} />
