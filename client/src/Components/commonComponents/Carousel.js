@@ -2,7 +2,8 @@ import React from 'react';
 import Navbar from './navbar';
 import Styles from '../../stylesheets/productPage.css';
 
-function Carousel() {
+function Carousel(props) {
+  const { images } = props;
   return (
     <div>
       <div
@@ -12,32 +13,28 @@ function Carousel() {
         data-interval="false"
       >
         <ol class="carousel-indicators">
-          <li data-target="#carousel" data-slide-to="0" class="active"></li>
-          <li data-target="#carousel" data-slide-to="1"></li>
-          <li data-target="#carousel" data-slide-to="2"></li>
+          {images.map((image, idx) => {
+            return (
+              <li
+                data-target="#carousel"
+                data-slide-to={idx}
+                class={idx == 0 ? `active` : ''}
+              ></li>
+            );
+          })}
         </ol>
         <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img
-              class="d-block w-100 img"
-              src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp16touch-silver-select-201911?wid=1808&hei=1686&fmt=jpeg&qlt=80&.v=1572825196932"
-              alt="First slide"
-            />
-          </div>
-          <div class="carousel-item">
-            <img
-              class="d-block w-100 img"
-              src="https://images-na.ssl-images-amazon.com/images/I/913iRx-3W-L._SL1500_.jpg"
-              alt="Second slide"
-            />
-          </div>
-          <div class="carousel-item">
-            <img
-              class="d-block w-100 img"
-              src="https://images-na.ssl-images-amazon.com/images/I/71z-1j187cL._SL1500_.jpg"
-              alt="Third slide"
-            />
-          </div>
+          {images.map((image, idx) => {
+            return (
+              <div class={idx == 0 ? `carousel-item active` : 'carousel-item'}>
+                <img
+                  class="d-block w-100"
+                  src={image.url}
+                  alt={`${idx + 1} slide`}
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
       <a

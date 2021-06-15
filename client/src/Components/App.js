@@ -6,7 +6,7 @@ import {
   Products,
   ProductForm,
   productPage,
-  Cart
+  Cart,
 } from './';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -45,7 +45,7 @@ class App extends Component {
             <Route path="/add/product" component={ProductForm} />
             <Route path="/user/auth" component={UserForm} />
             <Route path="/admin/signup" component={adminSignup} />
-            <Route path="/productPage" component={productPage} />
+            <Route path="/product/:productId" component={productPage} />
             <Route path="/user/cart" component={Cart} />
           </Switch>
         </Router>
