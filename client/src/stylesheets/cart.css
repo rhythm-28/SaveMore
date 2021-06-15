@@ -1,4 +1,4 @@
-img
+.cart-img
 {
   width: 60%;
   height: 60%;
@@ -70,9 +70,9 @@ img
 
 .cart-box
 {
-  border-style: double;
+  /* border-style: double; */
   padding-top: 1rem;
-  box-sizing:border-box;
+  /* box-sizing:border-box; */
   background-color: #F5E6CA;
 }
 
@@ -88,13 +88,13 @@ img
 
 .bg-color
 {
-
+   background-color: #E99497;
 }
 
 .bottom
 {
   /* background-image: url(../images/bg-2.jpg); */
-  background-color: yellow;
+ background-color: #B3E283;
   width: 20%;
   height:20%;
   margin: 1rem auto;

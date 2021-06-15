@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from '../styles.css';
+import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 
 function Navbar() {
   return (
@@ -20,7 +21,7 @@ function Navbar() {
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse navbar-dark" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
               <a class="nav-link" href="#">
@@ -45,12 +46,17 @@ function Navbar() {
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">
-                Kids
+                Men's Fashion
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">
-                Furniture
+                Beauty
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                Kids
               </a>
             </li>
             <li class="nav-item dropdown">
@@ -63,20 +69,25 @@ function Navbar() {
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                More Categories
+                Become a member
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">
-                  Men's Fashion
+                <a class="dropdown-item" href="/user/auth">
+                  Sign-up
                 </a>
-                <a class="dropdown-item" href="#">
-                  Women's Fashion
+                <a class="dropdown-item" href="/user/auth">
+                  Login
                 </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">
-                  Something else here
+                <a class="dropdown-item" href="/admin/signup">
+                  Register as admin
                 </a>
               </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../user/cart">
+                <ShoppingCartOutlinedIcon/>
+              </a>
             </li>
           </ul>
           <form class="form-inline my-2 my-lg-0">

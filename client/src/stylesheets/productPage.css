@@ -35,7 +35,7 @@ button:focus {
 }
 
 .mainDiv {
-  background-image: url(../images/bg.jpg);
+   background-color: #E99497;
 }
 
 .leftDivStyle {
@@ -89,12 +89,7 @@ button:focus {
 .card-title,
 .card-description {
   border-radius: 30px;
-  background-image: linear-gradient(
-    140deg,
-    #eadedb 0%,
-    #bc70a4 50%,
-    #bfd641 75%
-  );
+   background-color: #F3C583
 }
 .ratings-button {
   background-color: #388e3c;
@@ -133,4 +128,9 @@ button:focus {
   content: '<';
   font-size: 55px;
   color: red;
+}
+
+.main
+{
+  background-color: #E99497;
 }

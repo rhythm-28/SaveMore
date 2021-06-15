@@ -59,7 +59,7 @@ class productPage extends React.Component {
           </div>
           <div className="col-7 rightDivStyle">
             <div class="main-info">
-              <div class="card card-all text-white bg-info card-title">
+              <div class="card card-all text-white card-title">
                 <div class="card-body">
                   <h1> {product.name}</h1>
                   <div class="Price">

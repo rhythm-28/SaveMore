@@ -40,3 +40,8 @@ button:focus {
   width: 35%;
   margin: 0 auto;
 }
+
+.bolden
+{
+   font-weight: bold;
+}

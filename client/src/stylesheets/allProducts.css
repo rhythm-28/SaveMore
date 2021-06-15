@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap');
 .ProductsNavbar {
-  background-color: #5f4b8b;
+background-color: #3EDBF0;
 }
 .ProductsNavbar .nav-link:hover {
   color: white !important;

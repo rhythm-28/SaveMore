@@ -5,6 +5,8 @@ import styles from '../../stylesheets/cart.css';
 import { Avatar, Button } from '@material-ui/core/';
 import { connect } from 'react-redux';
 import { getUserProducts, userAddedProduct,userSubtractedProduct ,userRemovedProduct} from '../../actions/cart.js';
+import Navbar from '../commonComponents/navbar.js';
+import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 
 class Cart extends React.Component {
   constructor() {
@@ -50,24 +52,27 @@ class Cart extends React.Component {
     }
     console.log("render")
     return (
-      <div class="bg-color">
-        <h1 class="cart-heading"> Your Cart</h1>
-        <div class="cart-box">
-          {products.map((product) => {
-            return (
-              <CartProduct
-                product={product}
-                addProductToCart={this.addProductToCart}
-                subtractProductFromCart={this.subtractProductFromCart}
-                removeProductFromCart={this.removeProductFromCart}
-              />
-            );
-          })}
-        </div>
-        <div class="card bottom">
-          <h2> Total items: {this.totalQuantity(products)}</h2>
-          <h2> Total Price: {this.totalPrice(products)}</h2>
-          <button class="button-cart"> Proceed to Checkout</button>
+      <div>
+        <Navbar />
+        <div class="bg-color">
+          <h1 class="cart-heading"> <ShoppingCartOutlinedIcon/> </h1>
+          <div class="cart-box">
+            {products.map((product) => {
+              return (
+                <CartProduct
+                  product={product}
+                  addProductToCart={this.addProductToCart}
+                  subtractProductFromCart={this.subtractProductFromCart}
+                  removeProductFromCart={this.removeProductFromCart}
+                />
+              );
+            })}
+          </div>
+          <div class="card bottom">
+            <h2> Total items: {this.totalQuantity(products)}</h2>
+            <h2> Total Price: {this.totalPrice(products)}</h2>
+            <button class="button-cart"> Proceed to Checkout</button>
+          </div>
         </div>
       </div>
     );

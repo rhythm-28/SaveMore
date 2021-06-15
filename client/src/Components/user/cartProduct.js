@@ -14,7 +14,7 @@ class CartProduct extends React.Component {
         <div class="row productDiv card-all">
           <div class="col-3">
             <div class="img-div">
-              <img src={product.image} alt={product.name} class="img" />
+              <img src={product.image} alt={product.name} class="cart-img" />
             </div>
           </div>
           <div class="col-9 all-info">
