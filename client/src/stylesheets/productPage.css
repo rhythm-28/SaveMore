@@ -1,5 +1,10 @@
-h1,h2,h3,h4,h5,h6,p
-{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
   text-align: center;
 }
 
@@ -13,7 +18,7 @@ button {
   letter-spacing: 1px;
   transition: transform 80ms ease-in;
   text-transform: uppercase;
-  text-align:center;
+  text-align: center;
 }
 
 button:active {
@@ -29,58 +34,51 @@ button:focus {
   outline: none;
 }
 
-.mainDiv
-{
+.mainDiv {
   background-image: url(../images/bg.jpg);
 }
 
-.leftDivStyle
-{
+.leftDivStyle {
   min-height: 100vh;
   margin: 1rem;
 }
 
-.rightDivStyle
-{
+.rightDivStyle {
   min-height: 100vh;
   margin: 1rem;
 }
 
-.other-info
-{
+.other-info {
   margin-top: 2rem;
-
 }
 
-.buttons
-{
+.buttons {
   display: flex;
   justify-content: space-evenly;
   margin-top: 1rem;
 }
 
-.Price
-{
+.Price {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
-.carousel
-{
+.carousel {
   width: 360px;
   height: 360px;
 }
+.carousel-inner > .carousel-item {
+  height: 360px;
+}
 
-.carousel-card
-{
+.carousel-card {
   border-radius: 10%;
-
 }
 
 .card-all {
   box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .card-all:hover {
@@ -88,29 +86,31 @@ button:focus {
   transform: translate3d(0px, -5px, 0px);
 }
 
-.card-title,.card-description
-{
+.card-title,
+.card-description {
   border-radius: 30px;
-  background-image: linear-gradient(140deg , #EADEDB 0%, #BC70A4 50%, #BFD641 75%);
+  background-image: linear-gradient(
+    140deg,
+    #eadedb 0%,
+    #bc70a4 50%,
+    #bfd641 75%
+  );
 }
-.ratings-button
-{
+.ratings-button {
   background-color: #388e3c;
   border-radius: 0%;
   font-size: 15px;
-  width: 4.5rem
+  width: 4.5rem;
 }
 
-.stars
-{
+.stars {
   margin-top: 1.8rem;
-  display:flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.ratings-and-reviews
-{
+.ratings-and-reviews {
   font-size: 0.8rem;
 }
 
@@ -123,8 +123,7 @@ button:focus {
   background-image: none;
 }
 
-.carousel-control-next-icon:after
-{
+.carousel-control-next-icon:after {
   content: '>';
   font-size: 55px;
   color: red;
