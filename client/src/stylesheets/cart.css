@@ -73,7 +73,7 @@
   /* border-style: double; */
   padding-top: 1rem;
   /* box-sizing:border-box; */
-  background-color: #F5E6CA;
+
 }
 
 .card-all
@@ -99,4 +99,12 @@
   height:20%;
   margin: 1rem auto;
   border-radius: 10%;
+}
+
+.cart-all-products
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #F5E6CA;
 }

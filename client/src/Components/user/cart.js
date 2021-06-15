@@ -8,6 +8,47 @@ import { getUserProducts, userAddedProduct,userSubtractedProduct ,userRemovedPro
 import Navbar from '../commonComponents/navbar.js';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 
+function checkout(products){
+  if(products.length != 0)
+  {
+    return (
+      <div class="card bottom">
+        <h2> Total items: {this.totalQuantity(products)}</h2>
+        <h2> Total Price: {this.totalPrice(products)}</h2>
+        <button class="button-cart"> Proceed to Checkout</button>
+      </div>
+    );
+  }
+}
+
+function renderCartProduct(products){
+  if(products.length != 0)
+  {
+    return products.map((product) => {
+      return (
+        <CartProduct
+          product={product}
+          addProductToCart={this.addProductToCart}
+          subtractProductFromCart={this.subtractProductFromCart}
+          removeProductFromCart={this.removeProductFromCart}
+        />
+      );
+    })
+  }
+  else
+  {
+    return (
+      <div class="cart-all-products">
+        <h1> Your Cart is empty! </h1>
+        <h2> Let's shop </h2>
+          <a href="/products">
+            Our Top Products
+          </a>
+      </div>
+    );
+  }
+}
+
 class Cart extends React.Component {
   constructor() {
     super();
@@ -44,6 +85,7 @@ class Cart extends React.Component {
     this.setState({ inProgress: false });
   }
 
+
   render() {
     const { products } = this.props.cart;
     const { inProgress,totalQty } = this.state;
@@ -57,22 +99,9 @@ class Cart extends React.Component {
         <div class="bg-color">
           <h1 class="cart-heading"> <ShoppingCartOutlinedIcon/> </h1>
           <div class="cart-box">
-            {products.map((product) => {
-              return (
-                <CartProduct
-                  product={product}
-                  addProductToCart={this.addProductToCart}
-                  subtractProductFromCart={this.subtractProductFromCart}
-                  removeProductFromCart={this.removeProductFromCart}
-                />
-              );
-            })}
+            {renderCartProduct(products)}
           </div>
-          <div class="card bottom">
-            <h2> Total items: {this.totalQuantity(products)}</h2>
-            <h2> Total Price: {this.totalPrice(products)}</h2>
-            <button class="button-cart"> Proceed to Checkout</button>
-          </div>
+          {checkout(products)}
         </div>
       </div>
     );
