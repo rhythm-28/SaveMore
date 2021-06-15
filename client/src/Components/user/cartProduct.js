@@ -8,36 +8,49 @@ import { connect } from 'react-redux';
 
 class CartProduct extends React.Component {
   render() {
-    const { product, addProductToCart ,subtractProductFromCart,removeProductFromCart} = this.props;
+    const {
+      product,
+      addProductToCart,
+      subtractProductFromCart,
+      removeProductFromCart,
+    } = this.props;
     return (
       <div>
-        <div class="row productDiv card-all">
-          <div class="col-3">
-            <div class="img-div">
-              <img src={product.image} alt={product.name} class="cart-img" />
+        <div class="row productDiv card-all justify-content-center mx-3">
+          <div class="col-lg-3 col-md-8 col-10">
+            <div className="img-div d-flex justify-content-center">
+              <img
+                src={product.image}
+                alt={product.name}
+                class="cart-img img-thumbnail"
+              />
             </div>
           </div>
-          <div class="col-9 all-info">
-            <div class="product-cart">
-              <div class="main-info">
-                <h3> {product.name}</h3>
-                <h2> Final Price: {product.price} </h2>
-              </div>
-              <div class="quantity">
-                <h2> Quantity: {product.quantity}</h2>
-                <Button onClick={() => addProductToCart(product.name)}>
-                  {' '}
-                  <AddCircleIcon size="medium" />{' '}
-                </Button>
-                <Button onClick={()=>subtractProductFromCart(product.name)}>
-                  {' '}
-                  <RemoveCircleIcon size="medium" />{' '}
-                </Button>
-                <Button size="large" onClick={()=>removeProductFromCart(product.name)}>
-                  {' '}
-                  <DeleteIcon />{' '}
-                </Button>
-              </div>
+
+          <div className="col-lg-6 col-md-7">
+            <div class="main-info">
+              <h3> {product.name}</h3>
+              <h2> Final Price: {product.price} </h2>
+            </div>
+          </div>
+          <div className="col-lg-3 col-md-5 d-flex justify-content-center">
+            <div class="quantity mx-auto">
+              <h2> Quantity: {product.quantity}</h2>
+              <Button onClick={() => addProductToCart(product.name)}>
+                {' '}
+                <AddCircleIcon size="medium" />{' '}
+              </Button>
+              <Button onClick={() => subtractProductFromCart(product.name)}>
+                {' '}
+                <RemoveCircleIcon size="medium" />{' '}
+              </Button>
+              <Button
+                size="large"
+                onClick={() => removeProductFromCart(product.name)}
+              >
+                {' '}
+                <DeleteIcon />{' '}
+              </Button>
             </div>
           </div>
         </div>

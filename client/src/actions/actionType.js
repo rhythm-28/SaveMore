@@ -9,9 +9,6 @@ export const Signup_Failed = 'Signup_Failed';
 export const Add_User_Data = 'Add_User_Data';
 export const User_Logout = 'User_Logout';
 
-export const Admin_Login_Success = 'Admin_Login_Success';
-export const Admin_Login_Failed = 'Admin_Login_Failed';
-
 export const Admin_Signup_Success = 'Admin_Signup_Success';
 export const Admin_Signup_Failed = 'Admin_Signup_Failed';
 
@@ -19,6 +16,6 @@ export const Product_Add_Success = 'Product_Add_Successfully';
 export const Product_Add_Failed = 'Product_Add_Failed';
 
 export const User_Added_Product = 'User_Added_Product';
-export const User_Subtracted_Product='User_Subtracted_Product';
+export const User_Subtracted_Product = 'User_Subtracted_Product';
 export const User_Removed_Product = 'User_Removed_Product';
 export const Add_User_Products = 'Add_User_Products';

@@ -3,6 +3,7 @@ import {
   User_Subtracted_Product,
   User_Removed_Product,
   Add_User_Products,
+  User_Logout,
 } from '../actions/actionType';
 const initialState = {
   products: [],
@@ -32,6 +33,11 @@ export default function CartReducer(state = initialState, action) {
       return {
         ...state,
         products: action.products,
+      };
+    case User_Logout:
+      return {
+        ...state,
+        products: [],
       };
     default:
       return state;

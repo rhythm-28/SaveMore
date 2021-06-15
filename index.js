@@ -13,6 +13,8 @@ const session = require("client-sessions");
 const userRouter = require("./routes/user/auth");
 const adminRouter = require("./routes/admin/register");
 const productRouter = require("./routes/product");
+const dbUrl = process.env.dbUrl || "mongodb://localhost:27017/testDB";
+const secret = process.env.Secret || "random string";
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(function (req, res, next) {
@@ -32,7 +34,7 @@ app.use(function (req, res, next) {
 app.use(
   session({
     cookieName: "session",
-    secret: "random string",
+    secret,
     duration: 30 * 60 * 1000,
     activeDuration: 5 * 60 * 1000,
   })
@@ -42,10 +44,15 @@ app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate())); //Strategies range from verifying a username and password
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
-mongoose.connect("mongodb://localhost:27017/testDB", {
+mongoose.connect(dbUrl, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
+});
+const db = mongoose.connection;
+db.on("error", console.error.bind(console, "connection error:")); //This file will run every time So there is no need to connect with mongodb further
+db.once("open", function () {
+  console.log("we are connected!");
 });
 app.use("/", productRouter);
 app.use("/", userRouter);

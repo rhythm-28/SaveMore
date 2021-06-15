@@ -32,23 +32,14 @@ function Product(props) {
         />
         <CardContent>
           <Typography variant="h5" component="h2" className="my-1 fw-bold">
-            {product.name.length > 11
-              ? product.name.substring(0, 11) + '.....'
-              : product.name.substring(0, 11)}
+            {product.name.length > 9
+              ? product.name.substring(0, 8) + '.....'
+              : product.name.substring(0, 9)}
           </Typography>
-          <Typography
-            variant="subtitle1"
-            className="my-1 text-primary cardSubtitle"
-          >
+          <Typography variant="subtitle1" className="my-1 text-primary">
             {product.category}
           </Typography>
-          <div className="cardPrice fs-6"> Now {product.discountPrice} </div>
-          <a
-            href="/productPage"
-            className="btn btn-secondary fw-bold text-white"
-          >
-            Details
-          </a>
+          <div className="fs-6 text-center"> Now {product.discountPrice} </div>
         </CardContent>
       </CardActionArea>
     </Card>

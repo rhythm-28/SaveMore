@@ -24,7 +24,6 @@ class Signup extends Component {
     return (
       <div>
         <div>
-          {isLoggedIn && <div>Successfully Logged In</div>}
           <Grid>
             <Paper elevation={10} className="paperStyle">
               <form

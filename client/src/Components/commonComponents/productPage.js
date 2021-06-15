@@ -7,7 +7,7 @@ import Navbar from './navbar';
 import Carousel from './Carousel';
 import { connect } from 'react-redux';
 import { userAddedProduct } from '../../actions/cart';
-
+import { Link } from 'react-router-dom';
 class productPage extends React.Component {
   constructor() {
     super();
@@ -25,14 +25,12 @@ class productPage extends React.Component {
   };
   handleClick = async () => {
     const { match } = this.props;
-
     this.props.dispatch(userAddedProduct(this.state.product.name));
     this.setState({ added: true });
-    console.log(this.state);
-    this.forceUpdate();
   };
   render() {
     const { product, added } = this.state;
+    const { isLoggedIn } = this.props.authUser;
     console.log(added);
     if (!product) {
       return <h1>Loading...</h1>;
@@ -40,25 +38,39 @@ class productPage extends React.Component {
     return (
       <div>
         <Navbar />
-        <div className="row mainDiv">
-          <div className="col-4 leftDivStyle">
+        <div className="row mainDiv justify-content-center">
+          <div className="col-xl-4 col-lg-6 col-md-6 col-sm-8 col-10 leftDivStyle mt-5 mb-0 py-0">
             <div className="card card-all carousel-card">
               <div className="card-body">
                 <Carousel images={product.images} />
-                <div className="buttons">
-                  <button onClick={this.handleClick} disabled={added}>
-                    <i class="fas fa-shopping-cart"> </i> Add to Cart
-                  </button>
-                  <button>
-                    {' '}
-                    <i class="fas fa-shopping-cart"> </i> Buy Now
-                  </button>
-                </div>
+                {isLoggedIn && (
+                  <div className="buttons">
+                    <button
+                      onClick={this.handleClick}
+                      disabled={added}
+                      className={added ? `btn-success` : ''}
+                    >
+                      <i class="fas fa-shopping-cart"></i>{' '}
+                      {added ? 'Added' : 'Add to Cart'}
+                    </button>
+                    <button>
+                      {' '}
+                      <i class="fas fa-shopping-cart"> </i> Buy Now
+                    </button>
+                  </div>
+                )}
+                {!isLoggedIn && (
+                  <Link to="/user/auth" style={{ textDecoration: 'none' }}>
+                    <div className="buttons">
+                      <button>Login to buy</button>
+                    </div>
+                  </Link>
+                )}
               </div>
             </div>
           </div>
-          <div className="col-7 rightDivStyle">
-            <div class="main-info">
+          <div className="col-xl-7  rightDivStyle mt-0 mb-5 mt-xl-5">
+            <div class="main-info mx-3">
               <div class="card card-all text-white card-title">
                 <div class="card-body">
                   <h1> {product.name}</h1>
@@ -93,7 +105,7 @@ class productPage extends React.Component {
                 </div>
               </div>
             </div>
-            <div class="other-info">
+            <div class="other-info mx-3">
               <div class="card card-all text-white card-description">
                 <div class="card-body">
                   <p>{' ' + product.description}</p>
@@ -106,7 +118,7 @@ class productPage extends React.Component {
     );
   }
 }
-const mapStateToProps = ({ cart }) => {
-  return { cart };
+const mapStateToProps = ({ cart, authUser }) => {
+  return { cart, authUser };
 };
 export default connect(mapStateToProps)(productPage);

@@ -5,13 +5,13 @@ import {
   Signup_Success,
   Add_User_Data,
   User_Logout,
-  Product_Add_Failed,
-  Product_Add_Success,
+  Admin_Signup_Success,
 } from '../../actions/actionType';
 const initialState = {
   user: {},
   isLoggedIn: false,
   err: null,
+  isAdmin: false,
 };
 export default function authReducer(state = initialState, action) {
   switch (action.type) {
@@ -19,6 +19,7 @@ export default function authReducer(state = initialState, action) {
       return {
         ...state,
         isLoggedIn: true,
+        isAdmin: action.user.isAdmin,
         user: action.user,
       };
     case Login_Failed:
@@ -31,6 +32,7 @@ export default function authReducer(state = initialState, action) {
       return {
         ...state,
         isLoggedIn: true,
+        isAdmin: false,
         user: action.user,
       };
     case Signup_Failed:
@@ -44,6 +46,7 @@ export default function authReducer(state = initialState, action) {
         ...state,
         isLoggedIn: true,
         user: action.user,
+        isAdmin: action.user.isAdmin,
       };
     case User_Logout:
       return {
@@ -51,6 +54,12 @@ export default function authReducer(state = initialState, action) {
         isLoggedIn: false,
         user: {},
       };
+    case Admin_Signup_Success:
+      return {
+        ...state,
+        isAdmin: true,
+      };
+
     default:
       return state;
   }

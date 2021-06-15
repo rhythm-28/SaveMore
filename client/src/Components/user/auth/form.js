@@ -18,10 +18,10 @@ function UserForm(props) {
       <Navbar />
       <div class="container mt-5" id="container">
         <div class="form-container sign-up-container">
-          <Signup />
+          <Signup {...props} />
         </div>
         <div class="form-container sign-in-container">
-          <Login />
+          <Login {...props} />
         </div>
         <div class="overlay-container">
           <div class="overlay">

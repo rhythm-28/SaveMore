@@ -8,20 +8,47 @@ import {
   productPage,
   Cart,
 } from './';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchUserData, logout } from '../actions/user/auth';
 
-class Logout extends Component {
-  componentDidMount() {
-    this.props.dispatch(logout());
-  }
-
-  render() {
-    return <div>Successfully Logout</div>;
-  }
+function PrivateRoute(props) {
+  const { isLoggedIn, path, Component } = props;
+  return (
+    <Route
+      path={path}
+      render={(props) => {
+        return isLoggedIn ? (
+          <Component {...props} />
+        ) : (
+          <Redirect to={{ pathname: '/user/auth', state: { from: path } }} />
+        );
+      }}
+    />
+  );
 }
-
+function AdminRoute(props) {
+  const { isLoggedIn, isAdmin, path, Component } = props;
+  return (
+    <Route
+      path={path}
+      render={(props) => {
+        return isLoggedIn && isAdmin ? (
+          <Component {...props} />
+        ) : (
+          <Redirect
+            to={{ pathname: '/user/auth', state: { from: props.location } }}
+          />
+        );
+      }}
+    />
+  );
+}
 class App extends Component {
   constructor() {
     super();
@@ -31,22 +58,31 @@ class App extends Component {
   };
 
   render() {
-    const { isLoggedIn } = this.props.authUser;
+    const { isLoggedIn, isAdmin } = this.props.authUser;
     return (
       <div className="w-100">
         <Router>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/products" component={Products} />
-            <Route
-              path="/user/logout"
-              render={() => <Logout dispatch={this.props.dispatch} />}
+            <AdminRoute
+              path="/add/product"
+              Component={ProductForm}
+              isLoggedIn={isLoggedIn}
+              isAdmin={isAdmin}
             />
-            <Route path="/add/product" component={ProductForm} />
             <Route path="/user/auth" component={UserForm} />
-            <Route path="/admin/signup" component={adminSignup} />
+            <PrivateRoute
+              path="/admin/signup"
+              Component={adminSignup}
+              isLoggedIn={isLoggedIn}
+            />
             <Route path="/product/:productId" component={productPage} />
-            <Route path="/user/cart" component={Cart} />
+            <PrivateRoute
+              path="/user/cart"
+              Component={Cart}
+              isLoggedIn={isLoggedIn}
+            />
           </Switch>
         </Router>
       </div>

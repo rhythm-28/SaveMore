@@ -10,5 +10,6 @@ router.post("/admin/register", requireLogin, async (req, res) => {
     isAdmin: true,
     admin: newAdmin._id,
   });
+  res.send(newAdmin);
 });
 module.exports = router;
