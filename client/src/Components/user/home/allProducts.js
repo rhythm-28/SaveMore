@@ -17,7 +17,7 @@ class allProducts extends React.Component {
     };
   }
   componentDidMount = async () => {
-    const res = await axios.get('/products');
+    const res = await axios.get('/api/products');
     this.setState({ data: res.data });
   };
   render() {

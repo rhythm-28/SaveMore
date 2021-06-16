@@ -21,11 +21,11 @@ router.post(
     res.send(product);
   }
 );
-router.get("/products", async (req, res) => {
+router.get("/api/products", async (req, res) => {
   const products = await Product.find({});
   res.send(products);
 });
-router.get("/product/:id", async (req, res) => {
+router.get("/api/product/:id", async (req, res) => {
   const product = await Product.findById(req.params.id);
   res.send(product);
 });

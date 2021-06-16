@@ -37,6 +37,12 @@ app.use(
     secret,
     duration: 30 * 60 * 1000,
     activeDuration: 5 * 60 * 1000,
+    cookie: {
+      httpOnly: true,
+      //secure:true,
+      expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
+      maxAge: 1000 * 60 * 60 * 24 * 7,
+    },
   })
 );
 app.use(passport.initialize());
@@ -51,17 +57,16 @@ mongoose.connect(dbUrl, {
 });
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:")); //This file will run every time So there is no need to connect with mongodb further
-db.once("open", function () {
-  console.log("we are connected!");
-});
+db.once("open", function () {});
 app.use("/", productRouter);
 app.use("/", userRouter);
 app.use("/", adminRouter);
-app.get("/", (req, res) => {
-  console.log(req.isAuthenticated());
-  console.log(req.user);
-  res.send(req.user);
-});
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+}
 app.use((err, req, res, next) => {
   const { statusCode = 500 } = err;
   if (!err.message) {

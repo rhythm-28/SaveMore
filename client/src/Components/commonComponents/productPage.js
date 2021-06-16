@@ -22,7 +22,7 @@ class productPage extends React.Component {
   }
   componentDidMount = async () => {
     const { match } = this.props;
-    const res = await axios.get(`/product/${match.params.productId}`);
+    const res = await axios.get(`/api/product/${match.params.productId}`);
     this.setState({
       product: res.data,
     });
