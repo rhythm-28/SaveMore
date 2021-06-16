@@ -5,7 +5,7 @@ import Styles from '../../stylesheets/productPage.css';
 function Carousel(props) {
   const { images } = props;
   return (
-    <div>
+    <div class="d-flex justify-content-center">
       <div
         id="carousel"
         class="carousel slide"

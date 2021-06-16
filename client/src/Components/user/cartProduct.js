@@ -27,13 +27,13 @@ class CartProduct extends React.Component {
             </div>
           </div>
 
-          <div className="col-lg-6 col-md-7">
+          <div className="col-xl-6 col-lg-5 col-md-7">
             <div class="main-info">
               <h3> {product.name}</h3>
               <h2> Final Price: {product.price} </h2>
             </div>
           </div>
-          <div className="col-lg-3 col-md-5 d-flex justify-content-center">
+          <div className="col-xl-3 col-lg-4 col-md-5 d-flex justify-content-center">
             <div class="quantity mx-auto">
               <h2> Quantity: {product.quantity}</h2>
               <Button onClick={() => addProductToCart(product.name)}>

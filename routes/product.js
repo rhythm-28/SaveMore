@@ -18,6 +18,7 @@ router.post(
     });
     product.images.push(...images);
     await product.save();
+    res.send(product);
   }
 );
 router.get("/products", async (req, res) => {

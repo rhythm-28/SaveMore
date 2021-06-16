@@ -39,7 +39,7 @@ function Product(props) {
           <Typography variant="subtitle1" className="my-1 text-primary">
             {product.category}
           </Typography>
-          <div className="fs-6 text-center"> Now {product.discountPrice} </div>
+          <div className="fs-6 text-center"> Now ₹{product.discountPrice} </div>
         </CardContent>
       </CardActionArea>
     </Card>
