@@ -1,10 +1,11 @@
 import React from 'react';
-import styles from '../../stylesheets/cart.css';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 import { connect } from 'react-redux';
+
+import styles from '../../stylesheets/cart.css';
 
 class CartProduct extends React.Component {
   render() {

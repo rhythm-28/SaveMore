@@ -1,13 +1,17 @@
 import React from 'react';
 import axios from 'axios';
-import Styles from '../../stylesheets/productPage.css';
+
 import ShoppingCartTwoToneIcon from '@material-ui/icons/ShoppingCartTwoTone';
 import { Avatar, Button } from '@material-ui/core/';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+
+import { userAddedProduct } from '../../actions/cart';
 import Navbar from './navbar';
 import Carousel from './Carousel';
-import { connect } from 'react-redux';
-import { userAddedProduct } from '../../actions/cart';
-import { Link } from 'react-router-dom';
+
+import Styles from '../../stylesheets/productPage.css';
+
 class productPage extends React.Component {
   constructor() {
     super();

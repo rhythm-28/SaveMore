@@ -1,11 +1,14 @@
 import axios from 'axios';
 import React from 'react';
-import styles from '../../styles.css';
+import { Link } from 'react-router-dom';
+
 import Navbar from '../../commonComponents/navbar';
 import Product from '../../commonComponents/product';
-import '../../../stylesheets/allProducts.css';
-import { Link } from 'react-router-dom';
+
 import data from './data';
+import styles from '../../../stylesheets/styles.css';
+import '../../../stylesheets/allProducts.css';
+
 class allProducts extends React.Component {
   constructor() {
     super();

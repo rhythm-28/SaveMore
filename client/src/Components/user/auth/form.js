@@ -1,6 +1,11 @@
+// packages
 import React from 'react';
+
+// components
 import { Login, Signup, Navbar } from '../../';
-import slidingStyles from './slidingStyles.css';
+
+// stylesheet
+import slidingStyles from '../../../stylesheets/slidingStyles.css';
 
 function UserForm(props) {
   function add() {

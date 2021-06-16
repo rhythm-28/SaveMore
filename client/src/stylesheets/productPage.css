@@ -6,6 +6,7 @@ h5,
 h6,
 p {
   text-align: center;
+  color: black;
 }
 
 button {
@@ -89,7 +90,7 @@ button:focus {
 .card-title,
 .card-description {
   border-radius: 30px;
-   background-color: #F3C583
+   background-color: pink;
 }
 .ratings-button {
   background-color: #388e3c;

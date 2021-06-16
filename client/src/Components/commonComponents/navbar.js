@@ -1,9 +1,12 @@
 import React from 'react';
-import styles from '../styles.css';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+
 import { logout } from '../../actions/user/auth';
+
+import styles from '../../stylesheets/styles.css';
+
 class Navbar extends React.Component {
   onClickLogout = () => {
     this.props.dispatch(logout());
@@ -40,41 +43,39 @@ class Navbar extends React.Component {
                 </Link>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link disabled" href="#">
                   Books
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link disabled" href="#">
                   Electronics
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link disabled" href="#">
                   Beauty
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link disabled" href="#">
                   Men's Fashion
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link disabled" href="#">
                   Beauty
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link disabled" href="#">
                   Kids
                 </a>
               </li>
-              <li class="nav-item">
+            </ul>
                 <Link class="nav-link" to="/user/cart">
                   <ShoppingCartOutlinedIcon />
                 </Link>
-              </li>
-            </ul>
             {!isLoggedIn && (
               <ul class="navbar-nav">
                 <li class="nav-item">

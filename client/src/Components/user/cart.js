@@ -1,9 +1,10 @@
 import React from 'react';
-import data from './cartData.js';
-import CartProduct from './cartProduct.js';
-import styles from '../../stylesheets/cart.css';
 import { Avatar, Button } from '@material-ui/core/';
 import { connect } from 'react-redux';
+import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
+import { Link } from 'react-router-dom';
+
+import CartProduct from './cartProduct.js';
 import {
   getUserProducts,
   userAddedProduct,
@@ -11,8 +12,9 @@ import {
   userRemovedProduct,
 } from '../../actions/cart.js';
 import Navbar from '../commonComponents/navbar.js';
-import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
-import { Link } from 'react-router-dom';
+
+import styles from '../../stylesheets/cart.css';
+
 function checkout(products, totalQuantity, totalPrice) {
   if (products.length != 0) {
     return (

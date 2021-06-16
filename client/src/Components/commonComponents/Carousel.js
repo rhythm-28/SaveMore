@@ -1,5 +1,7 @@
 import React from 'react';
+
 import Navbar from './navbar';
+
 import Styles from '../../stylesheets/productPage.css';
 
 function Carousel(props) {

@@ -6,7 +6,7 @@ import UserForm from './user/auth/form';
 import Home from './user/home/home.js';
 import Products from './user/home/allProducts';
 import Navbar from './commonComponents/navbar';
-import ProductForm from './product/productForm';
+import ProductForm from './admin/product/productForm';
 import productPage from './commonComponents/productPage.js';
 import Cart from './user/cart.js';
 export {
