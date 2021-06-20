@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const passport = require("passport");
-const User = require("../../model/user/auth");
-const { requireLogin } = require("../../middlewares");
-const Product = require("../../model/product");
-const ExpressError = require("../../utils/ExpressError");
+const User = require("../model/user");
+const { requireLogin } = require("../middlewares");
+const Product = require("../model/product");
+const ExpressError = require("../utils/ExpressError");
 router.post("/api/user/login", passport.authenticate("local"), (req, res) => {
   res.send(req.user);
 });

@@ -2,10 +2,10 @@
 import React from 'react';
 
 // components
-import { Login, Signup, Navbar } from '../../';
+import { Login, Signup, Navbar } from '../';
 
 // stylesheet
-import slidingStyles from '../../../stylesheets/slidingStyles.css';
+import slidingStyles from '../../stylesheets/slidingStyles.css';
 
 function UserForm(props) {
   function add() {

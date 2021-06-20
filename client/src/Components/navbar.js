@@ -3,9 +3,9 @@ import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { logout } from '../../actions/user/auth';
+import { logout } from '../actions/user';
 
-import styles from '../../stylesheets/styles.css';
+import styles from '../stylesheets/styles.css';
 
 class Navbar extends React.Component {
   onClickLogout = () => {
@@ -73,9 +73,9 @@ class Navbar extends React.Component {
                 </a>
               </li>
             </ul>
-                <Link class="nav-link" to="/user/cart">
-                  <ShoppingCartOutlinedIcon />
-                </Link>
+            <Link class="nav-link" to="/user/cart">
+              <ShoppingCartOutlinedIcon />
+            </Link>
             {!isLoggedIn && (
               <ul class="navbar-nav">
                 <li class="nav-item">

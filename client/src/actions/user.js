@@ -7,7 +7,7 @@ import {
   Signup_Success,
   Add_User_Data,
   User_Logout,
-} from '../actionType';
+} from './actionType';
 import axios from 'axios';
 const config = {
   withCredentials: true,

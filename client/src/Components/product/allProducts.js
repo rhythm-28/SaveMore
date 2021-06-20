@@ -2,12 +2,11 @@ import axios from 'axios';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import Navbar from '../../commonComponents/navbar';
-import Product from '../../commonComponents/product';
+import Navbar from '../navbar';
+import Product from './product';
 
-import data from './data';
-import styles from '../../../stylesheets/styles.css';
-import '../../../stylesheets/allProducts.css';
+import styles from '../../stylesheets/styles.css';
+import '../../stylesheets/allProducts.css';
 
 class allProducts extends React.Component {
   constructor() {
@@ -21,6 +20,7 @@ class allProducts extends React.Component {
     this.setState({ data: res.data });
   };
   render() {
+    const { data } = this.state;
     if (data.length == 0) {
       return <h1>Loading...</h1>;
     }
@@ -31,7 +31,7 @@ class allProducts extends React.Component {
           className="row justify-content-around mt-3 d-flex"
           id="allProducts"
         >
-          {this.state.data.map(function (product) {
+          {data.map(function (product) {
             return (
               <Link
                 to={`/product/${product._id}`}

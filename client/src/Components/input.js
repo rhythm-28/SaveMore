@@ -24,18 +24,20 @@ const createRenderInput =
   };
 
 export const RenderTextInput = createRenderInput(
-  (input, label, { type }, error = {}) => {
+  (input, label, { type, Value }, error = {}) => {
     const placeholder = 'Enter ' + label;
+
     return (
       <span>
-        {/*<label>{label}</label>*/}
-        {/*<Input {...input} type={type} />*/}
+        {/* <label>{label}</label>
+        <Input {...input} type={type} value={Value} /> */}
         <TextField
           {...error}
           {...input}
           label={label}
           type={type}
-          placeholder={placeholder}
+          inputProps={{ value: Value }}
+          placeholder={label}
           style={{
             marginBottom: '1rem',
           }}
@@ -67,7 +69,7 @@ export const RenderTextSelect = createRenderInput(
   }
 );
 export const RenderTextArea = createRenderInput(
-  (input, label, { children }, { error }) => {
+  (input, label, { Value }, { error }) => {
     return (
       <FormControl
         style={{ minWidth: '100%', marginBottom: '1rem' }}
@@ -79,6 +81,7 @@ export const RenderTextArea = createRenderInput(
           placeholder={`Enter ${label}`}
           label={label}
           {...input}
+          value={Value}
           className={error ? `border border-danger border-2` : ``}
         />
       </FormControl>

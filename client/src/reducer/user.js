@@ -6,7 +6,7 @@ import {
   Add_User_Data,
   User_Logout,
   Admin_Signup_Success,
-} from '../../actions/actionType';
+} from '../actions/actionType';
 const initialState = {
   user: {},
   isLoggedIn: false,

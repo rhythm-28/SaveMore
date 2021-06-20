@@ -1,8 +1,9 @@
 import {
+  LOAD,
   Product_Add_Failed,
   Product_Add_Success,
   Product_Form_Unmount,
-} from '../actionType';
+} from './actionType';
 import axios from 'axios';
 const config = {
   withCredentials: true,
@@ -46,3 +47,4 @@ export const productAdd = (fd) => {
   //       .then(()=>dispatch)
   //   };
 };
+export const load = (data) => ({ type: LOAD, data });

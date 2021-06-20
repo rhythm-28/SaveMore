@@ -1,4 +1,4 @@
-import { Admin_Signup_Failed, Admin_Signup_Success } from '../actionType';
+import { Admin_Signup_Failed, Admin_Signup_Success } from './actionType';
 import axios from 'axios';
 const config = {
   withCredentials: true,

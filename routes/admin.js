@@ -1,8 +1,8 @@
 const express = require("express");
-const Admin = require("../../model/admin/register");
-const User = require("../../model/user/auth");
+const Admin = require("../model/admin");
+const User = require("../model/user");
 const router = express.Router();
-const { requireLogin } = require("../../middlewares");
+const { requireLogin } = require("../middlewares");
 router.post("/admin/register", requireLogin, async (req, res) => {
   const newAdmin = new Admin(req.body);
   await newAdmin.save();

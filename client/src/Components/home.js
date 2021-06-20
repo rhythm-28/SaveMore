@@ -1,14 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-
-import Navbar from '../../commonComponents/navbar';
-import Product from '../../commonComponents/product';
+import { Navbar, Product } from '.';
 // import data from './data';
-import { logout } from '../../../actions/user/auth';
+import { logout } from '../actions/user';
 
-import '../../../stylesheets/home.css';
-import styles from '../../../stylesheets/styles.css';
+import '../stylesheets/home.css';
+import '../stylesheets/styles.css';
 
 class Home extends React.Component {
   onClickLogout = () => {

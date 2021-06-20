@@ -7,15 +7,17 @@ import {
   ProductForm,
   productPage,
   Cart,
+  ProductUpdate,
 } from './';
 import {
   BrowserRouter as Router,
   Route,
   Switch,
   Redirect,
+  HashRouter,
 } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchUserData, logout } from '../actions/user/auth';
+import { fetchUserData, logout } from '../actions/user';
 
 function PrivateRoute(props) {
   const { isLoggedIn, path, Component } = props;
@@ -77,7 +79,13 @@ class App extends Component {
               Component={adminSignup}
               isLoggedIn={isLoggedIn}
             />
-            <Route path="/product/:productId" component={productPage} />
+            <PrivateRoute
+              exact
+              path="/product/:productId/edit"
+              Component={ProductUpdate}
+              isLoggedIn={isLoggedIn}
+            />
+            <Route exact path="/product/:productId" component={productPage} />
             <PrivateRoute
               path="/user/cart"
               Component={Cart}

@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { userAddedProduct } from '../../actions/cart';
-import Navbar from './navbar';
+import Navbar from '../navbar';
 import Carousel from './Carousel';
 
 import Styles from '../../stylesheets/productPage.css';
@@ -113,6 +113,12 @@ class productPage extends React.Component {
               <div class="card card-all text-white card-description">
                 <div class="card-body">
                   <p>{' ' + product.description}</p>
+                  <Link
+                    to={`/product/${product._id}/edit`}
+                    style={{ textDecoration: 'none' }}
+                  >
+                    <button>Update Product</button>
+                  </Link>
                 </div>
               </div>
             </div>

@@ -11,7 +11,7 @@ import {
   userSubtractedProduct,
   userRemovedProduct,
 } from '../../actions/cart.js';
-import Navbar from '../commonComponents/navbar.js';
+import Navbar from '../navbar.js';
 
 import styles from '../../stylesheets/cart.css';
 

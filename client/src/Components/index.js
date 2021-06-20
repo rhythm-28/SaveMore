@@ -1,14 +1,16 @@
-import Login from './user/auth/login';
+import Login from './user/login';
 import { RenderTextInput, RenderTextSelect, RenderTextArea } from './input';
-import Signup from './user/auth/signup';
-import adminSignup from './admin/auth/signup';
-import UserForm from './user/auth/form';
-import Home from './user/home/home.js';
-import Products from './user/home/allProducts';
-import Navbar from './commonComponents/navbar';
-import ProductForm from './admin/product/productForm';
-import productPage from './commonComponents/productPage.js';
-import Cart from './user/cart.js';
+import Signup from './user/signup';
+import adminSignup from './admin/signup';
+import UserForm from './user/form';
+import Home from './home.js';
+import Products from './product/allProducts';
+import Navbar from './navbar';
+import ProductForm from './product/productForm';
+import ProductUpdate from './product/productUpdate';
+import productPage from './product/productPage';
+import Product from './product/product';
+import Cart from './cart/cart.js';
 export {
   Login,
   RenderTextInput,
@@ -22,5 +24,7 @@ export {
   RenderTextArea,
   ProductForm,
   productPage,
-  Cart
+  ProductUpdate,
+  Product,
+  Cart,
 };

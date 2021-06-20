@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { productFormValidate } from '../../../helpers/validate';
+import { productFormValidate } from '../../helpers/validate';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import {
@@ -14,13 +14,12 @@ import {
   Box,
 } from '@material-ui/core/';
 
-import { RenderTextInput, RenderTextArea, Navbar } from '../..';
-import { productAdd, productFormUnmount } from '../../../actions/product/product';
+import { RenderTextInput, RenderTextArea, Navbar } from '..';
+import { productAdd, productFormUnmount } from '../../actions/product';
 
-import '../../../stylesheets/styles.css';
+import '../../stylesheets/styles.css';
 
-const src =
-  'https://img.icons8.com/nolan/64/left-view.png';
+const src = 'https://img.icons8.com/nolan/64/left-view.png';
 const ImageComponent = ({ addImage }) => {
   return (
     <span>
@@ -34,6 +33,7 @@ const ImageComponent = ({ addImage }) => {
     </span>
   );
 };
+
 class ProductForm extends Component {
   constructor() {
     super();
@@ -72,7 +72,11 @@ class ProductForm extends Component {
         <Navbar />
         <div id="addProduct" className="my-4 paperStyle">
           <Grid>
-            <Paper elevation={10} style={{borderRadius:"5%"}}className="paperStyle">
+            <Paper
+              elevation={10}
+              style={{ borderRadius: '5%' }}
+              className="paperStyle"
+            >
               <form
                 method="GET"
                 onSubmit={handleSubmit(this.handleSubmit)}

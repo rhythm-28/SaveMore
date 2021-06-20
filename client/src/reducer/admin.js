@@ -1,7 +1,7 @@
 import {
   Admin_Signup_Failed,
   Admin_Signup_Success,
-} from '../../actions/actionType';
+} from '../actions/actionType';
 const initialState = {
   admin: {},
   isAdmin: false,
