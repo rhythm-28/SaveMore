@@ -79,10 +79,10 @@ class App extends Component {
               Component={adminSignup}
               isLoggedIn={isLoggedIn}
             />
-            <PrivateRoute
+            <Route
               exact
               path="/product/:productId/edit"
-              Component={ProductUpdate}
+              component={ProductUpdate}
               isLoggedIn={isLoggedIn}
             />
             <Route exact path="/product/:productId" component={productPage} />

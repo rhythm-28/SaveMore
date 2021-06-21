@@ -14,25 +14,12 @@ import {
   Box,
 } from '@material-ui/core/';
 
-import { RenderTextInput, RenderTextArea, Navbar } from '..';
+import { RenderTextInput, RenderTextArea, Navbar, ImageComponent } from '..';
 import { productAdd, productFormUnmount } from '../../actions/product';
 
 import '../../stylesheets/styles.css';
 
 const src = 'https://img.icons8.com/nolan/64/left-view.png';
-const ImageComponent = ({ addImage }) => {
-  return (
-    <span>
-      <h5>Add An Image</h5>
-      <input
-        type="file"
-        accept="image/*"
-        onChange={(e) => addImage(e)}
-        multiple
-      />
-    </span>
-  );
-};
 
 class ProductForm extends Component {
   constructor() {

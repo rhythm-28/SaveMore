@@ -3,6 +3,8 @@ import {
   Product_Add_Failed,
   Product_Add_Success,
   Product_Form_Unmount,
+  Product_Update_Failed,
+  Product_Update_Success,
 } from './actionType';
 import axios from 'axios';
 const config = {
@@ -27,6 +29,17 @@ export const productFormUnmount = () => {
     type: Product_Form_Unmount,
   };
 };
+const updateProductFailed = (error) => {
+  return {
+    type: Product_Update_Failed,
+    error,
+  };
+};
+const updateProductSuccess = () => {
+  return {
+    type: Product_Update_Success,
+  };
+};
 export const productAdd = (fd) => {
   return (dispatch) => {
     axios
@@ -46,5 +59,19 @@ export const productAdd = (fd) => {
 
   //       .then(()=>dispatch)
   //   };
+};
+export const productUpdate = (fd, id) => {
+  return (dispatch) => {
+    axios
+      .post(`/update/product/${id}`, fd, config)
+      .then(() => {
+        console.log('Product Added');
+        dispatch(updateProductSuccess());
+      })
+      .catch((error) => {
+        console.log('Product Not Added');
+        dispatch(updateProductFailed(error.response.data));
+      });
+  };
 };
 export const load = (data) => ({ type: LOAD, data });

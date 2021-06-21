@@ -15,11 +15,17 @@ import {
   Box,
 } from '@material-ui/core/';
 
-import { RenderTextInput, RenderTextArea, Navbar } from '..';
+import {
+  RenderTextInput,
+  RenderTextArea,
+  Navbar,
+  ImageComponent,
+  ImageUpdate,
+} from '..';
 import {
   load as loadAccount,
-  productAdd,
   productFormUnmount,
+  productUpdate,
 } from '../../actions/product';
 
 import '../../stylesheets/styles.css';
@@ -31,17 +37,39 @@ class ProductUpdate extends Component {
     super();
     this.state = {
       product: {},
+      files: {},
+      deleteImages: [],
     };
   }
-  handleSubmit = async (values) => {
-    console.log(values);
+  handleSubmit = (values) => {
+    const { dispatch, match } = this.props;
+    const { files, deleteImages } = this.state;
+    const fd = new FormData();
+    for (let image of deleteImages) {
+      fd.append('deleteImages', image);
+    }
+    for (let key in Object.keys(files)) {
+      fd.append('image', files[key]);
+    }
+    for (let key in values) {
+      fd.append(key, values[key]);
+    }
+    dispatch(productUpdate(fd, match.params.productId));
+  };
+  addImage = (e) => {
+    this.setState({ files: e.target.files });
   };
   componentDidMount = async () => {
     const { match } = this.props;
-    console.log('ProductId', match.params.productId);
     const res = await axios.get(`/api/product/${match.params.productId}`);
-    console.log(res.data);
-    this.props.dispatch(loadAccount(res.data));
+    this.props.dispatch(
+      loadAccount({
+        name: res.data.name,
+        marketPrice: res.data.marketPrice,
+        discountPrice: res.data.discountPrice,
+        description: res.data.description,
+      })
+    );
     this.setState({
       product: res.data,
     });
@@ -51,11 +79,26 @@ class ProductUpdate extends Component {
     product[name] = newValue;
     this.setState({ product });
   };
+  ImageClick = (filename, e) => {
+    let deleteImages = [];
+    if (e.target.checked) {
+      deleteImages = [...this.state.deleteImages, filename];
+    } else {
+      deleteImages = this.state.deleteImages.filter((file) => filename != file);
+    }
+    this.setState({ deleteImages });
+  };
+  componentWillUnmount() {
+    this.props.dispatch(productFormUnmount());
+  }
+
   render() {
     const { handleSubmit, submitting, load } = this.props;
     const { product } = this.state;
-    const { productUpdate } = this.props.form;
-
+    const { isProductUpdated } = this.props.product;
+    if (isProductUpdated) {
+      return <Redirect to="/products" />;
+    }
     return (
       <div>
         <Navbar />
@@ -116,7 +159,18 @@ class ProductUpdate extends Component {
                   value={product.description}
                   component={RenderTextArea}
                 />
-
+                <Field
+                  name="image"
+                  type="file"
+                  addImage={this.addImage}
+                  component={ImageComponent}
+                />
+                {product.images && (
+                  <ImageUpdate
+                    images={product.images}
+                    ImageClick={this.ImageClick}
+                  />
+                )}
                 <Grid align="center">
                   <button
                     style={{
@@ -126,7 +180,7 @@ class ProductUpdate extends Component {
                     type="submit"
                     disabled={submitting}
                   >
-                    Add Product
+                    Update Product
                   </button>
                 </Grid>
               </form>

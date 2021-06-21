@@ -11,6 +11,8 @@ import ProductUpdate from './product/productUpdate';
 import productPage from './product/productPage';
 import Product from './product/product';
 import Cart from './cart/cart.js';
+import ImageComponent from './product/ImageCompnonent';
+import ImageUpdate from './product/ImageUpdate';
 export {
   Login,
   RenderTextInput,
@@ -27,4 +29,6 @@ export {
   ProductUpdate,
   Product,
   Cart,
+  ImageComponent,
+  ImageUpdate,
 };
