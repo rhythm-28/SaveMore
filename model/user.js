@@ -5,6 +5,7 @@ const productSchema = new mongoose.Schema({
   quantity: Number,
   price: Number,
   image: String,
+  id: Object,
 });
 const userSchema = new mongoose.Schema({
   email: {
