@@ -38,14 +38,12 @@ router.get("/api/user/logout", (req, res) => {
   res.send(req.user);
 });
 router.get("/add/product/:productId", requireLogin, async (req, res) => {
-  const product = await Product.findOne({
-    name: req.params.productId.replace("%20", " "),
-  });
+  const product = await Product.findById(req.params.productId);
   const user = await User.findById(req.user.id);
   const productInfo = await User.find(
     {
       _id: req.user.id,
-      "products.name": product.name,
+      "products.id": product._id,
     },
     { _id: 0, "products.$": 1 }
   );
@@ -53,7 +51,7 @@ router.get("/add/product/:productId", requireLogin, async (req, res) => {
     await User.updateOne(
       {
         _id: req.user.id,
-        "products.name": product.name,
+        "products.id": product._id,
       },
       {
         $set: {
@@ -67,7 +65,9 @@ router.get("/add/product/:productId", requireLogin, async (req, res) => {
       price: product.discountPrice,
       quantity: 1,
       image: product.images[0].url,
+      id: product._id,
     };
+
     user.products.push(bought);
     await user.save();
   }
@@ -75,14 +75,12 @@ router.get("/add/product/:productId", requireLogin, async (req, res) => {
   res.send(newUser.products);
 });
 router.get("/decrease/product/:productId", requireLogin, async (req, res) => {
-  const product = await Product.findOne({
-    name: req.params.productId.replace("%20", " "),
-  });
+  const product = await Product.findById(req.params.productId);
   const user = await User.findById(req.user.id);
   const productInfo = await User.find(
     {
       _id: req.user.id,
-      "products.name": product.name,
+      "products.id": product._id,
     },
     { _id: 0, "products.$": 1 }
   );
@@ -90,7 +88,7 @@ router.get("/decrease/product/:productId", requireLogin, async (req, res) => {
     await User.updateOne(
       {
         _id: req.user.id,
-        "products.name": product.name,
+        "products.id": product._id,
       },
       {
         $set: {
@@ -108,13 +106,11 @@ router.get("/decrease/product/:productId", requireLogin, async (req, res) => {
   res.send(newUser.products);
 });
 router.get("/remove/product/:productId", requireLogin, async (req, res) => {
-  const product = await Product.findOne({
-    name: req.params.productId.replace("%20", " "),
-  });
+  const product = await Product.findById(req.params.productId);
   const user = await User.findById(req.user.id);
   await User.updateOne(
     { _id: req.user.id },
-    { $pull: { products: { name: product.name } } }
+    { $pull: { products: { id: product._id } } }
   );
   const newUser = await User.findById(req.user.id);
   res.send(newUser.products);

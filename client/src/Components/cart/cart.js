@@ -65,14 +65,14 @@ class Cart extends React.Component {
       totalQty: 0,
     };
   }
-  addProductToCart = (name) => {
-    this.props.dispatch(userAddedProduct(name));
+  addProductToCart = (id) => {
+    this.props.dispatch(userAddedProduct(id));
   };
-  subtractProductFromCart = (name) => {
-    this.props.dispatch(userSubtractedProduct(name));
+  subtractProductFromCart = (id) => {
+    this.props.dispatch(userSubtractedProduct(id));
   };
-  removeProductFromCart = (name) => {
-    this.props.dispatch(userRemovedProduct(name));
+  removeProductFromCart = (id) => {
+    this.props.dispatch(userRemovedProduct(id));
   };
   totalQuantity = (products) => {
     let qty = 0;

@@ -30,24 +30,24 @@ class CartProduct extends React.Component {
 
           <div className="col-xl-6 col-lg-5 col-md-7">
             <div class="main-info">
-              <h3> {product.name}</h3>
-              <h2> Final Price: {product.price} </h2>
+              <h3>{product.name}</h3>
+              <h2>Final Price: {product.price}</h2>
             </div>
           </div>
           <div className="col-xl-3 col-lg-4 col-md-5 d-flex justify-content-center">
             <div class="quantity mx-auto">
               <h2> Quantity: {product.quantity}</h2>
-              <Button onClick={() => addProductToCart(product.name)}>
+              <Button onClick={() => addProductToCart(product.id)}>
                 {' '}
                 <AddCircleIcon size="medium" />{' '}
               </Button>
-              <Button onClick={() => subtractProductFromCart(product.name)}>
+              <Button onClick={() => subtractProductFromCart(product.id)}>
                 {' '}
                 <RemoveCircleIcon size="medium" />{' '}
               </Button>
               <Button
                 size="large"
-                onClick={() => removeProductFromCart(product.name)}
+                onClick={() => removeProductFromCart(product.id)}
               >
                 {' '}
                 <DeleteIcon />{' '}

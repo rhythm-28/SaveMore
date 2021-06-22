@@ -29,7 +29,7 @@ class productPage extends React.Component {
   };
   handleClick = async () => {
     const { match } = this.props;
-    this.props.dispatch(userAddedProduct(this.state.product.name));
+    this.props.dispatch(userAddedProduct(this.state.product._id));
     this.setState({ added: true });
   };
   render() {
