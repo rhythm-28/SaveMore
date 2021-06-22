@@ -36,7 +36,7 @@ button:focus {
 }
 
 .mainDiv {
-   background-color: #E99497;
+  background-color: #e99497;
 }
 
 .leftDivStyle {
@@ -65,15 +65,15 @@ button:focus {
   justify-content: space-between;
   align-items: center;
 }
-.carousel {
+#carouselProductPage .carousel {
   width: 360px;
   height: 360px;
 }
-.carousel-inner > .carousel-item {
+#carouselProductPage .carousel-inner > .carousel-item {
   height: 360px;
 }
 
-.carousel-card {
+#carouselProductPage .carousel-card {
   border-radius: 10%;
 }
 
@@ -90,7 +90,7 @@ button:focus {
 .card-title,
 .card-description {
   border-radius: 30px;
-   background-color: pink;
+  background-color: pink;
 }
 .ratings-button {
   background-color: #388e3c;
@@ -110,8 +110,8 @@ button:focus {
   font-size: 0.8rem;
 }
 
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
+#carouselProductPage .carousel-control-prev-icon,
+#carouselProductPage .carousel-control-next-icon {
   height: 100px;
   width: 100px;
   outline: black;
@@ -119,19 +119,18 @@ button:focus {
   background-image: none;
 }
 
-.carousel-control-next-icon:after {
+#carouselProductPage .carousel-control-next-icon:after {
   content: '>';
   font-size: 55px;
   color: red;
 }
 
-.carousel-control-prev-icon:after {
+#carouselProductPage .carousel-control-prev-icon:after {
   content: '<';
   font-size: 55px;
   color: red;
 }
 
-.main
-{
-  background-color: #E99497;
+.main {
+  background-color: #e99497;
 }

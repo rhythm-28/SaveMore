@@ -45,7 +45,7 @@ class productPage extends React.Component {
         <div className="row mainDiv justify-content-center">
           <div className="col-xl-4  col-md-7 col-sm-9 col-10 leftDivStyle mt-5 mb-0 py-0">
             <div className="card card-all carousel-card">
-              <div className="card-body">
+              <div className="card-body" id="carouselProductPage">
                 <Carousel images={product.images} />
                 {isLoggedIn && (
                   <div className="buttons">
