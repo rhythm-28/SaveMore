@@ -35,14 +35,7 @@ button.ghost {
 button:focus {
   outline: none;
 }
-#adminLogin,
-#adminSignup,
-#addProduct {
-  width: 35%;
-  margin: 0 auto;
-}
 
-.bolden
-{
-   font-weight: bold;
+.bolden {
+  font-weight: bold;
 }

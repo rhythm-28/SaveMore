@@ -102,90 +102,88 @@ class ProductUpdate extends Component {
     return (
       <div>
         <Navbar />
-        <div id="addProduct" className="my-4 paperStyle">
-          <Grid>
-            <Paper
-              elevation={10}
-              style={{ borderRadius: '5%' }}
-              className="paperStyle"
-            >
-              <form
-                method="GET"
-                onSubmit={handleSubmit(this.handleSubmit)}
-                encType="multipart/form-data"
-                style={{ height: '70%' }}
-                action="/products"
-                autoComplete="off"
-              >
-                <Grid align="center">
-                  <Avatar src={src} alt="Lock-img">
-                    {' '}
-                  </Avatar>
-                  <h1>Update Product</h1>
-                </Grid>
+        <div className="my-4 paperStyle row justify-content-center">
+          <div className="col-xl-5 col-lg-6 col-md-7 col-sm-8 col-10">
+            <Grid>
+              <Paper elevation={10} style={{ borderRadius: '5%' }}>
+                <form
+                  method="GET"
+                  onSubmit={handleSubmit(this.handleSubmit)}
+                  encType="multipart/form-data"
+                  action="/products"
+                  autoComplete="off"
+                  className="px-3"
+                >
+                  <Grid align="center">
+                    <Avatar src={src} alt="Lock-img">
+                      {' '}
+                    </Avatar>
+                    <h1>Update Product</h1>
+                  </Grid>
 
-                <Field
-                  name="name"
-                  label="Product Name"
-                  type="text"
-                  onChange={this.handleChange}
-                  Value={product.name}
-                  value={product.name}
-                  component={RenderTextInput}
-                />
-                <Field
-                  name="marketPrice"
-                  label="Market Price"
-                  type="number"
-                  onChange={this.handleChange}
-                  Value={product.marketPrice}
-                  value={product.marketPrice}
-                  component={RenderTextInput}
-                />
-                <Field
-                  name="discountPrice"
-                  label="Discount Price"
-                  type="number"
-                  onChange={this.handleChange}
-                  Value={product.discountPrice}
-                  value={product.discountPrice}
-                  component={RenderTextInput}
-                />
-                <Field
-                  name="description"
-                  label="Product Description"
-                  onChange={this.handleChange}
-                  Value={product.description}
-                  value={product.description}
-                  component={RenderTextArea}
-                />
-                <Field
-                  name="image"
-                  type="file"
-                  addImage={this.addImage}
-                  component={ImageComponent}
-                />
-                {product.images && (
-                  <ImageUpdate
-                    images={product.images}
-                    ImageClick={this.ImageClick}
+                  <Field
+                    name="name"
+                    label="Product Name"
+                    type="text"
+                    onChange={this.handleChange}
+                    Value={product.name}
+                    value={product.name}
+                    component={RenderTextInput}
                   />
-                )}
-                <Grid align="center">
-                  <button
-                    style={{
-                      marginBottom: '1rem',
-                      marginTop: '1rem',
-                    }}
-                    type="submit"
-                    disabled={submitting}
-                  >
-                    Update Product
-                  </button>
-                </Grid>
-              </form>
-            </Paper>
-          </Grid>
+                  <Field
+                    name="marketPrice"
+                    label="Market Price"
+                    type="number"
+                    onChange={this.handleChange}
+                    Value={product.marketPrice}
+                    value={product.marketPrice}
+                    component={RenderTextInput}
+                  />
+                  <Field
+                    name="discountPrice"
+                    label="Discount Price"
+                    type="number"
+                    onChange={this.handleChange}
+                    Value={product.discountPrice}
+                    value={product.discountPrice}
+                    component={RenderTextInput}
+                  />
+                  <Field
+                    name="description"
+                    label="Product Description"
+                    onChange={this.handleChange}
+                    Value={product.description}
+                    value={product.description}
+                    component={RenderTextArea}
+                  />
+                  <Field
+                    name="image"
+                    type="file"
+                    addImage={this.addImage}
+                    component={ImageComponent}
+                  />
+                  {product.images && (
+                    <ImageUpdate
+                      images={product.images}
+                      ImageClick={this.ImageClick}
+                    />
+                  )}
+                  <Grid align="center">
+                    <button
+                      style={{
+                        marginBottom: '1rem',
+                        marginTop: '1rem',
+                      }}
+                      type="submit"
+                      disabled={submitting}
+                    >
+                      Update Product
+                    </button>
+                  </Grid>
+                </form>
+              </Paper>
+            </Grid>
+          </div>
         </div>
       </div>
     );

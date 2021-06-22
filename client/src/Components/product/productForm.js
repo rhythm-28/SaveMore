@@ -57,73 +57,71 @@ class ProductForm extends Component {
     return (
       <div>
         <Navbar />
-        <div id="addProduct" className="my-4 paperStyle">
-          <Grid>
-            <Paper
-              elevation={10}
-              style={{ borderRadius: '5%' }}
-              className="paperStyle"
-            >
-              <form
-                method="GET"
-                onSubmit={handleSubmit(this.handleSubmit)}
-                className="formStyle"
-                encType="multipart/form-data"
-                style={{ height: '70%' }}
-                action="/products"
-              >
-                <Grid align="center">
-                  <Avatar src={src} alt="Lock-img">
-                    {' '}
-                  </Avatar>
-                  <h1>Add Product</h1>
-                </Grid>
+        <div className="my-4 paperStyle row justify-content-center">
+          <div className="col-xl-5 col-lg-6 col-md-7 col-sm-8 col-10">
+            <Grid>
+              <Paper elevation={10} style={{ borderRadius: '5%' }}>
+                <form
+                  method="GET"
+                  onSubmit={handleSubmit(this.handleSubmit)}
+                  className="formStyle px-3"
+                  encType="multipart/form-data"
+                  style={{ height: '70%' }}
+                  action="/products"
+                >
+                  <Grid align="center">
+                    <Avatar src={src} alt="Lock-img">
+                      {' '}
+                    </Avatar>
+                    <h1>Add Product</h1>
+                  </Grid>
 
-                <Field
-                  name="name"
-                  label="Product Name"
-                  type="text"
-                  component={RenderTextInput}
-                />
-                <Field
-                  name="marketPrice"
-                  label="Market Price"
-                  type="number"
-                  component={RenderTextInput}
-                />
-                <Field
-                  name="discountPrice"
-                  label="Discount Price"
-                  type="number"
-                  component={RenderTextInput}
-                />
-                <Field
-                  name="description"
-                  label="Product Description"
-                  component={RenderTextArea}
-                />
-                <Field
-                  name="image"
-                  type="file"
-                  addImage={this.onImageChange}
-                  component={ImageComponent}
-                />
+                  <Field
+                    name="name"
+                    label="Product Name"
+                    type="text"
+                    component={RenderTextInput}
+                  />
+                  <Field
+                    name="marketPrice"
+                    label="Market Price"
+                    type="number"
+                    component={RenderTextInput}
+                  />
+                  <Field
+                    name="discountPrice"
+                    label="Discount Price"
+                    type="number"
+                    component={RenderTextInput}
+                  />
+                  <Field
+                    name="description"
+                    label="Product Description"
+                    component={RenderTextArea}
+                  />
+                  <Field
+                    name="image"
+                    type="file"
+                    addImage={this.onImageChange}
+                    component={ImageComponent}
+                  />
 
-                <Grid align="center">
-                  <button
-                    style={{
-                      marginBottom: '1rem',
-                      marginTop: '1rem',
-                    }}
-                    type="submit"
-                    disabled={submitting}
-                  >
-                    Add Product
-                  </button>
-                </Grid>
-              </form>
-            </Paper>
-          </Grid>
+                  <Grid align="center">
+                    <button
+                      style={{
+                        marginBottom: '1rem',
+                        marginTop: '1rem',
+                      }}
+                      type="submit"
+                      disabled={submitting}
+                    >
+                      Add Product
+                    </button>
+                  </Grid>
+                </form>
+              </Paper>
+            </Grid>
+          </div>
         </div>
       </div>
     );

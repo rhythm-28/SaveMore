@@ -38,96 +38,99 @@ class AdminSignup extends Component {
     return (
       <div>
         <Navbar />
-        <div id="adminSignup" className="my-3">
-          <div>
-            {/* {isLoggedIn && <div>Successfully Logged In</div>} */}
-            <Grid>
-              <Paper elevation={10} className="paperStyle">
-                <form
-                  method="Post"
-                  onSubmit={handleSubmit(this.handleSubmit)}
-                  style={{ padding: '1rem' }}
-                >
-                  <Grid align="center">
-                    <Avatar src={src} alt="Lock-img">
-                      {' '}
-                    </Avatar>
-                    <h1> Tell Us About your Bussiness </h1>
-                  </Grid>
-                  <Field
-                    name="storeName"
-                    label="Store Name"
-                    type="text"
-                    component={RenderTextInput}
-                  />
-                  <Field
-                    name="category"
-                    label="Category"
-                    component={RenderTextSelect}
+        <div className="my-4 paperStyle row justify-content-center">
+          <div className="col-xl-5 col-lg-6 col-md-7 col-sm-8 col-10">
+            <div>
+              {/* {isLoggedIn && <div>Successfully Logged In</div>} */}
+              <Grid>
+                <Paper elevation={10} style={{ borderRadius: '5%' }}>
+                  <form
+                    method="Post"
+                    onSubmit={handleSubmit(this.handleSubmit)}
+                    style={{ padding: '1rem' }}
+                    className="px-3"
                   >
-                    {sectors.map((sector) => (
-                      <MenuItem key={sector} value={sector}>
-                        {sector}
-                      </MenuItem>
-                    ))}
-                  </Field>
-                  <Field
-                    name="pinCode"
-                    label="Pincode"
-                    type="number"
-                    component={RenderTextInput}
-                  />
-                  <Field
-                    name="address"
-                    label="Address"
-                    type="text"
-                    component={RenderTextInput}
-                  />
-                  <Field
-                    name="city"
-                    label="City"
-                    type="text"
-                    component={RenderTextInput}
-                  />
-                  <Field
-                    name="state"
-                    label="State"
-                    type="text"
-                    component={RenderTextInput}
-                  />
-                  <Field
-                    name="country"
-                    label="Country"
-                    type="text"
-                    component={RenderTextInput}
-                  />
-                  <Field
-                    name="gstIn"
-                    label="GST registration number"
-                    type="text"
-                    component={RenderTextInput}
-                  />
-                  {/*<button type="submit" disabled={submitting}>
+                    <Grid align="center">
+                      <Avatar src={src} alt="Lock-img">
+                        {' '}
+                      </Avatar>
+                      <h1> Tell Us About your Bussiness </h1>
+                    </Grid>
+                    <Field
+                      name="storeName"
+                      label="Store Name"
+                      type="text"
+                      component={RenderTextInput}
+                    />
+                    <Field
+                      name="category"
+                      label="Category"
+                      component={RenderTextSelect}
+                    >
+                      {sectors.map((sector) => (
+                        <MenuItem key={sector} value={sector}>
+                          {sector}
+                        </MenuItem>
+                      ))}
+                    </Field>
+                    <Field
+                      name="pinCode"
+                      label="Pincode"
+                      type="number"
+                      component={RenderTextInput}
+                    />
+                    <Field
+                      name="address"
+                      label="Address"
+                      type="text"
+                      component={RenderTextInput}
+                    />
+                    <Field
+                      name="city"
+                      label="City"
+                      type="text"
+                      component={RenderTextInput}
+                    />
+                    <Field
+                      name="state"
+                      label="State"
+                      type="text"
+                      component={RenderTextInput}
+                    />
+                    <Field
+                      name="country"
+                      label="Country"
+                      type="text"
+                      component={RenderTextInput}
+                    />
+                    <Field
+                      name="gstIn"
+                      label="GST registration number"
+                      type="text"
+                      component={RenderTextInput}
+                    />
+                    {/*<button type="submit" disabled={submitting}>
                     Submit
                   </button>*/}
 
-                  <Button
-                    style={{
-                      marginBottom: '1rem',
-                      marginTop: '1rem',
-                      color: '#23DCBB',
-                    }}
-                    type="submit"
-                    variant="contained"
-                    color="secondary"
-                    disabled={submitting}
-                    fullWidth
-                  >
-                    Register
-                  </Button>
-                </form>
-              </Paper>
-            </Grid>
+                    <Button
+                      style={{
+                        marginBottom: '1rem',
+                        marginTop: '1rem',
+                        color: '#23DCBB',
+                      }}
+                      type="submit"
+                      variant="contained"
+                      color="secondary"
+                      disabled={submitting}
+                      fullWidth
+                    >
+                      Register
+                    </Button>
+                  </form>
+                </Paper>
+              </Grid>
+            </div>
           </div>
         </div>
       </div>
