@@ -94,7 +94,7 @@ class ProductUpdate extends Component {
 
   render() {
     const { handleSubmit, submitting, load } = this.props;
-    const { product } = this.state;
+    const { product, deleteImages } = this.state;
     const { isProductUpdated } = this.props.product;
     if (isProductUpdated) {
       return <Redirect to="/products" />;
@@ -148,6 +148,12 @@ class ProductUpdate extends Component {
                     value={product.discountPrice}
                     component={RenderTextInput}
                   />
+                  <label
+                    for="exampleFormControlInput1"
+                    class="form-label mb-0 pb-0 text-dark fw-bold"
+                  >
+                    Product Description
+                  </label>
                   <Field
                     name="description"
                     label="Product Description"
@@ -165,6 +171,7 @@ class ProductUpdate extends Component {
                   {product.images && (
                     <ImageUpdate
                       images={product.images}
+                      deleteImages={deleteImages}
                       ImageClick={this.ImageClick}
                     />
                   )}
