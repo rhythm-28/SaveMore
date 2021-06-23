@@ -43,7 +43,7 @@ class ProductUpdate extends Component {
   }
   handleSubmit = (values) => {
     const { dispatch, match } = this.props;
-    const { files, deleteImages } = this.state;
+    const { files, deleteImages, product } = this.state;
     const fd = new FormData();
     for (let image of deleteImages) {
       fd.append('deleteImages', image);
@@ -51,8 +51,10 @@ class ProductUpdate extends Component {
     for (let key in Object.keys(files)) {
       fd.append('image', files[key]);
     }
-    for (let key in values) {
-      fd.append(key, values[key]);
+    for (let key in product) {
+      if (key !== '_id' && key !== 'images' && key !== '__v') {
+        fd.append(key, product[key]);
+      }
     }
     dispatch(productUpdate(fd, match.params.productId));
   };
