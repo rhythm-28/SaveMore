@@ -13,6 +13,7 @@ import Product from './product/product';
 import Cart from './cart/cart.js';
 import ImageComponent from './product/ImageCompnonent';
 import ImageUpdate from './product/ImageUpdate';
+import AdminUpdate from './admin/edit';
 export {
   Login,
   RenderTextInput,
@@ -31,4 +32,5 @@ export {
   Cart,
   ImageComponent,
   ImageUpdate,
+  AdminUpdate,
 };

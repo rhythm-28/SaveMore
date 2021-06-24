@@ -119,4 +119,8 @@ router.get("/get/user/products", requireLogin, async (req, res) => {
   const user = await User.findById(req.user.id);
   res.send(user.products);
 });
+// router.get("/user/admin", async (req, res) => {
+//   const user = await User.findOne({ username: "Ridam" }).populate("admin");
+//   console.log(req.user.admin);
+// });
 module.exports = router;

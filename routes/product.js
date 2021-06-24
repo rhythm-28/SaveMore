@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
+const { requireLogin, isAdmin } = require("../middlewares");
 const multer = require("multer");
 const { cloudinary, storage } = require("../cloudinary");
-const { requireLogin, isAdmin } = require("../middlewares");
 const upload = multer({ storage });
 const Product = require("../model/product");
 router.post(
@@ -17,7 +17,9 @@ router.post(
       images.push({ url: file.path, filename: file.filename });
     });
     product.images.push(...images);
+    product.admin = req.user.admin;
     await product.save();
+
     res.send(product);
   }
 );

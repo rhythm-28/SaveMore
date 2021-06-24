@@ -10,5 +10,9 @@ const productSchema = new Schema({
   discountPrice: Number,
   description: String,
   images: [ImageSchema],
+  admin: {
+    type: Schema.Types.ObjectId,
+    ref: "Admin",
+  },
 });
 module.exports = mongoose.model("Product", productSchema);

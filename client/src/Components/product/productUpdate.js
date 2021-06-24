@@ -56,6 +56,7 @@ class ProductUpdate extends Component {
         fd.append(key, product[key]);
       }
     }
+
     dispatch(productUpdate(fd, match.params.productId));
   };
   addImage = (e) => {
@@ -168,6 +169,8 @@ class ProductUpdate extends Component {
                     name="image"
                     type="file"
                     addImage={this.addImage}
+                    multipleImages={true}
+                    heading="Add Images"
                     component={ImageComponent}
                   />
                   {product.images && (

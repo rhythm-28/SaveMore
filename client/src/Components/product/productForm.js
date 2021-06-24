@@ -103,6 +103,8 @@ class ProductForm extends Component {
                     name="image"
                     type="file"
                     addImage={this.onImageChange}
+                    multipleImages={true}
+                    heading="Add Images"
                     component={ImageComponent}
                   />
 
