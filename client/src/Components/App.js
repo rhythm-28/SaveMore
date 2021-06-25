@@ -8,6 +8,7 @@ import {
   productPage,
   Cart,
   ProductUpdate,
+  AdminUpdate,
 } from './';
 import {
   BrowserRouter as Router,
@@ -42,10 +43,10 @@ function AdminRoute(props) {
       render={(props) => {
         return isLoggedIn && isAdmin ? (
           <Component {...props} />
+        ) : isLoggedIn && !isAdmin ? (
+          <Redirect to={{ pathname: '/admin/signup', state: { from: path } }} />
         ) : (
-          <Redirect
-            to={{ pathname: '/user/auth', state: { from: props.location } }}
-          />
+          <Redirect to={{ pathname: '/user/auth', state: { from: path } }} />
         );
       }}
     />
@@ -73,19 +74,27 @@ class App extends Component {
               isLoggedIn={isLoggedIn}
               isAdmin={isAdmin}
             />
+            <AdminRoute
+              path="/admin/update"
+              isLoggedIn={isLoggedIn}
+              isAdmin={isAdmin}
+              Component={AdminUpdate}
+            />
             <Route path="/user/auth" component={UserForm} />
             <PrivateRoute
               path="/admin/signup"
               Component={adminSignup}
               isLoggedIn={isLoggedIn}
             />
-            <Route
+            <AdminRoute
               exact
               path="/product/:productId/edit"
-              component={ProductUpdate}
+              Component={ProductUpdate}
               isLoggedIn={isLoggedIn}
+              isAdmin={isAdmin}
             />
             <Route exact path="/product/:productId" component={productPage} />
+
             <PrivateRoute
               path="/user/cart"
               Component={Cart}

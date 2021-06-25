@@ -6,12 +6,15 @@ import {
   Add_User_Data,
   User_Logout,
   Admin_Signup_Success,
+  Success_Message_Flashed,
+  Error_Message_Flashed,
 } from '../actions/actionType';
 const initialState = {
   user: {},
   isLoggedIn: false,
-  err: null,
+  err: '',
   isAdmin: false,
+  userMessage: '',
 };
 export default function authReducer(state = initialState, action) {
   switch (action.type) {
@@ -21,12 +24,13 @@ export default function authReducer(state = initialState, action) {
         isLoggedIn: true,
         isAdmin: action.user.isAdmin,
         user: action.user,
+        userMessage: 'Welcome Back',
       };
     case Login_Failed:
       return {
         ...state,
         isLoggedIn: false,
-        err: action.error,
+        err: action.err,
       };
     case Signup_Success:
       return {
@@ -34,12 +38,13 @@ export default function authReducer(state = initialState, action) {
         isLoggedIn: true,
         isAdmin: false,
         user: action.user,
+        userMessage: 'Welcome to Save More!',
       };
     case Signup_Failed:
       return {
         ...state,
         isLoggedIn: false,
-        err: action.error,
+        err: action.err,
       };
     case Add_User_Data:
       return {
@@ -59,7 +64,16 @@ export default function authReducer(state = initialState, action) {
         ...state,
         isAdmin: true,
       };
-
+    case Success_Message_Flashed:
+      return {
+        ...state,
+        userMessage: '',
+      };
+    case Error_Message_Flashed:
+      return {
+        ...state,
+        err: '',
+      };
     default:
       return state;
   }

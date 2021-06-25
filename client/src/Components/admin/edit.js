@@ -3,6 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { sectors } from '../../helpers/util';
 import { Redirect } from 'react-router-dom';
+import axios from 'axios';
 import {
   Grid,
   Button,
@@ -14,43 +15,45 @@ import {
 
 import { RenderTextInput, RenderTextSelect, Navbar, Flash } from '..';
 import { adminSignupValidate } from '../../helpers/validate';
-import { adminSignup } from '../../actions/admin';
-import { ImageComponent } from '..';
+import { adminUpdate, adminUnmount } from '../../actions/admin';
+import { load as loadAccount } from '../../actions/product';
 import '../../stylesheets/styles.css';
 
 const src =
   'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGc+DQoJPGc+DQoJCTxwYXRoIGQ9Ik00MzcuMzMzLDE5MmgtMzJ2LTQyLjY2N0M0MDUuMzMzLDY2Ljk5LDMzOC4zNDQsMCwyNTYsMFMxMDYuNjY3LDY2Ljk5LDEwNi42NjcsMTQ5LjMzM1YxOTJoLTMyDQoJCQlDNjguNzcxLDE5Miw2NCwxOTYuNzcxLDY0LDIwMi42Njd2MjY2LjY2N0M2NCw0OTIuODY1LDgzLjEzNSw1MTIsMTA2LjY2Nyw1MTJoMjk4LjY2N0M0MjguODY1LDUxMiw0NDgsNDkyLjg2NSw0NDgsNDY5LjMzMw0KCQkJVjIwMi42NjdDNDQ4LDE5Ni43NzEsNDQzLjIyOSwxOTIsNDM3LjMzMywxOTJ6IE0yODcuOTM4LDQxNC44MjNjMC4zMzMsMy4wMS0wLjYzNSw2LjAzMS0yLjY1Niw4LjI5Mg0KCQkJYy0yLjAyMSwyLjI2LTQuOTE3LDMuNTUyLTcuOTQ4LDMuNTUyaC00Mi42NjdjLTMuMDMxLDAtNS45MjctMS4yOTItNy45NDgtMy41NTJjLTIuMDIxLTIuMjYtMi45OS01LjI4MS0yLjY1Ni04LjI5Mmw2LjcyOS02MC41MQ0KCQkJYy0xMC45MjctNy45NDgtMTcuNDU4LTIwLjUyMS0xNy40NTgtMzQuMzEzYzAtMjMuNTMxLDE5LjEzNS00Mi42NjcsNDIuNjY3LTQyLjY2N3M0Mi42NjcsMTkuMTM1LDQyLjY2Nyw0Mi42NjcNCgkJCWMwLDEzLjc5Mi02LjUzMSwyNi4zNjUtMTcuNDU4LDM0LjMxM0wyODcuOTM4LDQxNC44MjN6IE0zNDEuMzMzLDE5MkgxNzAuNjY3di00Mi42NjdDMTcwLjY2NywxMDIuMjgxLDIwOC45NDgsNjQsMjU2LDY0DQoJCQlzODUuMzMzLDM4LjI4MSw4NS4zMzMsODUuMzMzVjE5MnoiLz4NCgk8L2c+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==';
 
-class AdminSignup extends Component {
+class AdminUpdate extends Component {
   constructor() {
     super();
     this.state = {
-      file: {},
+      admin: {},
     };
   }
-  addImage = (e) => {
-    this.setState({
-      file: e.target.files[0],
-    });
-  };
   handleSubmit = (values) => {
     const { dispatch } = this.props;
-    const fd = new FormData();
-    fd.append('image', this.state.file);
-    for (let key in values) {
-      console.log(key);
-      fd.append(key, values[key]);
-    }
-    dispatch(adminSignup(fd));
+    dispatch(adminUpdate(this.state.admin));
+    //dispatch(adminSignup(values));
+  };
+  handleChange = (event, newValue, previousValue, name) => {
+    const { admin } = this.state;
+    admin[name] = newValue;
+    this.setState({ admin });
+  };
+  componentDidMount = async () => {
+    const admin = await axios.get('/api/currentAdmin');
+    this.props.dispatch(loadAccount(admin.data));
+    this.setState({ admin: admin.data });
+  };
+  componentWillUnmount = async () => {
+    this.props.dispatch(adminUnmount());
   };
   render() {
     const { handleSubmit, submitting } = this.props;
-    const { isAdmin } = this.props.authUser;
-    const { from } = this.props.location.state || {
-      from: { pathname: '/products' },
-    };
-    if (isAdmin) {
-      return <Redirect to={from} />;
+    const { admin } = this.state;
+    const { isAdminUpdated } = this.props.authAdmin;
+    console.log(admin);
+    if (isAdminUpdated) {
+      return <Redirect to="/products" />;
     }
     return (
       <div>
@@ -72,18 +75,22 @@ class AdminSignup extends Component {
                       <Avatar src={src} alt="Lock-img">
                         {' '}
                       </Avatar>
-                      <h1> Tell Us About your Bussiness </h1>
+                      <h1> Edit Your Details </h1>
                     </Grid>
                     <Field
                       name="storeName"
                       label="Store Name"
                       type="text"
+                      Value={admin.storeName}
+                      value={admin.storeName}
+                      onChange={this.handleChange}
                       component={RenderTextInput}
                     />
                     <Field
                       name="category"
                       label="Category"
                       component={RenderTextSelect}
+                      onChange={this.handleChange}
                     >
                       {sectors.map((sector) => (
                         <MenuItem key={sector} value={sector}>
@@ -95,45 +102,55 @@ class AdminSignup extends Component {
                       name="pinCode"
                       label="Pincode"
                       type="number"
+                      Value={admin.pinCode}
+                      value={admin.pinCode}
+                      onChange={this.handleChange}
                       component={RenderTextInput}
                     />
                     <Field
                       name="address"
                       label="Address"
                       type="text"
+                      Value={admin.address}
+                      value={admin.address}
+                      onChange={this.handleChange}
                       component={RenderTextInput}
                     />
                     <Field
                       name="city"
                       label="City"
                       type="text"
+                      Value={admin.city}
+                      value={admin.city}
+                      onChange={this.handleChange}
                       component={RenderTextInput}
                     />
                     <Field
                       name="state"
                       label="State"
                       type="text"
+                      Value={admin.state}
+                      value={admin.state}
+                      onChange={this.handleChange}
                       component={RenderTextInput}
                     />
                     <Field
                       name="country"
                       label="Country"
                       type="text"
+                      Value={admin.country}
+                      value={admin.country}
+                      onChange={this.handleChange}
                       component={RenderTextInput}
                     />
                     <Field
                       name="gstIn"
                       label="GST registration number"
                       type="text"
+                      Value={admin.gstIn}
+                      value={admin.gstIn}
+                      onChange={this.handleChange}
                       component={RenderTextInput}
-                    />
-                    <Field
-                      name="image"
-                      type="file"
-                      addImage={this.addImage}
-                      multipleImages={false}
-                      heading="Store Logo"
-                      component={ImageComponent}
                     />
                     {/*<button type="submit" disabled={submitting}>
                     Submit
@@ -142,7 +159,7 @@ class AdminSignup extends Component {
                     <Button
                       style={{
                         marginBottom: '1rem',
-                        marginTop: '1.5rem',
+                        marginTop: '1rem',
                         color: '#23DCBB',
                       }}
                       type="submit"
@@ -151,7 +168,7 @@ class AdminSignup extends Component {
                       disabled={submitting}
                       fullWidth
                     >
-                      Register
+                      Edit Details
                     </Button>
                   </form>
                 </Paper>
@@ -163,11 +180,11 @@ class AdminSignup extends Component {
     );
   }
 }
-const AdminSignupForm = reduxForm({
+const AdminUpdateForm = reduxForm({
   form: 'adminSignup', // a unique identifier for this form
   validate: adminSignupValidate,
-})(AdminSignup);
-const mapStatetoProps = ({ authAdmin, authUser }) => {
-  return { authAdmin, authUser };
+})(AdminUpdate);
+const mapStatetoProps = ({ authAdmin, authUser, account }) => {
+  return { authAdmin, authUser, initialValues: account.data };
 };
-export default connect(mapStatetoProps)(AdminSignupForm);
+export default connect(mapStatetoProps, { load: loadAccount })(AdminUpdateForm);

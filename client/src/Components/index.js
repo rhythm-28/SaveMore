@@ -13,6 +13,9 @@ import Product from './product/product';
 import Cart from './cart/cart.js';
 import ImageComponent from './product/ImageCompnonent';
 import ImageUpdate from './product/ImageUpdate';
+import AdminUpdate from './admin/edit';
+import Flash from './flash';
+import Carousel from './product/Carousel';
 export {
   Login,
   RenderTextInput,
@@ -31,4 +34,7 @@ export {
   Cart,
   ImageComponent,
   ImageUpdate,
+  AdminUpdate,
+  Flash,
+  Carousel,
 };

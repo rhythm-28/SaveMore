@@ -7,8 +7,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { userAddedProduct } from '../../actions/cart';
-import Navbar from '../navbar';
-import Carousel from './Carousel';
+import { Navbar, Carousel, Flash } from '../';
 
 import Styles from '../../stylesheets/productPage.css';
 
@@ -42,6 +41,7 @@ class productPage extends React.Component {
     return (
       <div>
         <Navbar />
+        <Flash />
         <div className="row mainDiv justify-content-center">
           <div className="col-xl-4  col-md-7 col-sm-9 col-10 leftDivStyle mt-5 mb-0 py-0">
             <div className="card card-all carousel-card">

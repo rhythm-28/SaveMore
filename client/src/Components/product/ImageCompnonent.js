@@ -1,12 +1,12 @@
-const ImageComponent = ({ addImage }) => {
+const ImageComponent = ({ addImage, multipleImages, heading }) => {
   return (
-    <span>
-      <h5>Add An Image</h5>
+    <span class="mb-2">
+      <h5>{heading}</h5>
       <input
         type="file"
         accept="image/*"
         onChange={(e) => addImage(e)}
-        multiple
+        multiple={multipleImages}
       />
     </span>
   );

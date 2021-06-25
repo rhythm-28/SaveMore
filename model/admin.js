@@ -1,16 +1,22 @@
 const mongoose = require("mongoose");
-const adminSchema = mongoose.Schema({
+const Schema = mongoose.Schema;
+const ImageSchema = new Schema({
+  url: String,
+  filename: String,
+});
+const adminSchema = new Schema({
   storeName: {
     type: String,
     required: true,
   },
   category: String,
-  pincode: Number,
+  pinCode: Number,
   address: String,
   city: String,
   state: String,
   country: String,
-  gstRegistrationNumber: String
+  gstIn: String,
+  image: ImageSchema,
 });
 
-module.exports = mongoose.model("Admin", adminSchema)
+module.exports = mongoose.model("Admin", adminSchema);

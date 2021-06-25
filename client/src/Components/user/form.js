@@ -2,7 +2,7 @@
 import React from 'react';
 
 // components
-import { Login, Signup, Navbar } from '../';
+import { Login, Signup, Navbar, Flash } from '../';
 
 // stylesheet
 import slidingStyles from '../../stylesheets/slidingStyles.css';
@@ -21,6 +21,7 @@ function UserForm(props) {
   return (
     <div>
       <Navbar />
+      <Flash />
       <div class="container mt-5" id="container">
         <div class="form-container sign-up-container">
           <Signup {...props} />

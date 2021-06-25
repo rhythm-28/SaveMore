@@ -5,11 +5,13 @@ const User = require("../model/user");
 const { requireLogin } = require("../middlewares");
 const Product = require("../model/product");
 const ExpressError = require("../utils/ExpressError");
+const catchAsync = require("../utils/catchAsync");
 router.post("/api/user/login", passport.authenticate("local"), (req, res) => {
   res.send(req.user);
 });
-router.post("/api/user/signup", async (req, res) => {
-  try {
+router.post(
+  "/api/user/signup",
+  catchAsync(async (req, res, next) => {
     const { username, email, password, firstName, lastName } = req.body;
     const isAdmin = false;
     const user = new User({ username, email, firstName, lastName, isAdmin });
@@ -21,10 +23,8 @@ router.post("/api/user/signup", async (req, res) => {
         res.send(newUser);
       }
     });
-  } catch (err) {
-    res.send({ error: err });
-  }
-});
+  })
+);
 router.get("/api/currentUser", (req, res) => {
   if (req.user) {
     res.send(req.user);
@@ -119,4 +119,8 @@ router.get("/get/user/products", requireLogin, async (req, res) => {
   const user = await User.findById(req.user.id);
   res.send(user.products);
 });
+// router.get("/user/admin", async (req, res) => {
+//   const user = await User.findOne({ username: "Ridam" }).populate("admin");
+//   console.log(req.user.admin);
+// });
 module.exports = router;

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { Grid, Button, Paper, Avatar, TextField } from '@material-ui/core/';
-
+import { Redirect } from 'react-router-dom';
 import { RenderTextInput } from '../';
 import { signupValidate } from '../../helpers/validate';
 import { signup } from '../../actions/user';
@@ -23,6 +23,9 @@ class Signup extends Component {
   render() {
     const { handleSubmit, submitting } = this.props;
     const { isLoggedIn } = this.props.authUser;
+    if (isLoggedIn) {
+      return <Redirect to="/" />;
+    }
     return (
       <div>
         <div>

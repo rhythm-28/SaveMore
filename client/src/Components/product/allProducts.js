@@ -2,8 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import Navbar from '../navbar';
-import Product from './product';
+import { Navbar, Product, Flash } from '../';
 
 import styles from '../../stylesheets/styles.css';
 import '../../stylesheets/allProducts.css';
@@ -27,6 +26,7 @@ class allProducts extends React.Component {
     return (
       <div>
         <Navbar />
+        <Flash />
         <div
           className="row justify-content-around mt-3 d-flex"
           id="allProducts"

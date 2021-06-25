@@ -49,7 +49,6 @@ export const productAdd = (fd) => {
         dispatch(addProductSuccess());
       })
       .catch((error) => {
-        console.log('Product Not Added');
         dispatch(addProductFailed(error.response.data));
       });
   };
@@ -69,7 +68,6 @@ export const productUpdate = (fd, id) => {
         dispatch(updateProductSuccess());
       })
       .catch((error) => {
-        console.log('Product Not Added');
         dispatch(updateProductFailed(error.response.data));
       });
   };

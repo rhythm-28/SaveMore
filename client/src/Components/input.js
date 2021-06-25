@@ -48,7 +48,7 @@ export const RenderTextInput = createRenderInput(
   }
 );
 export const RenderTextSelect = createRenderInput(
-  (input, label, { children }, error) => {
+  (input, label, { children, Value }, error) => {
     return (
       <div>
         <FormControl

@@ -14,7 +14,13 @@ import {
   Box,
 } from '@material-ui/core/';
 
-import { RenderTextInput, RenderTextArea, Navbar, ImageComponent } from '..';
+import {
+  RenderTextInput,
+  RenderTextArea,
+  Navbar,
+  ImageComponent,
+  Flash,
+} from '..';
 import { productAdd, productFormUnmount } from '../../actions/product';
 
 import '../../stylesheets/styles.css';
@@ -57,6 +63,7 @@ class ProductForm extends Component {
     return (
       <div>
         <Navbar />
+        <Flash />
         <div className="my-4 paperStyle row justify-content-center">
           <div className="col-xl-5 col-lg-6 col-md-7 col-sm-8 col-10">
             <Grid>
@@ -103,6 +110,8 @@ class ProductForm extends Component {
                     name="image"
                     type="file"
                     addImage={this.onImageChange}
+                    multipleImages={true}
+                    heading="Add Images"
                     component={ImageComponent}
                   />
 

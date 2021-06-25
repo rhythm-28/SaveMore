@@ -29,7 +29,7 @@ function Product(props) {
           component="img"
           alt="iPhone"
           height="180"
-          image={product.images[0].url}
+          image={product.images.length ? product.images[0].url : ''}
           title={product.name}
         />
         <CardContent>
