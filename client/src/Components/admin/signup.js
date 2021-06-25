@@ -12,7 +12,7 @@ import {
   MenuItem,
 } from '@material-ui/core/';
 
-import { RenderTextInput, RenderTextSelect, Navbar } from '..';
+import { RenderTextInput, RenderTextSelect, Navbar, Flash } from '..';
 import { adminSignupValidate } from '../../helpers/validate';
 import { adminSignup } from '../../actions/admin';
 import { ImageComponent } from '..';
@@ -55,6 +55,7 @@ class AdminSignup extends Component {
     return (
       <div>
         <Navbar />
+        <Flash />
         <div className="my-4 paperStyle row justify-content-center">
           <div className="col-xl-5 col-lg-6 col-md-7 col-sm-8 col-10">
             <div>

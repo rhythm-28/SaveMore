@@ -11,7 +11,7 @@ import {
   userSubtractedProduct,
   userRemovedProduct,
 } from '../../actions/cart.js';
-import Navbar from '../navbar.js';
+import { Navbar, Flash } from '../index';
 
 import styles from '../../stylesheets/cart.css';
 
@@ -99,6 +99,7 @@ class Cart extends React.Component {
     return (
       <div>
         <Navbar />
+        <Flash />
         <div class="bg-color">
           <h1 class="cart-heading">
             {' '}

@@ -27,3 +27,6 @@ export const User_Removed_Product = 'User_Removed_Product';
 export const Add_User_Products = 'Add_User_Products';
 
 export const LOAD = 'redux-form-examples/account/LOAD';
+
+export const Error_Message_Flashed = 'Error_Message_Flashed';
+export const Success_Message_Flashed = 'Success_Message_Flashed';

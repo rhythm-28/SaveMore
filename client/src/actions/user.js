@@ -31,7 +31,13 @@ export function login(user) {
       .post(`/api/user/login`, user, config)
       .then((data) => dispatch(loginSuccess(data.data)))
       .catch((err) => {
-        dispatch(loginFailed('Invalid username and password'));
+        dispatch(
+          loginFailed(
+            err.response.data === 'Unauthorized'
+              ? 'Invalid username or password'
+              : err.response.data
+          )
+        );
       });
   };
 }
@@ -51,9 +57,12 @@ export function signup(user) {
   return (dispatch) => {
     axios
       .post(`/api/user/signup`, user, config)
-      .then((data) => dispatch(signupSuccess(data.data)))
+      .then((data) => {
+        console.log('then', data.data);
+        dispatch(signupSuccess(data.data));
+      })
       .catch((err) => {
-        dispatch(signupFailed('User already Exist'));
+        dispatch(signupFailed(err.response.data));
       });
   };
 }

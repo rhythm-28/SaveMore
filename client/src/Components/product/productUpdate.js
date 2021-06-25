@@ -21,6 +21,7 @@ import {
   Navbar,
   ImageComponent,
   ImageUpdate,
+  Flash,
 } from '..';
 import {
   load as loadAccount,
@@ -99,12 +100,14 @@ class ProductUpdate extends Component {
     const { handleSubmit, submitting, load } = this.props;
     const { product, deleteImages } = this.state;
     const { isProductUpdated } = this.props.product;
+    console.log('Product Images', product.images);
     if (isProductUpdated) {
       return <Redirect to="/products" />;
     }
     return (
       <div>
         <Navbar />
+        <Flash />
         <div className="my-4 paperStyle row justify-content-center">
           <div className="col-xl-5 col-lg-6 col-md-7 col-sm-8 col-10">
             <Grid>
@@ -173,12 +176,14 @@ class ProductUpdate extends Component {
                     heading="Add Images"
                     component={ImageComponent}
                   />
-                  {product.images && (
+                  {product.images && product.images.length ? (
                     <ImageUpdate
                       images={product.images}
                       deleteImages={deleteImages}
                       ImageClick={this.ImageClick}
                     />
+                  ) : (
+                    ''
                   )}
                   <Grid align="center">
                     <button

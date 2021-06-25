@@ -53,6 +53,7 @@ export function adminUpdate(admin) {
       .post('/api/admin/update', admin, config)
       .then((res) => dispatch(adminUpdateSuccess(res.data)))
       .catch((error) => {
+        console.log('Error', error);
         dispatch(adminUpdateFailed(error.response.data));
       });
   };
