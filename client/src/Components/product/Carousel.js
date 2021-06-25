@@ -5,7 +5,15 @@ import Navbar from '../navbar';
 import Styles from '../../stylesheets/productPage.css';
 
 function Carousel(props) {
-  const { images } = props;
+  let { images } = props;
+  images = images.length
+    ? images
+    : [
+        {
+          url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/600px-No_image_available.svg.png',
+        },
+      ];
+  console.log(images);
   return (
     <div class="d-flex justify-content-center">
       <div

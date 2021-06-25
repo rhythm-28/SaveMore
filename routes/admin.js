@@ -1,6 +1,7 @@
 const express = require("express");
 const Admin = require("../model/admin");
 const User = require("../model/user");
+const Product = require("../model/product");
 const router = express.Router();
 const { requireLogin, isAdmin } = require("../middlewares");
 const multer = require("multer");
@@ -39,6 +40,16 @@ router.post(
       ...req.body,
     });
     res.send(newAdmin);
+  })
+);
+router.get(
+  "/api/admin/products",
+  requireLogin,
+  isAdmin,
+  catchAsync(async (req, res) => {
+    const products = await Product.find({ admin: req.user.admin });
+    console.log(products);
+    res.send(products);
   })
 );
 module.exports = router;

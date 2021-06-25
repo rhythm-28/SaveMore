@@ -53,7 +53,7 @@ class AdminUpdate extends Component {
     const { isAdminUpdated } = this.props.authAdmin;
     console.log(admin);
     if (isAdminUpdated) {
-      return <Redirect to="/products" />;
+      return <Redirect to="/admin/info" />;
     }
     return (
       <div>

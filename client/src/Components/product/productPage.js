@@ -116,9 +116,7 @@ class productPage extends React.Component {
                   <Link
                     to={`/product/${product._id}/edit`}
                     style={{ textDecoration: 'none' }}
-                  >
-                    <button>Update Product</button>
-                  </Link>
+                  ></Link>
                 </div>
               </div>
             </div>

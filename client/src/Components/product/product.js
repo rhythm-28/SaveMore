@@ -29,7 +29,11 @@ function Product(props) {
           component="img"
           alt="iPhone"
           height="180"
-          image={product.images.length ? product.images[0].url : ''}
+          image={
+            product.images.length
+              ? product.images[0].url
+              : 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/600px-No_image_available.svg.png'
+          }
           title={product.name}
         />
         <CardContent>
