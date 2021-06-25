@@ -93,6 +93,15 @@ class Navbar extends React.Component {
             {isLoggedIn && isAdmin && (
               <ul class="navbar-nav">
                 <li class="nav-item">
+                  <Link to="/admin/info" class="nav-link">
+                    Admin Info
+                  </Link>
+                </li>
+              </ul>
+            )}
+            {isLoggedIn && isAdmin && (
+              <ul class="navbar-nav">
+                <li class="nav-item">
                   <Link to="/add/product" class="nav-link">
                     Add Product
                   </Link>

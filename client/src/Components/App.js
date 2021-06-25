@@ -9,6 +9,7 @@ import {
   Cart,
   ProductUpdate,
   AdminUpdate,
+  AdminInfo
 } from './';
 import {
   BrowserRouter as Router,
@@ -79,6 +80,12 @@ class App extends Component {
               isLoggedIn={isLoggedIn}
               isAdmin={isAdmin}
               Component={AdminUpdate}
+            />
+            <AdminRoute
+              path="/admin/info"
+              Component={AdminInfo}
+              isLoggedIn={isLoggedIn}
+              isAdmin={isAdmin}
             />
             <Route path="/user/auth" component={UserForm} />
             <PrivateRoute
