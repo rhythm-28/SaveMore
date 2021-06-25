@@ -1,0 +1,212 @@
+.admin-div
+{
+    margin: 5%;
+}
+
+.store-name
+{
+    background-color: yellow;
+    text-align: center;
+    height: 12rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.store-name-h1
+{
+    font-size: 5rem;
+}
+
+.store-logo
+{
+    width: 20%;
+    height: 200px;
+    background-color: white;
+    border-radius: 100%;
+    position: absolute;
+    z-index: 1;
+    left: 10%;
+    top: 14rem;
+    display: block;
+}
+
+.details-products
+{
+    background-color: #FFF5DA;
+    /* width: 1137px; */
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.store-details
+{
+    /* background-color:blue; */
+    margin-top: 5%;
+    padding-left: 3%;
+}
+
+.store-detail-item
+{
+    display:flex;
+    justify-content: space-around;
+}
+
+.update-details-button
+{
+    margin: 5% 0% 25% 20%;
+}
+
+.your-products
+{
+    font-size: 3rem;
+    margin-left: 43rem;
+    padding-top: 2rem;
+}
+
+.store-products
+{
+    margin-top: 5%;
+    padding-right: 3%;
+}
+
+.store-product
+{
+
+}
+
+.product-main-image
+{
+    width: 100%;
+    height: 50%;
+}
+
+
+                                    /* Media Queries */
+
+
+@media screen and (min-width:1281px)
+{
+    .store-logo
+    {
+        top: 15rem;
+    }
+}
+
+@media screen and (max-width:960px) and (min-width: 701px) 
+{
+    .store-logo
+    {
+        top: 14rem;
+        width: 20%;
+        height: 150px;
+        left: 8%;
+    }
+}
+
+@media screen and (min-width:500px) and (max-width:700px)
+{
+    .store-logo
+    {
+        top: 14rem;
+        height: 100px;
+        width: 20%;
+        left: 37%;
+    }
+    .your-products
+    {
+        margin: 0rem;
+        width: 100%;
+        position: absolute;
+        top: 46rem;
+        left: 6rem;
+    }
+    .store-details
+    {
+        margin-top: 15%;
+        padding-left: 10%;
+    }
+    /* .modals-content
+    {
+        padding-top: 10px;
+    } */
+}
+
+                                    /* Product Info CSS*/
+
+/* 
+.store-product-item
+{
+    display:flex;
+    flex-direction: column;
+} */
+
+.button-tray
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.modals
+{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: hidden; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.2); /* Black w/ opacity */
+}
+
+.modals-content
+{
+    background-color: #fefefe;
+    margin: 7% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    height: 80vh;
+    overflow: auto;
+}
+
+/* The Close Button */
+.closes 
+{
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.closes:hover, .closes:focus 
+{
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.admin-product-name
+{
+    text-align: center;
+    margin-top: 5%;
+    font-size: 5rem;
+}
+
+.modal-img-div
+{
+    margin-top: 5%;
+}
+
+.modal-info-div
+{
+    /* background-color: green; */
+    margin-top: 5%;
+}
+
+.product-modal-main-div
+{
+    background-color: pink;
+} 
