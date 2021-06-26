@@ -48,7 +48,6 @@ router.get(
   isAdmin,
   catchAsync(async (req, res) => {
     const products = await Product.find({ admin: req.user.admin });
-    console.log(products);
     res.send(products);
   })
 );

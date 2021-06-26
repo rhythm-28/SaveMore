@@ -56,7 +56,10 @@ function ProductInfo(props) {
             <UpdateIcon />
           </IconButton>
         </Link>
-        <IconButton aria-label="DeleteIcon">
+        <IconButton
+          aria-label="DeleteIcon"
+          onClick={() => props.handleDelete(props.product._id)}
+        >
           {' '}
           <DeleteIcon />
         </IconButton>

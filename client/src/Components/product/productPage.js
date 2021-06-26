@@ -34,7 +34,7 @@ class productPage extends React.Component {
   render() {
     const { product, added } = this.state;
     const { isLoggedIn } = this.props.authUser;
-    console.log(added);
+
     if (!product) {
       return <h1>Loading...</h1>;
     }

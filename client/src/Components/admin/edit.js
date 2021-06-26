@@ -51,7 +51,7 @@ class AdminUpdate extends Component {
     const { handleSubmit, submitting } = this.props;
     const { admin } = this.state;
     const { isAdminUpdated } = this.props.authAdmin;
-    console.log(admin);
+
     if (isAdminUpdated) {
       return <Redirect to="/admin/info" />;
     }

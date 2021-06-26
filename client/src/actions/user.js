@@ -58,7 +58,6 @@ export function signup(user) {
     axios
       .post(`/api/user/signup`, user, config)
       .then((data) => {
-        console.log('then', data.data);
         dispatch(signupSuccess(data.data));
       })
       .catch((err) => {
@@ -81,8 +80,7 @@ export function fetchUserData() {
   return (dispatch) => {
     axios
       .get(`/api/currentUser`, config)
-      .then((res) => dispatch(addUserData(res.data)))
-      .catch((err) => console.log(err));
+      .then((res) => dispatch(addUserData(res.data)));
   };
 }
 export function logout() {

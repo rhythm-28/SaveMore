@@ -38,7 +38,6 @@ class AdminSignup extends Component {
     const fd = new FormData();
     fd.append('image', this.state.file);
     for (let key in values) {
-      console.log(key);
       fd.append(key, values[key]);
     }
     dispatch(adminSignup(fd));

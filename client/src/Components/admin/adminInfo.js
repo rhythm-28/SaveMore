@@ -17,11 +17,16 @@ class adminInfo extends React.Component {
       products: null,
     };
   }
+  handleDelete = async (id) => {
+    const products = await axios.get(`/api/product/${id}/delete`);
+    this.setState({ products: products.data });
+  };
   componentDidMount = async () => {
     const admin = await axios.get('/api/currentAdmin');
     const products = await axios.get('/api/admin/products');
     this.setState({ admin: admin.data, products: products.data });
   };
+
   render() {
     const { admin, products } = this.state;
 
@@ -55,8 +60,13 @@ class adminInfo extends React.Component {
               {products && (
                 <div className="store-products col-lg-7">
                   <div className="row store-product">
-                    {products.map(function (product) {
-                      return <ProductInfo product={product} />;
+                    {products.map((product) => {
+                      return (
+                        <ProductInfo
+                          product={product}
+                          handleDelete={this.handleDelete}
+                        />
+                      );
                     })}
                   </div>
                 </div>

@@ -139,12 +139,11 @@ button:focus {
   height: 100px;
 }
 
-.admin-img
-{
+.admin-img {
   background-color: red;
 }
-
+/* 
 .carousel-item
 {
   background-color: red;
-}
+} */
