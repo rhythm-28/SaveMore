@@ -21,7 +21,7 @@ class allProducts extends React.Component {
   render() {
     const { data } = this.state;
     if (data.length == 0) {
-      return <h1>Loading...</h1>;
+      return <div className="loading"> </div>;
     }
     return (
       <div>

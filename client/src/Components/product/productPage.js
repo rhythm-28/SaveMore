@@ -36,7 +36,7 @@ class productPage extends React.Component {
     const { isLoggedIn } = this.props.authUser;
 
     if (!product) {
-      return <h1>Loading...</h1>;
+      return <div className="loading"> </div>;
     }
     return (
       <div>

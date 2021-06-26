@@ -35,9 +35,7 @@ class adminInfo extends React.Component {
 
     if (!admin) {
       return (
-        <div className="loading">
-          <h1> <LoopTwoToneIcon /> Loading...</h1>;
-        </div>
+        <div className="loading"> </div>
       );
     }
 
