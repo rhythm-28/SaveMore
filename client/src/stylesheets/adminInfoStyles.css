@@ -1,11 +1,12 @@
 .admin-div
 {
     margin: 5%;
+    box-shadow: rgb(0 0 0 / 50%) 0px 2px 4px;
 }
 
 .store-name
 {
-    background-color: yellow;
+    background-color: #BEAEE2;
     text-align: center;
     height: 12rem;
     width: 100%;
@@ -34,7 +35,7 @@
 
 .details-products
 {
-    background-color: #FFF5DA;
+    background-color: #F7DBF0;
     /* width: 1137px; */
     margin-left: 0px;
     margin-right: 0px;
@@ -62,17 +63,13 @@
     font-size: 3rem;
     margin-left: 43rem;
     padding-top: 2rem;
+    text-align: unset;
 }
 
 .store-products
 {
     margin-top: 5%;
     padding-right: 3%;
-}
-
-.store-product
-{
-
 }
 
 .product-main-image
@@ -93,14 +90,116 @@
     }
 }
 
-@media screen and (max-width:960px) and (min-width: 701px) 
+@media screen and (min-width:990px)
+{
+    .store-products
+    {
+        margin-top: 12%;
+    }
+    
+    .store-details
+    {
+        margin-top: 12%;
+    }
+    .your-products
+    {
+        margin: 0rem;
+        width: 100%;
+        position: absolute;
+        top: 19rem;
+        left: 52%;
+    }
+}
+
+@media screen and (width:1280px)
+{
+    .your-products
+    {
+        padding-left: 3.5rem;
+        padding-top: 3rem;
+    }
+}
+
+@media screen and (min-width:960px) and (max-width: 990px) 
+{
+    .your-products
+    {
+        margin: 0rem;
+        width: 100%;
+        position: absolute;
+        top: 49rem;
+        left: 34%;
+    }
+}
+
+@media screen and (min-width:800px) and (max-width:960px)
+{
+    .store-details
+    {
+        margin-top: 20%;
+        margin-left: 15%;
+    }
+
+    .store-products
+    {
+        margin-top: -7%;
+    }
+    
+    .your-products
+    {
+        margin: 0rem;
+        width: 100%;
+        position: absolute;
+        top: 52rem;
+        left: 30%;
+    }
+}
+
+@media screen and (min-width:700px) and (max-width:800px)
 {
     .store-logo
     {
-        top: 14rem;
-        width: 20%;
-        height: 150px;
-        left: 8%;
+        top: 15rem;
+        left: 16rem;
+    }
+    
+    .store-details
+    {
+        margin-top: 20%;
+        margin-left: 15%;
+    }
+    
+    .your-products
+    {
+        margin: 0rem;
+        width: 100%;
+        position: absolute;
+        top: 160%;
+        left: 28%;
+    }
+}
+
+@media screen and (min-width:550px) and (max-width:700px)
+{
+    .your-products
+    {
+        margin: 0rem;
+        width: 100%;
+        position: absolute;
+        top: 145%;
+        left: 23%;
+    }
+}
+
+@media screen and (min-width:500px) and (max-width:550px)
+{
+    .your-products
+    {
+        margin: 0rem;
+        width: 100%;
+        position: absolute;
+        top: 46rem;
+        left: 6rem;
     }
 }
 
@@ -113,33 +212,15 @@
         width: 20%;
         left: 37%;
     }
-    .your-products
-    {
-        margin: 0rem;
-        width: 100%;
-        position: absolute;
-        top: 46rem;
-        left: 6rem;
-    }
     .store-details
     {
         margin-top: 15%;
         padding-left: 10%;
     }
-    /* .modals-content
-    {
-        padding-top: 10px;
-    } */
 }
 
                                     /* Product Info CSS*/
 
-/* 
-.store-product-item
-{
-    display:flex;
-    flex-direction: column;
-} */
 
 .button-tray
 {
@@ -163,13 +244,13 @@
 
 .modals-content
 {
-    background-color: #fefefe;
     margin: 7% auto;
-    padding: 20px;
-    border: 1px solid #888;
+    padding: 8px;
+    border: 3px solid black;
     width: 80%;
     height: 80vh;
     overflow: auto;
+    background-color: #F7DAD9;
 }
 
 /* The Close Button */
@@ -202,11 +283,5 @@
 
 .modal-info-div
 {
-    /* background-color: green; */
     margin-top: 5%;
 }
-
-.product-modal-main-div
-{
-    background-color: pink;
-} 
