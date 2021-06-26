@@ -39,9 +39,10 @@ function Product(props) {
         />
         <CardContent>
           <Typography variant="h5" component="h2" className="my-1 fw-bold">
-            {product.name.length > 9
-              ? product.name.substring(0, 8) + '...'
-              : product.name.substring(0, 9)}
+            {product.name.length > 7
+              ? product.name.substring(0, 5) + '...'
+              : product.name.substring(0, 7)}
+              {/* {product.name.substring(0,5) + ".."} */}
           </Typography>
           <Typography variant="subtitle1" className="my-1 text-primary">
             {product.category}
