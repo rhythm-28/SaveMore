@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 
 import { logout } from '../actions/user';
@@ -75,7 +75,7 @@ class Navbar extends React.Component {
               </li>
             </ul>
             <Link class="nav-link" to="/user/cart">
-              <ShoppingCartOutlinedIcon />
+              <ShoppingCartIcon />
             </Link>
             {!isLoggedIn && (
               <ul class="navbar-nav">

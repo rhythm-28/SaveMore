@@ -91,6 +91,7 @@ button:focus {
 .card-description {
   border-radius: 30px;
   background-color: pink;
+  font-size: 1.5rem;
 }
 .ratings-button {
   background-color: #388e3c;

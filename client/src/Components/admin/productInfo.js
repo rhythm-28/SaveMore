@@ -31,7 +31,7 @@ function ProductInfo(props) {
   var id = 'a' + props.product._id;
   return (
     <div className="col-md-4 col-sm-6 store-product-item">
-      <img
+      <img className="img-product-admin"
         src={
           props.product.images.length
             ? props.product.images[0].url

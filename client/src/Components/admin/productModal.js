@@ -2,6 +2,7 @@ import React from 'react';
 
 import AdminCarousel from "./adminCarousel.js";
 import Carousel from "../product/Carousel.js";
+// import NewCarousel from "../product/newCarousel.js"
 
 function ProductModal(props){
     const description = props.product.description;
@@ -11,6 +12,7 @@ function ProductModal(props){
             <h1 className="admin-product-name"> {props.product.name}</h1>
             <div className="col-lg-7 col-sm-12 modal-img-div">
                 {/* <AdminCarousel images={props.product.images}/> */}
+                {/* <Carousel images={props.product.images}/> */}
                 <Carousel images={props.product.images}/>
             </div>
             <div className="col-lg-5 col-sm-12 modal-info-div">

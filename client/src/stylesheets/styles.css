@@ -67,3 +67,10 @@ button:focus {
   .ProductsNavbar .search:focus {
     box-shadow: 1px 1px black !important;
   } 
+
+  .main-prod:hover
+  {
+    /* box-shadow: rgba(0, 0, 0, 0.22) 0px 19px 43px; */
+    /* transform: translate3d(0px, -2px, 0px); */
+    /* border: 1px solid black; */
+  }

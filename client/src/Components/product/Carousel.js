@@ -17,7 +17,7 @@ function Carousel(props) {
   return (
     <div class="d-flex justify-content-center">
       <div
-        id="carousel"
+        id={`carousel-${images[0].url}`}
         class="carousel slide carousel-fade"
         data-ride="carousel"
         data-interval="false"
@@ -49,7 +49,7 @@ function Carousel(props) {
       </div>
       <a
         class="carousel-control-prev"
-        href="#carousel"
+        href={`#carousel-${images[0].url}`}
         role="button"
         data-slide="prev"
       >
@@ -58,7 +58,7 @@ function Carousel(props) {
       </a>
       <a
         class="carousel-control-next"
-        href="#carousel"
+        href={`#carousel-${images[0].url}`}
         role="button"
         data-slide="next"
       >

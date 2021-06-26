@@ -1,13 +1,16 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import axios from 'axios';
+import LoopTwoToneIcon from '@material-ui/icons/LoopTwoTone';
+
+import { Flash } from '../';
 import Navbar from '../navbar';
 import ProductInfo from './productInfo.js';
 import StoreDetails from './storeDetails.js';
-import { Flash } from '../';
-
 import Styles from '../../stylesheets/adminInfoStyles.css';
-import { connect } from 'react-redux';
-import axios from 'axios';
+
 
 class adminInfo extends React.Component {
   constructor() {
@@ -31,7 +34,35 @@ class adminInfo extends React.Component {
     const { admin, products } = this.state;
 
     if (!admin) {
-      return <h1>Loading...</h1>;
+      return (
+        <div className="loading">
+          <h1> <LoopTwoToneIcon /> Loading...</h1>;
+        </div>
+      );
+    }
+
+    function renderProducts(products,handleDelete) {
+      if(products.length === 0)
+      return (
+        <div className="no-product">
+          <h1> You Have No Products!</h1>
+          <Link to="/add/product" class="nav-link">
+            Add Your First Product
+          </Link>
+        </div>
+      );
+
+      else
+      return (
+        products.map((product) => {
+          return (
+            <ProductInfo
+              product={product}
+              handleDelete={handleDelete}
+            />
+          );
+        })
+      );
     }
 
     return (
@@ -60,14 +91,7 @@ class adminInfo extends React.Component {
               {products && (
                 <div className="store-products col-lg-7">
                   <div className="row store-product">
-                    {products.map((product) => {
-                      return (
-                        <ProductInfo
-                          product={product}
-                          handleDelete={this.handleDelete}
-                        />
-                      );
-                    })}
+                    {renderProducts(products,this.handleDelete)}
                   </div>
                 </div>
               )}
