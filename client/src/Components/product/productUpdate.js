@@ -100,7 +100,7 @@ class ProductUpdate extends Component {
     const { handleSubmit, submitting, load } = this.props;
     const { product, deleteImages } = this.state;
     const { isProductUpdated } = this.props.product;
-    console.log('Product Images', product.images);
+
     if (isProductUpdated) {
       return <Redirect to="/admin/info" />;
     }

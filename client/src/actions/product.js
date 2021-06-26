@@ -45,7 +45,6 @@ export const productAdd = (fd) => {
     axios
       .post('/add/product', fd, config)
       .then(() => {
-        console.log('Product Added');
         dispatch(addProductSuccess());
       })
       .catch((error) => {
@@ -64,7 +63,6 @@ export const productUpdate = (fd, id) => {
     axios
       .post(`/update/product/${id}`, fd, config)
       .then(() => {
-        console.log('Product Added');
         dispatch(updateProductSuccess());
       })
       .catch((error) => {

@@ -35,7 +35,6 @@ class ProductForm extends Component {
     };
   }
   onImageChange = (e) => {
-    console.log('image', e.target.files);
     this.setState({ file: e.target.files });
   };
   handleSubmit = async (values) => {

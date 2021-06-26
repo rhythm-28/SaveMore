@@ -41,7 +41,6 @@ router.post(
   isAdmin,
   upload.array("image"),
   catchAsync(async (req, res) => {
-    console.log(req.body);
     const image = [];
     req.files.forEach((f) => {
       image.push({ url: f.path, filename: f.filename });
@@ -64,6 +63,19 @@ router.post(
     product.images.push(...image);
     await product.save();
     res.send("product");
+  })
+);
+router.get(
+  "/api/product/:id/delete",
+  catchAsync(async (req, res) => {
+    const product = await Product.findByIdAndRemove(req.params.id);
+    const products = await Product.find({ admin: req.user.admin });
+    if (product.images.length) {
+      for (let image of product.images) {
+        cloudinary.uploader.destroy(image.filename);
+      }
+    }
+    res.send(products);
   })
 );
 module.exports = router;
