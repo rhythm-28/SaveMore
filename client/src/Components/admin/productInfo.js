@@ -31,7 +31,8 @@ function ProductInfo(props) {
   var id = 'a' + props.product._id;
   return (
     <div className="col-md-4 col-sm-6 store-product-item">
-      <img className="img-product-admin"
+      <img
+        className="img-product-admin"
         src={
           props.product.images.length
             ? props.product.images[0].url
@@ -65,8 +66,8 @@ function ProductInfo(props) {
         </IconButton>
       </div>
 
-      <div className={`modal ${id}`}>
-        <div className="modal-content">
+      <div className={`modals ${id}`}>
+        <div className="modals-content">
           <span
             onClick={function () {
               hideProduct(id);

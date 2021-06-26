@@ -42,3 +42,17 @@ export const sectors = [
   'Video Games',
   'Watches',
 ];
+export const objForm = {
+  description: 'assddffgggg',
+  discountPrice: 80,
+  marketPrice: 90,
+  name: 'Milk',
+  address: '27/9 kalyan puri near jain milan',
+  category: 'Everything Else',
+  city: 'Merrut',
+  country: 'India',
+  gstIn: 'Ridam',
+  pinCode: 251001,
+  state: 'Uttar Pradesh',
+  storeName: 'Garg Traders',
+};

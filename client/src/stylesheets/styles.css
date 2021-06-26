@@ -41,36 +41,38 @@ button:focus {
 }
 
 .ProductsNavbar {
-  background-color: #03256C;
-  }
-  .ProductsNavbar .nav-link:hover {
-    color: white !important;
-  }
-  .ProductsNavbar .active {
-    color: white !important;
-  }
-  .ProductsNavbar .search {
-    color: black;
-    border-color: black;
-  }
-  .ProductsNavbar .search:hover {
-    background-color: white;
-    border-color: black !important;
-    color: black;
-  }
-  .ProductsNavbar .search:active {
-    background-color: white !important;
-    border-color: black !important;
-    color: black !important;
-    box-shadow: 1px 1px black !important;
-  }
-  .ProductsNavbar .search:focus {
-    box-shadow: 1px 1px black !important;
-  } 
+  background-color: #03256c;
+}
+.ProductsNavbar .nav-link:hover {
+  color: white !important;
+}
+.ProductsNavbar .active {
+  color: white !important;
+}
+.ProductsNavbar .search {
+  color: black;
+  border-color: black;
+}
+.ProductsNavbar .search:hover {
+  background-color: white;
+  border-color: black !important;
+  color: black;
+}
+.ProductsNavbar .search:active {
+  background-color: white !important;
+  border-color: black !important;
+  color: black !important;
+  box-shadow: 1px 1px black !important;
+}
+.ProductsNavbar .search:focus {
+  box-shadow: 1px 1px black !important;
+}
 
-  .main-prod:hover
-  {
-    /* box-shadow: rgba(0, 0, 0, 0.22) 0px 19px 43px; */
-    /* transform: translate3d(0px, -2px, 0px); */
-    /* border: 1px solid black; */
-  }
+.main-prod:hover {
+  /* box-shadow: rgba(0, 0, 0, 0.22) 0px 19px 43px; */
+  /* transform: translate3d(0px, -2px, 0px); */
+  /* border: 1px solid black; */
+}
+.mainAppDiv {
+  height: 100vh;
+}

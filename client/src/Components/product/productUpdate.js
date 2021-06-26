@@ -30,7 +30,7 @@ import {
 } from '../../actions/product';
 
 import '../../stylesheets/styles.css';
-
+import { objForm } from '../../helpers/util';
 const src = 'https://img.icons8.com/nolan/64/left-view.png';
 
 class ProductUpdate extends Component {
@@ -66,14 +66,7 @@ class ProductUpdate extends Component {
   componentDidMount = async () => {
     const { match } = this.props;
     const res = await axios.get(`/api/product/${match.params.productId}`);
-    this.props.dispatch(
-      loadAccount({
-        name: res.data.name,
-        marketPrice: res.data.marketPrice,
-        discountPrice: res.data.discountPrice,
-        description: res.data.description,
-      })
-    );
+    this.props.dispatch(loadAccount(objForm));
     this.setState({
       product: res.data,
     });

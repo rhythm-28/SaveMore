@@ -36,7 +36,7 @@ export const RenderTextInput = createRenderInput(
           {...input}
           label={label}
           type={type}
-          inputProps={{ value: Value }}
+          defaultValue={Value}
           placeholder={label}
           style={{
             marginBottom: '1rem',
