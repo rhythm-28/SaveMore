@@ -65,8 +65,8 @@ function ProductInfo(props) {
         </IconButton>
       </div>
 
-      <div className={`modals ${id}`}>
-        <div className="modals-content">
+      <div className={`modal ${id}`}>
+        <div className="modal-content">
           <span
             onClick={function () {
               hideProduct(id);

@@ -82,10 +82,16 @@ class adminInfo extends React.Component {
           </div>
 
           <div className="details-products">
-            <h1 className="your-products"> Your Products </h1>
+          {/* <div className="row"> 
+              <div className="col-6">
+                <h1 className="col-6"> Your Products </h1>
+              </div>
+              <div>
+                <h1 className="col-6"> Your Products </h1>
+              </div>
+          </div> */}
             <div className="row">
               <StoreDetails details={admin} />
-
               {products && (
                 <div className="store-products col-lg-7">
                   <div className="row store-product">
