@@ -64,7 +64,7 @@ class App extends Component {
   render() {
     const { isLoggedIn, isAdmin } = this.props.authUser;
     return (
-      <div className="w-100">
+      <div className="w-100 mainAppDiv">
         <Router>
           <Switch>
             <Route exact path="/" component={Home} />

@@ -35,7 +35,11 @@ class adminInfo extends React.Component {
 
     if (!admin) {
       return (
-        <div className="loading"> </div>
+        <div className="d-flex justify-content-center align-items-center loadingPage">
+          <div style={{ width: 150, height: 150 }}>
+            <div className="loading"> </div>
+          </div>
+        </div>
       );
     }
 

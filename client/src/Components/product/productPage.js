@@ -36,7 +36,13 @@ class productPage extends React.Component {
     const { isLoggedIn } = this.props.authUser;
 
     if (!product) {
-      return <div className="loading"> </div>;
+      return (
+        <div className="d-flex justify-content-center align-items-center loadingPage">
+          <div style={{ width: 150, height: 150 }}>
+            <div className="loading"> </div>
+          </div>
+        </div>
+      );
     }
     return (
       <div>

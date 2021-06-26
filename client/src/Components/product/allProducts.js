@@ -21,7 +21,13 @@ class allProducts extends React.Component {
   render() {
     const { data } = this.state;
     if (data.length == 0) {
-      return <div className="loading"> </div>;
+      return (
+        <div className="d-flex justify-content-center align-items-center loadingPage">
+          <div style={{ width: 150, height: 150 }}>
+            <div className="loading"> </div>
+          </div>
+        </div>
+      );
     }
     return (
       <div>
