@@ -9,11 +9,11 @@ function ProductModal(props){
     return (
         <div className="row product-modal-main-div">
             <h1 className="admin-product-name"> {props.product.name}</h1>
-            <div className="col-7 modal-img-div">
+            <div className="col-lg-7 col-sm-12 modal-img-div">
                 {/* <AdminCarousel images={props.product.images}/> */}
                 <Carousel images={props.product.images}/>
             </div>
-            <div className="col-5 modal-info-div">
+            <div className="col-lg-5 col-sm-12 modal-info-div">
                 <div className="row">
                     <label className="col-6"> Market Price</label>
                     <p className="col-6"> {props.product.marketPrice} </p>
