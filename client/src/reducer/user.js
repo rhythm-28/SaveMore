@@ -58,6 +58,7 @@ export default function authReducer(state = initialState, action) {
         ...state,
         isLoggedIn: false,
         user: {},
+        userMessage: 'Thanks For Visiting',
       };
     case Admin_Signup_Success:
       return {

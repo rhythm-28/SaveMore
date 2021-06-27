@@ -4,6 +4,7 @@ import {
   Product_Form_Unmount,
   Product_Update_Failed,
   Product_Update_Success,
+  Product_Deleted_Success,
   Success_Message_Flashed,
   Error_Message_Flashed,
 } from '../actions/actionType';
@@ -56,6 +57,11 @@ export default function product(state = initialState, action) {
       return {
         ...state,
         err: '',
+      };
+    case Product_Deleted_Success:
+      return {
+        ...state,
+        productMessage: 'Product deleted successfully',
       };
     default:
       return state;

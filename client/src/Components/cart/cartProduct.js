@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 import { connect } from 'react-redux';
-
+import { Link } from 'react-router-dom';
 import styles from '../../stylesheets/cart.css';
 
 class CartProduct extends React.Component {
@@ -19,13 +19,18 @@ class CartProduct extends React.Component {
       <div>
         <div class="row productDiv card-all justify-content-center mx-3">
           <div class="col-lg-3 col-md-8 col-10">
-            <div className="img-div d-flex justify-content-center">
-              <img
-                src={product.image}
-                alt={product.name}
-                class="cart-img img-thumbnail"
-              />
-            </div>
+            <Link
+              to={`/product/${product.id}`}
+              style={{ textDecoration: 'none' }}
+            >
+              <div className="img-div d-flex justify-content-center pb-3">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  class="cart-img img-thumbnail"
+                />
+              </div>
+            </Link>
           </div>
 
           <div className="col-xl-6 col-lg-5 col-md-7">

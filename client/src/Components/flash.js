@@ -9,20 +9,29 @@ class Flash extends Component {
     };
   }
   componentDidMount() {
-    const { userMessage } = this.props.authUser;
-    const { adminMessage } = this.props.authAdmin;
-    const { productMessage } = this.props.product;
-    const success = userMessage || adminMessage || productMessage;
-    if (success) {
-      this.setState({ success: true });
-    } else this.setState({ success: false });
+    setTimeout(() => {
+      const { userMessage } = this.props.authUser;
+      const { adminMessage } = this.props.authAdmin;
+      const { productMessage } = this.props.product;
+      const success = userMessage || adminMessage || productMessage;
+      if (success) {
+        this.setState({ success: true });
+      } else this.setState({ success: false });
+    }, 50);
   }
   componentWillUnmount() {
     const { dispatch } = this.props;
-    if (this.state.success) {
+    const { userMessage } = this.props.authUser;
+    const { productMessage } = this.props.product;
+    if (
+      this.state.success ||
+      productMessage === 'Product deleted successfully' ||
+      userMessage === 'Thanks For Visiting'
+    ) {
       dispatch(successMessageFlash());
     }
     dispatch(errorMessageFlash());
+    this.setState({ success: false });
   }
   render() {
     const { err: userError, userMessage } = this.props.authUser;

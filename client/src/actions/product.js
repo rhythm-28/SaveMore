@@ -5,6 +5,7 @@ import {
   Product_Form_Unmount,
   Product_Update_Failed,
   Product_Update_Success,
+  Product_Deleted_Success,
 } from './actionType';
 import axios from 'axios';
 const config = {
@@ -68,6 +69,11 @@ export const productUpdate = (fd, id) => {
       .catch((error) => {
         dispatch(updateProductFailed(error.response.data));
       });
+  };
+};
+export const productDelete = () => {
+  return {
+    type: Product_Deleted_Success,
   };
 };
 export const load = (data) => ({ type: LOAD, data });

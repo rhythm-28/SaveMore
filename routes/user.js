@@ -64,7 +64,9 @@ router.get("/add/product/:productId", requireLogin, async (req, res) => {
       name: product.name,
       price: product.discountPrice,
       quantity: 1,
-      image: product.images[0].url,
+      image: product.images.length
+        ? product.images[0].url
+        : "https://res.cloudinary.com/dionb6owj/image/upload/v1624816714/SaveMoreProducts/600px-No_image_available.svg_jevgtw.webp",
       id: product._id,
     };
 

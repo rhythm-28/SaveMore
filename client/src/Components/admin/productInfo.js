@@ -21,25 +21,25 @@ function hideProduct(id) {
 window.onclick = function (event) {
   var modals = document.getElementsByClassName('modals');
   [...modals].forEach(function (modal) {
-    if (event.target == modal) {
+    if (event.target === modal) {
       modal.style.display = 'none';
     }
   });
 };
 
-function showConfirmDeleteBox(delId){
+function showConfirmDeleteBox(delId) {
   var deleteConfirm = document.getElementsByClassName(delId)[0];
   deleteConfirm.style.display = 'block';
 }
 
-function hideConfirmDeleteBox(delId){
+function hideConfirmDeleteBox(delId) {
   var deleteCancel = document.getElementsByClassName(delId)[0];
   deleteCancel.style.display = 'none';
 }
 
 function ProductInfo(props) {
   var id = 'show' + props.product._id;
-  var delId = "delete" + props.product._id;
+  var delId = 'delete' + props.product._id;
   return (
     <div className="col-md-4 col-sm-6 store-product-item">
       <img
@@ -71,7 +71,9 @@ function ProductInfo(props) {
         <IconButton
           aria-label="DeleteIcon"
           // onClick={() => props.handleDelete(props.product._id)}
-          onClick = {() => {showConfirmDeleteBox(delId)}}
+          onClick={() => {
+            showConfirmDeleteBox(delId);
+          }}
         >
           {' '}
           <DeleteIcon />
@@ -93,20 +95,31 @@ function ProductInfo(props) {
       </div>
 
       <div className={`modals ${delId}`}>
-          <div className="modals-content-delete">
-          <div  className="delete-item-admin">
-          <h4> Do you want to delete this item? </h4>
+        <div className="modals-content-delete">
+          <div className="delete-item-admin">
+            <h4> Do you want to delete this item? </h4>
           </div>
-            <div className="delete-buttons">
-              <button onClick={() => {
-                props.handleDelete(props.product._id)
+          <div className="delete-buttons">
+            <button
+              onClick={() => {
+                props.handleDelete(props.product._id);
                 hideConfirmDeleteBox(delId);
-              }}> YES </button>
-              <button onClick = {() => {hideConfirmDeleteBox(delId)}}> NO </button>
-            </div>
+              }}
+            >
+              {' '}
+              YES{' '}
+            </button>
+            <button
+              onClick={() => {
+                hideConfirmDeleteBox(delId);
+              }}
+            >
+              {' '}
+              NO{' '}
+            </button>
           </div>
+        </div>
       </div>
-
     </div>
   );
 }
