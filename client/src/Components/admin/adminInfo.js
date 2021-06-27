@@ -73,15 +73,6 @@ class adminInfo extends React.Component {
         <Flash />
         <div className="admin-div">
           <div className="store-name">
-            <img
-              className="store-logo"
-              src={
-                admin.image
-                  ? admin.image.url
-                  : 'http://media.corporate-ir.net/media_files/IROL/17/176060/Oct18/Amazon%20logo.PNG'
-              }
-              alt=""
-            />
             <h1 className="store-name-h1"> {admin.storeName} </h1>
           </div>
 
@@ -98,7 +89,10 @@ class adminInfo extends React.Component {
               <StoreDetails details={admin} />
               {products && (
                 <div className="store-products col-lg-7">
-                  <div className="row store-product">
+                  {/* <div className="your-products-heading"> */}
+                    <h1 className="col-12 your-products-heading"> Your Products </h1>
+                  {/* </div> */}
+                  <div className="row store-product-div">
                     {renderProducts(products,this.handleDelete)}
                   </div>
                 </div>
