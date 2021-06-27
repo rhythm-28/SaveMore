@@ -20,6 +20,7 @@ export const Product_Add_Failed = 'Product_Add_Failed';
 export const Product_Form_Unmount = 'Product_Form_Unmount';
 export const Product_Update_Success = 'Product_Update_Success';
 export const Product_Update_Failed = 'Product_Update_Failed';
+export const Product_Deleted_Success = 'Product_Deleted_Success';
 
 export const User_Added_Product = 'User_Added_Product';
 export const User_Subtracted_Product = 'User_Subtracted_Product';

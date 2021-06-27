@@ -70,12 +70,11 @@ class ProductForm extends Component {
                 <form
                   method="GET"
                   onSubmit={handleSubmit(this.handleSubmit)}
-                  className="formStyle px-3"
+                  className="px-3"
                   encType="multipart/form-data"
-                  style={{ height: '70%' }}
                   action="/products"
                 >
-                  <Grid align="center">
+                  <Grid align="center" className="py-3 my-2">
                     <Avatar src={src} alt="Lock-img">
                       {' '}
                     </Avatar>
@@ -117,7 +116,7 @@ class ProductForm extends Component {
                   <Grid align="center">
                     <button
                       style={{
-                        marginBottom: '1rem',
+                        marginBottom: '2rem',
                         marginTop: '1rem',
                       }}
                       type="submit"

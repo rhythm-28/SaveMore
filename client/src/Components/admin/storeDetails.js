@@ -5,13 +5,19 @@ function StoreDetails(props) {
   const length = address.length;
   return (
     <div className="store-details col-lg-5">
-
       <div className="store-logo-div">
-        <img className="store-logo" src={props.details.image ? props.details.image.url : 'http://media.corporate-ir.net/media_files/IROL/17/176060/Oct18/Amazon%20logo.PNG'} alt="" />
+        <img
+          className="store-logo"
+          src={
+            props.details.image
+              ? props.details.image.url
+              : 'http://media.corporate-ir.net/media_files/IROL/17/176060/Oct18/Amazon%20logo.PNG'
+          }
+          alt=""
+        />
       </div>
 
       <div>
-
         <div className="row">
           <label className="col-6"> Category </label>
           <p className="col-6"> {props.details.category} </p>
@@ -50,8 +56,11 @@ function StoreDetails(props) {
           <p className="col-6"> {props.details.gstIn} </p>
         </div>
         <div className="update-details-button">
-          <Link to="/admin/update">
-            <button className="col-6" className="update-details-button"> Update Details</button>
+          <Link to="/admin/update" style={{ textDecoration: 'none' }}>
+            <button className="col-6" className="update-details-button">
+              {' '}
+              Update Details
+            </button>
           </Link>
         </div>
       </div>

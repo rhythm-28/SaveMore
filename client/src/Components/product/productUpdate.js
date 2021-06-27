@@ -113,7 +113,7 @@ class ProductUpdate extends Component {
                   autoComplete="off"
                   className="px-3"
                 >
-                  <Grid align="center">
+                  <Grid align="center" className="py-3 my-3">
                     <Avatar src={src} alt="Lock-img">
                       {' '}
                     </Avatar>
