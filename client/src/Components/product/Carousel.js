@@ -1,7 +1,8 @@
 import React from 'react';
 
 import Navbar from '../navbar';
-
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import Styles from '../../stylesheets/productPage.css';
 
 function Carousel(props) {
@@ -18,7 +19,7 @@ function Carousel(props) {
     <div class="d-flex justify-content-center">
       <div
         id={`carousel-${images[0].url}`}
-        class="carousel slide carousel-fade"
+        class="carousel slide carousel-dark carousel-fade"
         data-ride="carousel"
         data-interval="false"
       >
@@ -53,7 +54,9 @@ function Carousel(props) {
         role="button"
         data-slide="prev"
       >
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="" aria-hidden="true">
+          <ArrowBackIosIcon style={{ color: 'black' }} fontSize="large" />
+        </span>
         <span class="sr-only">Previous</span>
       </a>
       <a
@@ -62,7 +65,9 @@ function Carousel(props) {
         role="button"
         data-slide="next"
       >
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="" aria-hidden="true">
+          <ArrowForwardIosIcon style={{ color: 'black' }} fontSize="large" />
+        </span>
         <span class="sr-only">Next</span>
       </a>
     </div>

@@ -76,3 +76,6 @@ button:focus {
 .mainAppDiv {
   height: 100vh;
 }
+.iconBlack {
+  color: #171717 !important;
+}

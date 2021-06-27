@@ -29,14 +29,13 @@
   }
 }
 
-.admin-div 
-{
+.admin-div {
   padding: 5%;
   /* box-shadow: rgb(0 0 0 / 50%) 0px 2px 4px; */
 }
 
 .store-name {
-  background-color: #DDDDDD;
+  background-color: #dddddd;
   text-align: center;
   height: 12rem;
   width: 100%;
@@ -49,12 +48,11 @@
   font-size: 5rem;
 }
 
-.store-logo-div
-{
-  display:flex;
+.store-logo-div {
+  display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 8%; 
+  margin-bottom: 8%;
 }
 
 .store-logo {
@@ -66,25 +64,22 @@
 }
 
 .details-products {
-  background-color: #EDEDED;
+  background-color: #ededed;
   margin-left: 0px;
   margin-right: 0px;
   font-weight: bold;
 }
-.store-details 
-{
+.store-details {
   margin-top: 3%;
   margin-bottom: 5%;
 }
 
-.store-products 
-{
+.store-products {
   margin-top: 8%;
   align-items: center;
 }
 
-.store-product-div
-{
+.store-product-div {
   margin-top: 10%;
   padding-right: 4%;
   padding-left: 4%;
@@ -103,8 +98,7 @@
   margin-bottom: -2%;
 }
 
-.your-products-heading
-{
+.your-products-heading {
   font-size: 4rem;
 }
 
@@ -241,8 +235,7 @@
   justify-content: space-between;
 }
 
-.modals 
-{
+.modals {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
@@ -255,8 +248,7 @@
   background-color: rgba(0, 0, 0, 0.2); /* Black w/ opacity */
 }
 
-.modals-content 
-{
+.modals-content {
   margin: 15vh auto;
   margin-bottom: 15vh;
   padding: 8px;
@@ -267,12 +259,12 @@
   background-color: #f7dad9;
 }
 
-.modals-content-delete
-{
+.modals-content-delete {
   margin: 40vh auto;
   margin-bottom: 15vh;
   padding: 10px;
-  border: 5px solid black;
+  border: 2px solid black;
+  border-radius: 20px;
   width: 45%;
   height: 25vh;
   overflow: auto;
@@ -289,51 +281,48 @@
 }
 
 .closes:hover,
-.closes:focus 
-{
+.closes:focus {
   color: red;
   text-decoration: none;
   cursor: pointer;
 }
 
-.admin-product-name 
-{
+.admin-product-name {
   text-align: center;
   margin-top: 6%;
   font-size: 4.5rem;
   margin-bottom: 5%;
 }
 
-.delete-buttons
-{
+.delete-buttons {
   display: flex;
   justify-content: space-evenly;
   margin-top: 7%;
 }
 
-.modal-details-div-pad
-{
+.modal-details-div-pad {
   margin-top: 5%;
 }
 
-.modal-label
-{
+.modal-label {
   text-align: center;
   font-size: 2rem;
 }
 
-.text-align
-{
+.text-align {
   text-align: left;
 }
 
-.modal-img-div
-{
+.modal-img-div {
   margin-bottom: 8%;
 }
 
-.delete-btn-bt
-{
+.delete-btn-bt {
   border: 1px solid black;
   border-radius: 50%;
-} 
+}
+@media screen and (max-width: 600px) {
+  .modals-content-delete {
+    width: 60%;
+  }
+}
