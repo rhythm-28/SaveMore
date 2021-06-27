@@ -77,21 +77,11 @@ class adminInfo extends React.Component {
           </div>
 
           <div className="details-products">
-          {/* <div className="row"> 
-              <div className="col-6">
-                <h1 className="col-6"> Your Products </h1>
-              </div>
-              <div>
-                <h1 className="col-6"> Your Products </h1>
-              </div>
-          </div> */}
             <div className="row">
               <StoreDetails details={admin} />
               {products && (
                 <div className="store-products col-lg-7">
-                  {/* <div className="your-products-heading"> */}
                     <h1 className="col-12 your-products-heading"> Your Products </h1>
-                  {/* </div> */}
                   <div className="row store-product-div">
                     {renderProducts(products,this.handleDelete)}
                   </div>

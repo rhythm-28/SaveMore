@@ -255,7 +255,7 @@ label
 .modals-content 
 {
   margin: 15vh auto;
-  /* margin-bottom: 15vh; */
+  margin-bottom: 15vh;
   padding: 8px;
   border: 3px solid black;
   width: 80%;
@@ -264,18 +264,30 @@ label
   background-color: #f7dad9;
 }
 
+.modals-content-delete
+{
+  margin: 40vh auto;
+  margin-bottom: 15vh;
+  padding: 10px;
+  border: 3px solid black;
+  width: 45%;
+  height: 25vh;
+  overflow: auto;
+  background-color: #f7dad9;
+}
+
 /* The Close Button */
 .closes {
   color: #aaa;
   float: right;
-  font-size: 28px;
+  font-size: 35px;
   font-weight: bold;
 }
 
 .closes:hover,
 .closes:focus 
 {
-  color: black;
+  color: red;
   text-decoration: none;
   cursor: pointer;
 }
@@ -284,6 +296,21 @@ label
 {
   text-align: center;
   margin-top: 4%;
-  font-size: 5rem;
+  font-size: 4.5rem;
   margin-bottom: 5%;
 }
+
+.delete-buttons
+{
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 7%;
+  /* align-items: center; */
+}
+/* 
+.delete-item-admin
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */

@@ -33,7 +33,7 @@ function UserForm(props) {
           <div class="overlay">
             <div class="overlay-panel overlay-left">
               <h1>Hello, Friend!</h1>
-              <p>Enter your personal details and start journey with us</p>
+              <p>Enter your personal details to start a wonderful journey with us.</p>
               <button class="ghost" id="signUp" onClick={remove}>
                 Sign Up
               </button>
@@ -41,7 +41,7 @@ function UserForm(props) {
             <div class="overlay-panel overlay-right">
               <h1>Welcome Back!</h1>
               <p>
-                To keep connected with us please login with your personal info
+                To keep connected with us, please login with your details.
               </p>
               <button class="ghost" id="signIn" onClick={add}>
                 Sign In
