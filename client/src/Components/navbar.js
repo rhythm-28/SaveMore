@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
-
+import HomeIcon from '@material-ui/icons/Home';
+import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import { logout } from '../actions/user';
 
 import styles from '../stylesheets/styles.css';
@@ -18,7 +17,7 @@ class Navbar extends React.Component {
       <div className="sticky-top">
         <nav class="navbar navbar-expand-lg navbar-dark ProductsNavbar">
           <Link class="navbar-brand" to="/">
-            SaveMore
+            <HomeIcon/>
           </Link>
           <button
             class="navbar-toggler"
@@ -74,9 +73,13 @@ class Navbar extends React.Component {
                 </a>
               </li>
             </ul>
-            <Link class="nav-link" to="/user/cart">
-              <ShoppingCartIcon />
-            </Link>
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <Link style={{textDecoration:'none'}} class="nav-link" to="/user/cart">
+                  <ShoppingCartOutlinedIcon />
+                </Link>
+              </li>
+            </ul>
             {!isLoggedIn && (
               <ul class="navbar-nav">
                 <li class="nav-item">
@@ -95,7 +98,7 @@ class Navbar extends React.Component {
               <ul class="navbar-nav">
                 <li class="nav-item">
                   <Link to="/admin/info" class="nav-link">
-                    <SupervisorAccountIcon />
+                    <i class="fas fa-user"></i>
                   </Link>
                 </li>
               </ul>
@@ -118,7 +121,7 @@ class Navbar extends React.Component {
               <ul class="navbar-nav">
                 <li class="nav-item">
                   <Link to="/admin/signup" class="nav-link">
-                    Register as Admin
+                    Sell
                   </Link>
                 </li>
                 <li class="nav-item">

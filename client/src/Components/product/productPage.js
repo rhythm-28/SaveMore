@@ -83,7 +83,7 @@ class productPage extends React.Component {
             <div class="main-info mx-3">
               <div class="card card-all text-white card-title">
                 <div class="card-body">
-                  <h1> {product.name}</h1>
+                  <h2> {product.name}</h2>
                   <div class="Price">
                     <h2>
                       {' '}

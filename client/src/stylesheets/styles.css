@@ -41,7 +41,7 @@ button:focus {
 }
 
 .ProductsNavbar {
-  background-color: #03256c;
+  background-color: #171717;
 }
 .ProductsNavbar .nav-link:hover {
   color: white !important;

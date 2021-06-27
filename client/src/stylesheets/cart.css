@@ -6,7 +6,7 @@
 }
 
 .productDiv {
-  background-color: pink;
+  background-color: #EDEDED;
   margin: 0 auto 1rem auto;
 }
 
@@ -43,11 +43,11 @@
 }
 
 .bg-color {
-  background-color: #e99497;
+  background-color: #444444;
 }
 
 .bottom {
-  background-color: #f0d9e7;
+  background-color: #E8F0F2;
   height: 20%;
   margin: 1rem auto;
 }

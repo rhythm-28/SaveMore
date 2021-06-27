@@ -57,7 +57,7 @@ class ProductForm extends Component {
     const { handleSubmit, submitting } = this.props;
     const { isProductAdded } = this.props.product;
     if (isProductAdded) {
-      return <Redirect to="/products" />;
+      return <Redirect to="/admin/info" />;
     }
     return (
       <div>

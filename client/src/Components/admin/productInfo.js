@@ -82,14 +82,7 @@ function ProductInfo(props) {
 
       <div className={`modals ${id}`}>
         <div className="modals-content">
-          <span
-            onClick={function () {
-              hideProduct(id);
-            }}
-            class="closes"
-          >
-            &times;
-          </span>
+        <span onClick={function () {hideProduct(id);}} class="closes"> &times; </span>
           <ProductModal product={props.product} />
         </div>
       </div>
@@ -100,7 +93,7 @@ function ProductInfo(props) {
             <h4> Do you want to delete this item? </h4>
           </div>
           <div className="delete-buttons">
-            <button
+            <button className="delete-btn-bt" 
               onClick={() => {
                 props.handleDelete(props.product._id);
                 hideConfirmDeleteBox(delId);
@@ -109,7 +102,7 @@ function ProductInfo(props) {
               {' '}
               YES{' '}
             </button>
-            <button
+            <button className="delete-btn-bt" 
               onClick={() => {
                 hideConfirmDeleteBox(delId);
               }}

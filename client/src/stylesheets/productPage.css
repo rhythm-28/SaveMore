@@ -36,7 +36,7 @@ button:focus {
 }
 
 .mainDiv {
-  background-color: #e99497;
+  background-color: #444444;
 }
 
 .leftDivStyle {
@@ -90,8 +90,8 @@ button:focus {
 .card-title,
 .card-description {
   border-radius: 30px;
-  background-color: pink;
-  font-size: 1.5rem;
+  background-color: #EDEDED;
+  font-size: 1.2rem;
 }
 .ratings-button {
   background-color: #388e3c;
@@ -143,8 +143,3 @@ button:focus {
 .admin-img {
   background-color: red;
 }
-/* 
-.carousel-item
-{
-  background-color: red;
-} */

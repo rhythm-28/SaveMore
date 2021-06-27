@@ -16,18 +16,15 @@ function ProductModal(props){
             <div className="col-lg-5 col-sm-12 modal-info-div">
                 <div className="row">
                     <label className="col-6"> Market Price</label>
-                    <p className="col-6"> {props.product.marketPrice} </p>
+                    <p className="col-6 text-align"> {props.product.marketPrice} </p>
                 </div>
                 <div className="row">
                     <label className="col-6"> DiscountPrice</label>
-                    <p className="col-6"> {props.product.discountPrice} </p>
+                    <p className="col-6 text-align"> {props.product.discountPrice} </p>
                 </div>
-                <div className="row">
-                    <label className="col-6"> About the Product</label>
-                    <div className="col-6">
-                        <p> {description.substring(0,length/2)} </p>
-                        <p> {description.substring(length/2,length)} </p>
-                    </div>
+                <div className="row modal-details-div-pad">
+                    <label className="col-12 modal-label"> About the Product</label>
+                    <p className="col-12 text-align"> {props.product.description} </p>
                 </div>
             </div>
         </div>
