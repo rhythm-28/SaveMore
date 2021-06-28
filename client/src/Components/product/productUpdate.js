@@ -27,6 +27,7 @@ import {
   getProductData,
   productFormUnmount,
   productUpdate,
+  productUpdateFormTriggered,
 } from '../../actions/product';
 
 import '../../stylesheets/styles.css';
@@ -64,9 +65,8 @@ class ProductUpdate extends Component {
     this.setState({ files: e.target.files });
   };
   componentDidMount = async () => {
-    const { match } = this.props;
-    const res = await axios.get(`/api/product/${match.params.productId}`);
-    this.props.dispatch(getProductData(res.data));
+    const { id } = this.props;
+    const res = await axios.get(`/api/product/${id}`);
     this.setState({
       product: res.data,
     });
@@ -85,9 +85,6 @@ class ProductUpdate extends Component {
     }
     this.setState({ deleteImages });
   };
-  componentWillUnmount() {
-    this.props.dispatch(productFormUnmount());
-  }
 
   render() {
     const { handleSubmit, submitting, load } = this.props;

@@ -11,6 +11,7 @@ import {
   ProductUpdate,
   AdminUpdate,
   AdminInfo,
+  PreProductForm,
 } from './';
 import {
   BrowserRouter as Router,
@@ -22,6 +23,7 @@ import {
 import { connect } from 'react-redux';
 import { fetchUserData, logout } from '../actions/user';
 import { getAdmin } from '../actions/admin';
+import { productUpdateFormTriggered } from '../actions/product';
 function PrivateRoute(props) {
   const { isLoggedIn, path, Component } = props;
   return (
@@ -58,7 +60,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      adminData: {},
+      adminData: null,
     };
   }
   componentDidUpdate = async (prevProps, prevState) => {
@@ -66,6 +68,7 @@ class App extends Component {
     const adminData = this.state.adminData;
     const { isAdmin } = this.props.authUser;
 
+    console.log('ComponentdidUpdate');
     for (let key in adminData) {
       if (key !== '_id' && key !== '__v' && adminData[key] != admin[key]) {
         this.props.dispatch(getAdmin(admin));
@@ -120,7 +123,7 @@ class App extends Component {
             <AdminRoute
               exact
               path="/product/:productId/edit"
-              Component={ProductUpdate}
+              Component={PreProductForm}
               isLoggedIn={isLoggedIn}
               isAdmin={isAdmin}
             />
@@ -137,7 +140,7 @@ class App extends Component {
     );
   }
 }
-const mapStateToProps = ({ authUser, authAdmin }) => {
-  return { authUser, authAdmin };
+const mapStateToProps = ({ authUser, authAdmin, product }) => {
+  return { authUser, authAdmin, product };
 };
 export default connect(mapStateToProps)(App);
