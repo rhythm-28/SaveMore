@@ -57,9 +57,10 @@ class App extends Component {
   constructor() {
     super();
   }
-  componentDidMount = () => {
+  componentDidMount = async () => {
     this.props.dispatch(fetchUserData());
-    this.props.dispatch(getAdmin());
+    const admin = await axios.get('/api/currentAdmin');
+    this.props.dispatch(getAdmin(admin.data));
   };
 
   render() {
