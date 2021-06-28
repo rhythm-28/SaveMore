@@ -6,6 +6,7 @@ import {
   Product_Update_Failed,
   Product_Update_Success,
   Product_Deleted_Success,
+  Product_Data_Success,
 } from './actionType';
 import axios from 'axios';
 const config = {
@@ -76,4 +77,9 @@ export const productDelete = () => {
     type: Product_Deleted_Success,
   };
 };
-export const load = (data) => ({ type: LOAD, data });
+export const getProductData = (data) => {
+  return {
+    type: Product_Data_Success,
+    data,
+  };
+};

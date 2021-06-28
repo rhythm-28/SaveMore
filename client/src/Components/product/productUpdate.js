@@ -24,7 +24,7 @@ import {
   Flash,
 } from '..';
 import {
-  load as loadAccount,
+  getProductData,
   productFormUnmount,
   productUpdate,
 } from '../../actions/product';
@@ -37,7 +37,7 @@ class ProductUpdate extends Component {
   constructor() {
     super();
     this.state = {
-      product: {},
+      product: null,
       files: {},
       deleteImages: [],
     };
@@ -66,7 +66,7 @@ class ProductUpdate extends Component {
   componentDidMount = async () => {
     const { match } = this.props;
     const res = await axios.get(`/api/product/${match.params.productId}`);
-    this.props.dispatch(loadAccount(objForm));
+    this.props.dispatch(getProductData(res.data));
     this.setState({
       product: res.data,
     });
@@ -92,10 +92,18 @@ class ProductUpdate extends Component {
   render() {
     const { handleSubmit, submitting, load } = this.props;
     const { product, deleteImages } = this.state;
-    const { isProductUpdated } = this.props.product;
-
+    const { isProductUpdated, data } = this.props.product;
     if (isProductUpdated) {
       return <Redirect to="/admin/info" />;
+    }
+    if (!product) {
+      return (
+        <div className="d-flex justify-content-center align-items-center loadingPage">
+          <div style={{ width: 150, height: 150 }}>
+            <div className="loading"> </div>
+          </div>
+        </div>
+      );
     }
     return (
       <div>
@@ -202,10 +210,9 @@ class ProductUpdate extends Component {
 const ProductUpdateRedux = reduxForm({
   form: 'productUpdate', // a unique identifier for this form
   validate: productFormValidate,
+  initialValues: {},
 })(ProductUpdate);
 const mapStatetoProps = ({ product, account }) => {
-  return { product, initialValues: account.data };
+  return { product, initialValues: product.data };
 };
-export default connect(mapStatetoProps, { load: loadAccount })(
-  ProductUpdateRedux
-);
+export default connect(mapStatetoProps)(ProductUpdateRedux);

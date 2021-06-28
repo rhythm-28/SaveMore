@@ -4,6 +4,7 @@ import {
   Admin_Update_Success,
   Admin_Update_Failed,
   Admin_Update_Unmount,
+  Admin_Data_Success,
   Success_Message_Flashed,
   Error_Message_Flashed,
 } from '../actions/actionType';
@@ -46,6 +47,11 @@ export default function admin(state = initialState, action) {
       return {
         ...state,
         isAdminUpdated: false,
+      };
+    case Admin_Data_Success:
+      return {
+        ...state,
+        admin: action.admin,
       };
     case Error_Message_Flashed:
       return {

@@ -4,7 +4,7 @@ export default function reducer(state = {}, action) {
   switch (action.type) {
     case LOAD:
       return {
-        data: action.data,
+        payLoad: {},
       };
     default:
       return state;

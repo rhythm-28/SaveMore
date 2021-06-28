@@ -15,8 +15,8 @@ import {
 
 import { RenderTextInput, RenderTextSelect, Navbar, Flash } from '..';
 import { adminSignupValidate } from '../../helpers/validate';
-import { adminUpdate, adminUnmount } from '../../actions/admin';
-import { load as loadAccount } from '../../actions/product';
+import { adminUpdate, adminUnmount, getAdmin } from '../../actions/admin';
+
 import '../../stylesheets/styles.css';
 import { objForm } from '../../helpers/util';
 const src =
@@ -41,7 +41,7 @@ class AdminUpdate extends Component {
   };
   componentDidMount = async () => {
     const admin = await axios.get('/api/currentAdmin');
-    this.props.dispatch(loadAccount(objForm));
+    this.props.dispatch(getAdmin(admin.data));
     this.setState({ admin: admin.data });
   };
   componentWillUnmount = async () => {
@@ -183,8 +183,9 @@ class AdminUpdate extends Component {
 const AdminUpdateForm = reduxForm({
   form: 'adminSignup', // a unique identifier for this form
   validate: adminSignupValidate,
+  initialValues: {},
 })(AdminUpdate);
-const mapStatetoProps = ({ authAdmin, authUser, account }) => {
-  return { authAdmin, authUser, initialValues: account.data };
+const mapStatetoProps = ({ authAdmin, authUser }) => {
+  return { authAdmin, authUser, initialValues: { ...authAdmin.admin } };
 };
-export default connect(mapStatetoProps, { load: loadAccount })(AdminUpdateForm);
+export default connect(mapStatetoProps)(AdminUpdateForm);

@@ -4,6 +4,7 @@ import {
   Admin_Update_Success,
   Admin_Update_Failed,
   Admin_Update_Unmount,
+  Admin_Data_Success,
 } from './actionType';
 import axios from 'axios';
 const config = {
@@ -55,6 +56,12 @@ export function adminUpdate(admin) {
       .catch((error) => {
         dispatch(adminUpdateFailed(error.response.data));
       });
+  };
+}
+export function getAdmin(admin) {
+  return {
+    type: Admin_Data_Success,
+    admin,
   };
 }
 export function adminUnmount() {
