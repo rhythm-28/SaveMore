@@ -57,11 +57,24 @@ function AdminRoute(props) {
 class App extends Component {
   constructor() {
     super();
+    this.state = {
+      adminData: {},
+    };
+  }
+  componentDidUpdate(prevProps, prevState) {
+    const { admin } = this.props.authAdmin;
+    const adminData = prevState.admin;
+    for (let key in adminData) {
+      if (key !== '_id' && key !== '__v' && adminData[key] != admin[key]) {
+        this.props.dispatch(getAdmin(admin));
+      }
+    }
   }
   componentDidMount = async () => {
     this.props.dispatch(fetchUserData());
     const admin = await axios.get('/api/currentAdmin');
     this.props.dispatch(getAdmin(admin.data));
+    this.setState({ adminData: admin.data });
   };
 
   render() {
@@ -116,7 +129,7 @@ class App extends Component {
     );
   }
 }
-const mapStateToProps = ({ authUser }) => {
-  return { authUser };
+const mapStateToProps = ({ authUser, authAdmin }) => {
+  return { authUser, authAdmin };
 };
 export default connect(mapStateToProps)(App);
