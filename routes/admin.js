@@ -36,9 +36,10 @@ router.post(
   catchAsync(async (req, res) => {
     delete req.body["_id"];
     delete req.body[" __v"];
-    const newAdmin = await Admin.findByIdAndUpdate(req.user.admin, {
+    await Admin.findByIdAndUpdate(req.user.admin, {
       ...req.body,
     });
+    const newAdmin = await Admin.findById(req.user.admin);
     res.send(newAdmin);
   })
 );

@@ -61,15 +61,23 @@ class App extends Component {
       adminData: {},
     };
   }
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate = async (prevProps, prevState) => {
     const { admin } = this.props.authAdmin;
-    const adminData = prevState.admin;
+    const adminData = this.state.adminData;
+    const { isAdmin } = this.props.authUser;
+
     for (let key in adminData) {
       if (key !== '_id' && key !== '__v' && adminData[key] != admin[key]) {
         this.props.dispatch(getAdmin(admin));
+        this.setState({ adminData: admin });
       }
     }
-  }
+    if (isAdmin && !adminData) {
+      const res = await axios.get('/api/currentAdmin');
+      this.props.dispatch(getAdmin(res.data));
+      this.setState({ adminData: res.data });
+    }
+  };
   componentDidMount = async () => {
     this.props.dispatch(fetchUserData());
     const admin = await axios.get('/api/currentAdmin');
