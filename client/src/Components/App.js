@@ -9,7 +9,7 @@ import {
   Cart,
   ProductUpdate,
   AdminUpdate,
-  AdminInfo
+  AdminInfo,
 } from './';
 import {
   BrowserRouter as Router,
@@ -20,7 +20,7 @@ import {
 } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchUserData, logout } from '../actions/user';
-
+import { getAdmin } from '../actions/admin';
 function PrivateRoute(props) {
   const { isLoggedIn, path, Component } = props;
   return (
@@ -59,6 +59,7 @@ class App extends Component {
   }
   componentDidMount = () => {
     this.props.dispatch(fetchUserData());
+    this.props.dispatch(getAdmin());
   };
 
   render() {
