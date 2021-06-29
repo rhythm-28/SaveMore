@@ -44,7 +44,7 @@ class ProductUpdate extends Component {
     };
   }
   handleSubmit = (values) => {
-    const { dispatch, match } = this.props;
+    const { dispatch, id } = this.props;
     const { files, deleteImages, product } = this.state;
     const fd = new FormData();
     for (let image of deleteImages) {
@@ -59,7 +59,7 @@ class ProductUpdate extends Component {
       }
     }
 
-    dispatch(productUpdate(fd, match.params.productId));
+    dispatch(productUpdate(fd, id));
   };
   addImage = (e) => {
     this.setState({ files: e.target.files });
