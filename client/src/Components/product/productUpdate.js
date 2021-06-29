@@ -85,7 +85,9 @@ class ProductUpdate extends Component {
     }
     this.setState({ deleteImages });
   };
-
+  componentWillUnmount = () => {
+    this.props.dispatch(productFormUnmount());
+  };
   render() {
     const { handleSubmit, submitting, load } = this.props;
     const { product, deleteImages } = this.state;
