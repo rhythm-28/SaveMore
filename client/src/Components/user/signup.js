@@ -99,3 +99,28 @@ const mapStatetoProps = ({ authUser }) => {
   return { authUser };
 };
 export default connect(mapStatetoProps)(SignupForm);
+
+
+
+// router.get("",(req,res){
+  
+//   const [input] = req.body;
+//   const a;
+//   async function foo(
+//     const p = new Promise(function(resolve,reject){
+//       x.map((i)=> {
+//         a[i] = axios.get("aadhar.gov.in/input[i]").then(()={
+//           a[i]=response;
+//           if(a.length===input.length)
+//           {
+//             resolve(a);
+//           }
+//         });
+//       });
+//     })
+//   );
+  
+//   result = await foo;
+//   res.send(result);
+// }
+

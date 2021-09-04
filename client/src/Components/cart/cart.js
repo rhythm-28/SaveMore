@@ -15,6 +15,57 @@ import { Navbar, Flash } from '../index';
 
 import styles from '../../stylesheets/cart.css';
 
+function loadScript(src){
+  return new Promise((resolve) => {
+      const script = document.createElement('script');
+      script.src = src;
+      script.onload = () => {
+          resolve(true);
+      }
+      script.onerror = () =>{
+          resolve(false);
+      }
+      document.body.appendChild(script);
+  })
+}
+
+async function displayRazorpay(amount,currency,name,id,email,phone){
+  const res = await loadScript("https://checkout.razorpay.com/v1/checkout.js");
+
+  if(!res){
+      alert("razorpay sdk failed to load");
+      return ;
+  }
+  // __DEV__ ? : 'real_key
+  var options = {
+      "key": process.env.Key, 
+      "amount": amount.toString(),
+      "currency": currency,
+      "name": name,
+      "description": "Test Transaction",
+      "image": "https://cdn.vox-cdn.com/thumbor/Pkmq1nm3skO0-j693JTMd7RL0Zk=/0x0:2012x1341/1200x800/filters:focal(0x0:2012x1341)/cdn.vox-cdn.com/uploads/chorus_image/image/47070706/google2.0.0.jpg",
+      "order_id": id,
+      "handler": function (response){
+          // alert(response.razorpay_signature)
+          //removeAllProducts();
+          window.location.href="/orderSummary";
+      },
+      "prefill": {
+          "name": name,
+          "email": email,
+          "contact": phone
+      },
+  };
+  const paymentObject = new window.Razorpay(options);
+  paymentObject.open();
+}
+
+function handleCheckout(){
+  // call api here
+  // api should send details like amount,currency,name,id,email,phone
+  displayRazorpay();
+}
+
 function checkout(products, totalQuantity, totalPrice) {
   if (products.length != 0) {
     return (
@@ -22,7 +73,7 @@ function checkout(products, totalQuantity, totalPrice) {
         <div class="card bottom col-xl-5 col-md-6 col-sm-8 col-10">
           <h2> Total items: {totalQuantity(products)}</h2>
           <h2> Total Price: {totalPrice(products)}</h2>
-          <button class="button-cart"> Proceed to Checkout</button>
+          <button class="button-cart" onClick={()=>{handleCheckout()}}> Proceed to Checkout</button>
         </div>
       </div>
     );

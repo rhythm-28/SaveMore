@@ -1,0 +1,23 @@
+lock icon
+sign up font size decrease
+padding
+icon for save more on navbar
+navbar home wali
+padiing allproducts
+same gaps
+dialog box green colour
+font size productspage
+3 items in 1 div 
+button added size
+cart font size
+remove word quantity
+image size
+1 person icon admin
+cart icon
+gap btw images and admin details
+lines in admin details
+wallpaper heading on left sign
+button on delete dialog box
+
+
+https://images.unsplash.com/photo-1472803828399-39d4ac53c6e5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3442&q=80
