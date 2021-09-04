@@ -18,6 +18,7 @@ import Flash from './flash';
 import Carousel from './product/Carousel';
 import AdminInfo from './admin/adminInfo.js';
 import PreProductForm from './product/preProductForm';
+import OrderSummary from './cart/orderSummary.js';
 export {
   Login,
   RenderTextInput,
@@ -41,4 +42,5 @@ export {
   Carousel,
   AdminInfo,
   PreProductForm,
+  OrderSummary
 };

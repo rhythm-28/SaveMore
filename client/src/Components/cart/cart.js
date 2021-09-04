@@ -31,7 +31,7 @@ function loadScript(src){
 
 async function displayRazorpay(amount,currency,name,id,email,phone){
   const res = await loadScript("https://checkout.razorpay.com/v1/checkout.js");
-
+  
   if(!res){
       alert("razorpay sdk failed to load");
       return ;
@@ -63,7 +63,8 @@ async function displayRazorpay(amount,currency,name,id,email,phone){
 function handleCheckout(){
   // call api here
   // api should send details like amount,currency,name,id,email,phone
-  displayRazorpay();
+  // displayRazorpay();
+  displayRazorpay("300","INR","Rhythm","order_343","rhythm@gmail.com","1234567890");
 }
 
 function checkout(products, totalQuantity, totalPrice) {

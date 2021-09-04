@@ -12,6 +12,7 @@ import {
   AdminUpdate,
   AdminInfo,
   PreProductForm,
+  OrderSummary
 } from './';
 import {
   BrowserRouter as Router,
@@ -96,6 +97,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/products" component={Products} />
+            <Route path="/orderSummary" component={OrderSummary} />
             <AdminRoute
               path="/add/product"
               Component={ProductForm}
