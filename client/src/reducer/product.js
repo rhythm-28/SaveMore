@@ -8,6 +8,7 @@ import {
   Product_Deleted_Success,
   Success_Message_Flashed,
   Error_Message_Flashed,
+  Product_Update_Form_Triggered,
 } from '../actions/actionType';
 const initialState = {
   err: '',
@@ -15,6 +16,7 @@ const initialState = {
   isProductUpdated: false,
   productMessage: '',
   data: {},
+  isUpdateTriggered: false,
 };
 export default function product(state = initialState, action) {
   switch (action.type) {
@@ -53,6 +55,12 @@ export default function product(state = initialState, action) {
     case Product_Data_Success:
       return {
         ...state,
+        data: action.data,
+      };
+    case Product_Update_Form_Triggered:
+      return {
+        ...state,
+        isUpdateTriggered: action.isTriggered,
         data: action.data,
       };
     case Success_Message_Flashed:

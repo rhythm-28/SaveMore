@@ -7,6 +7,7 @@ import {
   Product_Update_Success,
   Product_Deleted_Success,
   Product_Data_Success,
+  Product_Update_Form_Triggered,
 } from './actionType';
 import axios from 'axios';
 const config = {
@@ -80,6 +81,13 @@ export const productDelete = () => {
 export const getProductData = (data) => {
   return {
     type: Product_Data_Success,
+    data,
+  };
+};
+export const productUpdateFormTriggered = (value, data) => {
+  return {
+    type: Product_Update_Form_Triggered,
+    isTriggered: value,
     data,
   };
 };

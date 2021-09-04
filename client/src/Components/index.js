@@ -17,6 +17,7 @@ import AdminUpdate from './admin/edit';
 import Flash from './flash';
 import Carousel from './product/Carousel';
 import AdminInfo from './admin/adminInfo.js';
+import PreProductForm from './product/preProductForm';
 export {
   Login,
   RenderTextInput,
@@ -38,5 +39,6 @@ export {
   AdminUpdate,
   Flash,
   Carousel,
-  AdminInfo
+  AdminInfo,
+  PreProductForm,
 };
