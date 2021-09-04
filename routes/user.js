@@ -125,4 +125,8 @@ router.get("/get/user/products", requireLogin, async (req, res) => {
 //   const user = await User.findOne({ username: "Ridam" }).populate("admin");
 //   console.log(req.user.admin);
 // });
+router.post("/api/user/orderPlaced", async (req, res) => {
+  await User.findByIdAndUpdate(req.user.id, { products: [] });
+  res.send({ message: "Order Placed Successfully" });
+});
 module.exports = router;

@@ -63,10 +63,12 @@ class productPage extends React.Component {
                       <i class="fas fa-shopping-cart"></i>{' '}
                       {added ? 'Added' : 'Add to Cart'}
                     </button>
-                    <button>
-                      {' '}
-                      <i class="fas fa-shopping-cart"> </i> Buy Now
-                    </button>
+                    <Link to="/user/cart" style={{ textDecoration: 'none' }}>
+                      <button>
+                        {' '}
+                        <i class="fas fa-shopping-cart"> </i> Buy Now
+                      </button>
+                    </Link>
                   </div>
                 )}
                 {!isLoggedIn && (
