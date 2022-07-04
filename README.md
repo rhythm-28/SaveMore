@@ -23,3 +23,6 @@ For back-end, following tech stack were used:
 3) Passport.js
 4) Mongo DB
 5) Mongoose ODM
+
+<img width="958" alt="image" src="https://user-images.githubusercontent.com/77749781/177083943-9f209734-3a1d-4775-a495-2672da17d15a.png">
+
