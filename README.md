@@ -66,6 +66,42 @@ SELLER PANEL
 <img width="953" alt="image" src="https://user-images.githubusercontent.com/77749781/177255165-f8061539-6355-4b1a-aad0-b4c21767798e.png">
 
 
+## Setup Instructions
+
+- Clone the repository
+
+```bash
+  git clone https://github.com/rhythm-28/SaveMore.git
+```
+
+- Change the current working directory
+
+```bash
+  cd SaveMore
+```
+
+- Install the front-end packages
+
+```bash
+  cd client
+  npm i 
+```
+- Install the back-end packages
+
+```bash
+  cd ..
+  npm i 
+```
+
+
+
+- Run the MERN project
+
+```bash
+  npm run dev
+```
+
+
 ## Technologies Used:
 
 For front-end, following tech stack were used:
