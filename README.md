@@ -1,25 +1,82 @@
 # SaveMore
 
-Open App using https://save-more.herokuapp.com/
+A full-fledged e-commerce web application that supports features such as user registration, posting of products, add to cart, and payment options. It has two panels - one each for buyer and seller and performs CRUD (Create, Read, Update, Delete) operations on both panels. 
 
-What's this project about?
+## Live Demo
 
-It is an e-commerce web app where users can buy prodcts. Users can see all the products listed by our sellers on the products page and add them to their cart.
-Each user has the option to become a seller. After becoming a seller, he/she can add products to our database, which will then be immediately listed on our products page. 
-In addition to information about the product, a seller can also add multiple images for describing the product.
+https://drive.google.com/file/d/1hsYTn-7DWD-KHo9TBSqubd9j9PXK0hmU/view?usp=sharing
+
+## Deployed Project
+
+https://save-more.herokuapp.com/
+
+## Features and Interfaces
+
+BUYER PANEL
+
+- Seamless landing page
+
+<img width="958" alt="image" src="https://user-images.githubusercontent.com/77749781/177083943-9f209734-3a1d-4775-a495-2672da17d15a.png">
+
+
+- Signup/Login using Passport.js. Users can register themselves and start buying from a variety of products.
+
+![signup](https://user-images.githubusercontent.com/77749781/177206744-4c5b1451-dddf-43a6-9ba3-65a883f34c1e.jpeg)
+
+
+- Home Page: Has a signout button with app cards for different products.
+
+![products](https://user-images.githubusercontent.com/77749781/177206787-f9f7eef3-a3e3-444d-8c49-0b5a6aa7c120.jpeg)
+
+
+- Product Page: Preview product with detailed description along with multiple images.
+
+<img width="948" alt="image" src="https://user-images.githubusercontent.com/77749781/177206846-f16f7adb-0eff-4af3-ae50-11646b1a54e5.png">
+
+
+- Cart : It supports features such as quantity change and add/remove products.
+
+<img width="960" alt="image" src="https://user-images.githubusercontent.com/77749781/177254090-be7bfc5a-c915-4e06-be4c-9b12a14126a9.png">
+
+
+- Payment: Once the buyer is ready to buy, he can proceed to Checkout from Cart.
+
+![payment](https://user-images.githubusercontent.com/77749781/177206761-617fa8ed-7bea-4dbc-bcfc-15bd9d3a8d35.jpeg)
+
+
+Payment Options: Buyer can choose among different payment options like Netbanking, Debit Card, Credit Card, UPI, etc.
+
+![payment2](https://user-images.githubusercontent.com/77749781/177206771-dc3ae81a-5258-4bf1-9cc8-df1eea9d8d74.jpeg)
+
+
+SELLER PANEL
+
+- Become a seller: Users, once registered, have the option to become sellers. 
+
+![seller](https://user-images.githubusercontent.com/77749781/177206777-ffff8683-c8cf-412b-bdf2-a1dceb1a4aa1.jpeg)
+
+
+- Add Product: Once, users becomes sellers, they can start adding their products. 
+
+<img width="948" alt="image" src="https://user-images.githubusercontent.com/77749781/177254853-c1ec1037-a51b-4a9e-9290-f3a0e264e965.png">
+
+
+- Seller Profile
+
+<img width="953" alt="image" src="https://user-images.githubusercontent.com/77749781/177255165-f8061539-6355-4b1a-aad0-b4c21767798e.png">
+
+
+## Technologies Used:
 
 For front-end, following tech stack were used:
-1) HTML
-2) CSS
-3) JavaScript
-4) React
-5) Redux
-6) Material-UI
-7) Bootstrap
+1) React.js
+2) Material-UI
+3) Redux
+4) Bootstrap
 
 For back-end, following tech stack were used:
 1) Node.js
 2) Express.js
 3) Passport.js
 4) Mongo DB
-5) Mongoose ODM
+
